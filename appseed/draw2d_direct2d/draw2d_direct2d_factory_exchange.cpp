@@ -1,10 +1,10 @@
 #include "framework.h"
 
-#ifdef WINDOWSEX
-
-#include "base/base/os/windows/windows_window_gdi.h"
-
-#endif
+//#ifdef WINDOWSEX
+//
+//#include "base/base/os/windows/windows_window_gdi.h"
+//
+//#endif
 
 
 namespace draw2d_direct2d

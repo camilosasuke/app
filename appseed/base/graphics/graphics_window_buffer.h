@@ -5,6 +5,11 @@
 #include "base/graphics/graphics_window_graphics.h"
 
 
+
+
+
+
+
 class CLASS_DECL_BASE window_buffer :
    virtual public window_graphics
 {
@@ -57,3 +62,12 @@ public:
 
 
 };
+
+
+#ifdef WINDOWSEX
+
+#include "base/base/os/windows/windows_window_buffer.h"
+
+#endif
+
+

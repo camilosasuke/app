@@ -81,66 +81,145 @@ string get_display_error(uint32_t NTStatusMessage)
 }
 
 
+struct shell_execute :
+   public SHELLEXECUTEINFOW
+{
+
+   wstring        m_wstrFile;
+
+   wstring        m_wstrParams;
+   
+   shell_execute(const char * pszFile, const char * pszParams)
+   {
+
+      zero(this, sizeof(SHELLEXECUTEINFOW));
+
+      cbSize = sizeof(SHELLEXECUTEINFOW);
+
+      m_wstrFile = pszFile;
+
+      lpFile = m_wstrFile;
+
+      if (pszParams)
+      {
+
+         m_wstrParams = pszParams;
+
+         lpParameters = m_wstrParams;
+
+      }
+
+   }
 
 
+   bool async()
+   {
+
+      if (::ShellExecuteExW(this))
+      {
+
+         return false;
+
+      }
+
+      return true;
+
+   }
 
 
-int32_t shell_execute_sync(const char * pszFile, const char * pszParams)
+   bool sync(::duration durationTimeout)
+   {
+
+      fMask = SEE_MASK_NOASYNC | SEE_MASK_NOCLOSEPROCESS;
+
+      if (!async())
+      {
+
+         return false;
+
+      }
+
+      ::datetime::time timeEnd = ::datetime::time::get_current_time() + durationTimeout;
+
+      DWORD dwGetLastError = GetLastError();
+
+      DWORD dwExitCode = 0;
+
+      while(::datetime::time::get_current_time() < timeEnd)
+      {
+
+         if (::GetExitCodeProcess(hProcess, &dwExitCode))
+         {
+
+            if (dwExitCode != STILL_ACTIVE)
+            {
+
+               break;
+
+            }
+
+         }
+         else
+         {
+
+            break;
+
+         }
+
+         Sleep(1000);
+
+      }
+
+      ::CloseHandle(hProcess);
+
+      return true;
+
+
+   }
+
+
+};
+
+
+bool shell_execute_async(const char * pszFile, const char * pszParams)
+{
+
+   shell_execute execute(pszFile, pszParams);
+
+   return execute.async();
+
+}
+
+
+bool shell_execute_sync(const char * pszFile, const char * pszParams, ::duration durationTimeout)
+{
+
+   shell_execute execute(pszFile, pszParams);
+
+   return execute.sync(durationTimeout);
+
+}
+
+
+bool root_execute_async(const char * pszFile, const char * pszParams)
 {
    
-   wstring wstrFile = pszFile;
-   
-   wstring wstrParams = pszParams;
-   
-   SHELLEXECUTEINFOW sei = {};
-   
-   {
-      
-      sei.cbSize = sizeof(SHELLEXECUTEINFOW);
-      sei.fMask = SEE_MASK_NOASYNC | SEE_MASK_NOCLOSEPROCESS;
-      sei.lpVerb = L"RunAs";
-      sei.lpFile = wstrFile.c_str();
-      sei.lpParameters = wstrParams.c_str();
-      ::ShellExecuteExW(&sei);
-      
-   }
-   
-   DWORD dwGetLastError = GetLastError();
-   
-   DWORD dwExitCode = 0;
-   
-   for (int i = 0; i < 10 * 1000; i++)
-   {
-      
-      if (::GetExitCodeProcess(sei.hProcess, &dwExitCode))
-      {
-         
-         if (dwExitCode != STILL_ACTIVE)
-         {
-            
-            break;
-            
-         }
-         
-      }
-      else
-      {
-         
-         Sleep(100);
-         
-         break;
-         
-      }
-      
-      Sleep(100);
-      
-   }
-   
-   ::CloseHandle(sei.hProcess);
-   
-   
+   shell_execute execute(pszFile, pszParams);
+
+   execute.lpVerb = L"RunAs";
+
+   return execute.async();
    
 }
 
 
+bool root_execute_sync(const char * pszFile, const char * pszParams, ::duration durationTimeout)
+{
 
+   shell_execute execute(pszFile, pszParams);
+
+   execute.lpVerb = L"RunAs";
+
+   return execute.sync(durationTimeout);
+
+}

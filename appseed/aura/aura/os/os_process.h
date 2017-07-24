@@ -73,5 +73,9 @@ CLASS_DECL_AURA bool launch_application(::aura::application * papp, const string
 
 
 
+bool shell_execute_async(const char * pszFile, const char * pszParams);
+bool shell_execute_sync(const char * pszFile, const char * pszParams, ::duration durationTimeout = one_minute());
 
-int32_t shell_execute_sync(const char * pszFile, const char * pszParams);
+bool root_execute_async(const char * pszFile, const char * pszParams);
+bool root_execute_sync(const char * pszFile, const char * pszParams, ::duration durationTimeout = one_minute());
+

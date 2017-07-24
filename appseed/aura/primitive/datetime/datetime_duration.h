@@ -323,6 +323,20 @@ public:
 };
 
 
+class CLASS_DECL_AURA one_minute :
+   public minutes
+{
+public:
+
+
+   one_minute() : minutes(1) {}
+
+
+};
+
+
+
+
 class CLASS_DECL_AURA hours :
    public minutes
 {

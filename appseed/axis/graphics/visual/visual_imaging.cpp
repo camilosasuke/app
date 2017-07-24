@@ -1127,7 +1127,7 @@ bool imaging::LoadImageFromFile(::draw2d::dib * pdib, ::file::file * pfile)
 
          const string &str = pArray->get_at(nIndex);
 
-         text_out(hDC,0,yPos,str,(int32_t)str.get_length());
+         TextOut(hDC,0,yPos,str,(int32_t)str.get_length());
 
          yPos +=
             tm.tmHeight +

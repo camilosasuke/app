@@ -5,10 +5,8 @@
 
 
 #ifndef WINDOWS
-
 #include <ft2build.h>
 #include FT_FREETYPE_H
-
 #endif
 
 CLASS_DECL_BASE void black_body(float * r, float * g, float * b, DWORD dwTemp);
@@ -1085,7 +1083,7 @@ error:;
          return false;
 
       
-      System.factory().cloneable_large < window_buffer         >   (System.type_info < window_graphics               > ());
+      //System.factory().cloneable_large < ::OS::window_buffer >   (System.type_info < ::window_graphics > ());
       
 
 

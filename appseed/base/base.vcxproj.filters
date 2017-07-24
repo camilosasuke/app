@@ -452,9 +452,6 @@
     <ClInclude Include="user\user\user_box.h">
       <Filter>Header Files\user\user</Filter>
     </ClInclude>
-    <ClInclude Include="base\os\windows\windows_window_gdi.h">
-      <Filter>Header Files\base\os\windows</Filter>
-    </ClInclude>
     <ClInclude Include="graphics\graphics.h">
       <Filter>Header Files\graphics</Filter>
     </ClInclude>
@@ -508,6 +505,9 @@
     </ClInclude>
     <ClInclude Include="user\user\user_const.h">
       <Filter>Header Files\user\user</Filter>
+    </ClInclude>
+    <ClInclude Include="base\os\windows\windows_window_buffer.h">
+      <Filter>Header Files\base\os\windows</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -841,10 +841,10 @@
     <ClCompile Include="base\os\windows\_windows_os.cpp">
       <Filter>Source Files\base\os\windows</Filter>
     </ClCompile>
-    <ClCompile Include="base\os\windows\windows_window_gdi.cpp">
+    <ClCompile Include="base\os\windows\windows_extract_icon.cpp">
       <Filter>Source Files\base\os\windows</Filter>
     </ClCompile>
-    <ClCompile Include="base\os\windows\windows_extract_icon.cpp">
+    <ClCompile Include="base\os\windows\windows_window_buffer.cpp">
       <Filter>Source Files\base\os\windows</Filter>
     </ClCompile>
   </ItemGroup>

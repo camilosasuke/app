@@ -640,7 +640,7 @@ void simple_frame_window::defer_set_icon()
 
             ::visual::icon * picon = canew(::visual::icon(get_app(), hicon));
 
-            if (picon != NULL)
+            if (picon != NULL && m_workset.m_pappearance != NULL)
             {
 
                m_workset.m_pappearance->m_picon = picon;

@@ -394,7 +394,7 @@ namespace windows
             }
             return bHasSubFolder;
          }
-         bHasSubFolder = m_pziputil->HasSubFolder(papp, str);
+         bHasSubFolder = m_pziputil->has_sub_folder(papp, str);
          m_isdirmap.set(str.Left(iLast + 1), bHasSubFolder, bHasSubFolder ? 0 : ::GetLastError());
          return bHasSubFolder;
       }

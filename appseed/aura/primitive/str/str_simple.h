@@ -264,31 +264,8 @@ namespace str
 }*/
 
 
-extern "C"
-{
-   LONG __cdecl _gen_InterlockedIncrement( LONG volatile * pn );
-   LONG __cdecl _gen_InterlockedDecrement( LONG volatile * pn );
-};
-
-#pragma intrinsic( _gen_InterlockedIncrement )
-#pragma intrinsic( _gen_InterlockedDecrement )
-
-
       struct string_data;
 
-/*      class CLASS_DECL_AURA string_manager
-      {
-   public:
-      // allocate a new string_data
-      virtual string_data * allocate(strsize nAllocLength, int32_t nCharSize) = 0;
-      // Free an existing string_data
-      virtual void Free(string_data * pData) = 0;
-      // Change the size of an existing string_data
-      virtual string_data * Reallocate(string_data * pData, strsize nAllocLength, int32_t nCharSize ) = 0;
-      // get the string_data for a Nil string
-      virtual string_data * GetNilString() = 0;
-      virtual string_manager* Clone() = 0;
-      };*/
 #if defined(SOLARIS)
       #include <atomic.h>
 #if defined(OS64BIT)
@@ -304,8 +281,8 @@ extern "C"
 #else
    #ifdef _M_IX86
       #ifndef _M_CEE
-         #define _gen_InterlockedIncrement _gen_InterlockedIncrement
-         #define _gen_InterlockedDecrement _gen_InterlockedDecrement
+         #define _gen_InterlockedIncrement InterlockedIncrement
+         #define _gen_InterlockedDecrement InterlockedDecrement
       #else
          #define _gen_InterlockedIncrement InterlockedIncrement
          #define _gen_InterlockedDecrement InterlockedDecrement

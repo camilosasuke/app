@@ -34,6 +34,8 @@ namespace aura
 
       m_pca2library = NULL;
 
+      m_strCa2Name = pszRoot;
+
       if(pszRoot != NULL)
       {
 
@@ -43,9 +45,6 @@ namespace aura
          {
          
             m_strRoot = m_strRoot.substr(0, m_strRoot.find('/'));
-            
-            m_strCa2Name = pszRoot;
-            
             
          }
 
@@ -193,9 +192,20 @@ namespace aura
 
       m_pca2library->set_app(get_app());
 
-      m_pca2library->m_strCa2Name = m_strPath.title();
+      if (m_pca2library->m_strCa2Name.is_empty())
+      {
 
-      m_strCa2Name = m_strPath;
+         m_pca2library->m_strCa2Name = m_strPath.title();
+
+         m_strCa2Name = m_strPath;
+
+      }
+      else
+      {
+
+         m_strCa2Name = m_pca2library->m_strCa2Name;
+
+      }
 
       return true;
 

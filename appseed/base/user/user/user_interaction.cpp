@@ -1554,12 +1554,19 @@ namespace user
    void interaction::_001DrawThis(::draw2d::graphics * pgraphics)
    {
 
+      if (pgraphics == NULL)
+      {
+
+         throw invalid_argument_exception(get_app());
+
+      }
+
       ::draw2d::keep k(pgraphics);
 
       try
       {
 
-         if(!is_custom_draw() && pgraphics->m_pnext == NULL)
+         if(!is_custom_draw() && pgraphics != NULL && pgraphics->m_pnext == NULL)
          {
 
             set_viewport_org(pgraphics);

@@ -25,11 +25,11 @@ namespace draw2d_cairo
       System.factory().cloneable_large < font                  >  (System.type_info < ::draw2d::font                > ());
       System.factory().cloneable_large < path                  >  (System.type_info < ::draw2d::path                > ());
 
-      #ifdef WINDOWSEX
+  //    #ifdef WINDOWSEX
 
-      System.factory().cloneable_large < window_gdi                  >  (System.type_info <window_graphics                > ());
+//      System.factory().cloneable_large < window_gdi                  >  (System.type_info <window_graphics                > ());
 
-      #elif defined(LINUX)
+      #if defined(LINUX)
 
       System.factory().cloneable_large < window_xlib                 >  (System.type_info <window_graphics                > ());
 

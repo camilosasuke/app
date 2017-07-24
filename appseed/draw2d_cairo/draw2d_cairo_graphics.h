@@ -312,10 +312,10 @@ namespace draw2d_cairo
         BLENDFUNCTION blend);*/
 
         // Text Functions
-      virtual bool TextOut(int32_t x, int32_t y, const char * lpszString, strsize nCount);
-      virtual bool TextOut(int32_t x, int32_t y, const string & str);
+      virtual bool text_out(int32_t x, int32_t y, const char * lpszString, strsize nCount);
+      virtual bool text_out(int32_t x, int32_t y, const string & str);
       virtual bool TextOutRaw(double x, double y, const char * lpszString, strsize nCount);
-      virtual bool TextOut(double x, double y, const string & str);
+      virtual bool text_out(double x, double y, const string & str);
       virtual bool ExtTextOut(int32_t x, int32_t y, UINT nOptions, const RECT & lpRect, const char * lpszString, strsize nCount, LPINT lpDxWidths);
       virtual bool ExtTextOut(int32_t x, int32_t y, UINT nOptions, const RECT & lpRect, const string & str, LPINT lpDxWidths);
       virtual size TabbedTextOut(int32_t x, int32_t y, const char * lpszString, strsize nCount, count nTabPositions, LPINT lpnTabStopPositions, int32_t nTabOrigin);

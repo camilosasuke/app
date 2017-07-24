@@ -338,7 +338,7 @@ namespace user
                wstrPath += ":" + wstrExtra;
             }
 
-            return zip::Util().HasSubFolder(papp, wstrPath);
+            return zip::util().has_sub_folder(papp, wstrPath);
 
          }
          else
@@ -1566,7 +1566,7 @@ namespace user
          {
             return folder_file_system;
          }
-         else if (zip::Util().IsUnzipable(papp, strPath))
+         else if (zip::util().is_unzippable(papp, strPath))
          {
             return folder_zip;
          }
