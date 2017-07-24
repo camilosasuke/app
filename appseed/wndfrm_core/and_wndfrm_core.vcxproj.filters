@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="framework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wndfrm_core_frame_schema.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wndfrm_core_frame_schema_001.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wndfrm_core_frame_schema_002.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wndfrm_core_frame_schema_005.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wndfrm_core_frame_schema_008.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wndfrm_core_frame_schema_Minimal001.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wndfrm_core_interaction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wndfrm_core_library.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wndfrm_core_frame_schema_011.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wndfrm_core_frame_schema_013.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wndfrm_core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wndfrm_core_frame_schema.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wndfrm_core_frame_schema_001.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wndfrm_core_frame_schema_002.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wndfrm_core_frame_schema_005.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wndfrm_core_frame_schema_008.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wndfrm_core_frame_schema_Minimal001.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wndfrm_core_interaction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wndfrm_core_library.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wndfrm_core_frame_schema_011.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wndfrm_core_frame_schema_013.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wndfrm_core.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>
