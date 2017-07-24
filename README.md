@@ -1,8 +1,8 @@
 # app
 
-app is core repository of ca2 framework
+**app** is core repository of **ca2** framework
 
-ca2 is an all-purpose multi-platform framework and set of libraries written in C++ language to help developers create great apps for users.
+**ca2** is an all-purpose multi-platform framework and set of libraries written in C++ language to help developers create great apps for users.
 
 
 ## Create Simple New App for Windows Desktop
