@@ -27,7 +27,7 @@ Enjoy!!
 
 ### New Project
 #### Assumptions
-a. **"hiconstellation"** is a new project based on the **"helloworld"** project from previous Procedure. Please, regard it as any project with any proper name you are willing to create.
+a. **"hiconstellation"** is a new project based on the **"helloworld"** project from previous Procedure. Please, regard it as any project with any proper non-conflicting name you are willing to create.
 
 b. **"user/galaxy"** is a local repository or fork repository based on **"app-simple"** repository from previous Procedure. Please, regard it as any repository and depending repository(ies) you are required to download or create to work with your project. It can be the own repository, in which case you will be creating copies of the project inside the existing repository.
 
