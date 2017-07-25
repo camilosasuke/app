@@ -7,7 +7,9 @@ ca2 is an all-purpose multi-platform framework and set of libraries written in C
 ## Build "start" Project Sample App for Windows Desktop
 ### Assumptions
 a. **"start"** project is a project at https://github.com/love-as-a-service/app-love-as-a-service.git repository ( https://github.com/love-as-a-service/app-love-as-a-service/tree/master/appseed/start ). Please, regard it as any project you are willing to work with.
+
 b. **"love-as-a-service/app-love-as-a-service"** repository is the repository where lies "start" project. Please, regard it as any repository and depending repository(ies) you are required to download to work with your "start" project.
+
 ### Procedure
 1. Use/Create non-system folder, that will be called here **root folder**, with name of workflow like C:\create_new_start_project or C:\users\username\create_a_new_start (please, don't use spaces or special characters, or parent folders with spaces or special characters).
 2. Immediatelly below **root folder**, create new empty folder named **"app"**. 
