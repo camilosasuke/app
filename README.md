@@ -12,7 +12,7 @@ a. **"helloworld"** project is a project at https://github.com/ca2/app-simple.gi
 b. **"ca2/app-simple"** repository is the repository where lies "helloworld" project. Please, regard it as any repository and depending repository(ies) you are required to download to work with your project.
 
 #### Procedure
-![Folder Structure](/app/stage/app-simple-folder-structure.png?raw=true "Folder Structure")
+![Folder Structure](/stage/app-simple-folder-structure.png?raw=true "Folder Structure")
 1. Create a folder. It will be referred here as **root folder**. Something like C:\test_hello_planet or C:\users\username\lets_start, or any other meaningful name for your workflow. Please, don't use any spaces or special characters, or parent folders with any spaces or special characters. This will avoid issues at compile time.
 2. Immediatelly below **root folder**, create new empty folder named **"app"**. 
 3. Clone https://github.com/ca2/app.git into this **app** folder.
