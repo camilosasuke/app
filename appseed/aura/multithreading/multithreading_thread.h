@@ -492,7 +492,12 @@ namespace multithreading
       try
       {
 
-         bOk = pthread->wait(duration).succeeded();
+         if (pthread != NULL)
+         {
+
+            bOk = pthread->wait(duration).succeeded();
+
+         }
 
       }
       catch (...)

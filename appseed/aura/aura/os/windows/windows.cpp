@@ -1044,7 +1044,7 @@ CLASS_DECL_AURA int32_t app_common_main(int argc, char *argv[], app_core & appco
 
          }
 
-         if (!defer_init())
+         if (defer_init != NULL && !defer_init())
          {
 
             iError = -3;
