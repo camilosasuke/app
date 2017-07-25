@@ -4,7 +4,7 @@ app is core repository of **ca2** framework.
 
 ca2 is an all-purpose multi-platform framework and set of libraries written in C++ language to help developers create great apps for users.
 
-## Build "start" Project Sample App for Windows Desktop
+## Windows Desktop
 ### Assumptions
 a. **"start"** project is a project at https://github.com/love-as-a-service/app-love-as-a-service.git repository ( https://github.com/love-as-a-service/app-love-as-a-service/tree/master/appseed/start ). Please, regard it as any project you are willing to work with.
 
