@@ -11,7 +11,7 @@ a. **"start"** project is a project at https://github.com/love-as-a-service/app-
 b. **"love-as-a-service/app-love-as-a-service"** repository is the repository where lies "start" project. Please, regard it as any repository and depending repository(ies) you are required to download to work with your "start" project.
 
 ### Procedure
-1. Use/Create non-system folder, that will be called here **root folder**, with name of workflow like C:\create_new_start_project or C:\users\username\create_a_new_start (please, don't use spaces or special characters, or parent folders with spaces or special characters).
+1. Use/Create non-system folder, referred here as **root folder**, with name of workflow like C:\create_new_start_project or C:\users\username\create_a_new_start (please, don't use spaces or special characters, or parent folders with spaces or special characters).
 2. Immediatelly below **root folder**, create new empty folder named **"app"**. 
 3. Clone https://github.com/ca2/app.git into this **app** folder.
 4. Immediatelly below **root folder**, create new empty folder named **"include"**. 
