@@ -27,19 +27,19 @@ Enjoy!!
 
 ### New Project
 #### Assumptions
-a. **"heycountry"** is a new project based on the **"helloworld"** project from previous Procedure. Please, regard it as any project with any proper name you are willing to create.
+a. **"hiconstellation"** is a new project based on the **"helloworld"** project from previous Procedure. Please, regard it as any project with any proper name you are willing to create.
 
-b. **"ca2/app-simple2"** is a local repository or fork repository based on **"app-simple"** repository from previous Procedure. Please, regard it as any repository and depending repository(ies) you are required to download or create to work with your project.
+b. **"user/galaxy"** is a local repository or fork repository based on **"app-simple"** repository from previous Procedure. Please, regard it as any repository and depending repository(ies) you are required to download or create to work with your project. It can be the own repository, in which case you will be creating copies of the project inside the existing repository.
 
 #### Procedure
 Repeat steps 1 through 7 from Procedure above for the project and related repositories you want your new project be based on.
 Then:
-Locate the following subfolders at project specific folder (**app-simple**):
-1. **appmatter/helloworld** and copy recursively subfolders and files to **appmatter/heycountry** making proper changes at resource and asset files as desired.
+Locate the following subfolders at project specific folder (**user/galaxy**):
+1. **appmatter/helloworld** and copy recursively subfolders and files to **appmatter/hiconstellation** making proper changes at resource and asset files as desired.
 
-2. **appseed/helloworld** and copy recursively subfolders and files to **appseed/heycountry** making proper changes at project files, like headers and sources, regarding mainly and initially the project name change.
+2. **appseed/helloworld** and copy recursively subfolders and files to **appseed/hiconstellation** making proper changes at project files, like headers and sources, regarding mainly and initially the project name change.
 
-3. **seed/metaseed/app_simple_helloworld.sln** and copy to **seed/metaseed/app_simple_heycountry.sln**.
+3. **seed/metaseed/app_simple_helloworld.sln** and copy to **seed/metaseed/app_simple_hiconstellation.sln**.
 
 With just proper renaming, you will be able to open and build your new crafted project.
 
