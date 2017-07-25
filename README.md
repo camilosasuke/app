@@ -29,7 +29,7 @@ Built with tbs in <3
 
 ## Create Simple New App for Windows Desktop
 
-1. Use/Create non-system folder, that will be called here **root folder**, with name of project like C:\create_simple_new_app or C:\users\username\create_simple_new_app (please, don't use spaces or special characters or parent folders with spaces or special characters).
+1. Create a folder. It will be referred here as **root folder**. Something, like C:\create_simple_new_app or C:\users\username\create_simple_new_app, or any other meaningful name for your workflow. Please, don't use any spaces or special characters, or parent folders with any spaces or special characters to avoid issues at compile time.
 2. Immediatelly below **root folder**, create new empty folder named **"app"**. 
 3. Clone https://github.com/ca2/app.git into this **app** folder.
 4. Immediatelly below **root folder**, create new empty folder named **"nodeapp"**. 
