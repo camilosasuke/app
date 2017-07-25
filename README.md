@@ -6,7 +6,7 @@ ca2 is an all-purpose multi-platform framework and set of libraries written in C
 
 ## Windows Desktop
 ### Assumptions
-a. **"helloworld"** project is a project at https://github.com/ca2/app-simple.git repository ( https://github.com/ca2/app-simple/tree/master/appseed/start ). Please, regard it as any project you are willing to work with.
+a. **"helloworld"** project is a project at https://github.com/ca2/app-simple.git repository ( https://github.com/ca2/app-simple/tree/master/appseed/helloworld ). Please, regard it as any project you are willing to work with.
 
 b. **"ca2/app-simple"** repository is the repository where lies "helloworld" project. Please, regard it as any repository and depending repository(ies) you are required to download to work with your project.
 
