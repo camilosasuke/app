@@ -642,7 +642,7 @@ bool write_memory_to_file(HANDLE hFile,const void * lpBuf,memory_size_t nCount,m
 
    DWORD dw= 0;
 
-   BOOL bOk = ::WriteFile(hFile,lpBuf,nCount,&dw,NULL);
+   WINBOOL bOk = ::WriteFile(hFile,lpBuf,nCount,&dw,NULL);
 
    if(puiWritten != NULL)
    {

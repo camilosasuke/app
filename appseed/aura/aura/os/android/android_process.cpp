@@ -221,4 +221,57 @@ namespace process
 
 } // namespace process
 
+unichar * g_pwszCommandLine = NULL;
 
+CLASS_DECL_AURA unichar * GetCommandLineW()
+{
+
+   return g_pwszCommandLine;
+
+}
+
+
+CLASS_DECL_AURA bool shell_execute_sync(const char * pszPath, const char * pszParam, ::duration durationTimeout)
+{
+
+   string strCmdLine;
+
+   strCmdLine = pszPath;
+
+   if (strlen_dup(pszParam) > 0)
+   {
+
+      strCmdLine += " ";
+
+      strCmdLine += pszParam;
+
+   }
+
+   int32_t processId;
+
+   if (!create_process(strCmdLine, &processId))
+      return -1;
+
+   ::datetime::time timeEnd = ::datetime::time::get_current_time() + durationTimeout;
+
+   while (::datetime::time::get_current_time() < timeEnd)
+   {
+
+      if (kill(processId, 0) == -1 && errno == ESRCH) // No process can be found corresponding to processId
+         return true;
+
+      sleep(1);
+
+   }
+
+   return true;
+
+}
+
+
+CLASS_DECL_AURA bool is_shared_library_busy(const stringa & stra)
+{
+
+   return true;
+
+}

@@ -460,9 +460,6 @@
     <ClCompile Include="graphics\_graphics.cpp">
       <Filter>Source Files\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="graphics\draw2d\draw2d_nanosvg.cpp">
-      <Filter>Source Files\graphics\draw2d</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">

@@ -682,7 +682,6 @@
     <ClCompile Include="base\_base_base.cpp" />
     <ClCompile Include="database\_database.cpp" />
     <ClCompile Include="framework.cpp" />
-    <ClCompile Include="graphics\draw2d\draw2d_nanosvg.cpp" />
     <ClCompile Include="graphics\_graphics.cpp" />
     <ClCompile Include="user\fontopus\fontopus.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='basis|ARM'">true</ExcludedFromBuild>

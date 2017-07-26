@@ -832,6 +832,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='stage|x86'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="aura\fontopus\_fontopus.cpp" />
+    <ClCompile Include="aura\install\_install.cpp" />
     <ClCompile Include="aura\node\android\android1.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='basis|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='stage|ARM'">true</ExcludedFromBuild>
@@ -1734,6 +1735,8 @@
     </ClCompile>
     <ClCompile Include="filesystem\file\_file.cpp" />
     <ClCompile Include="framework.cpp" />
+    <ClCompile Include="graphics\draw2d\draw2d_nanosvg.cpp" />
+    <ClCompile Include="graphics\_graphics.cpp" />
     <ClCompile Include="multithreading\multithreading.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='basis|x86'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='basis|ARM'">true</ExcludedFromBuild>
@@ -1898,6 +1901,9 @@
     </ClCompile>
     <ClCompile Include="multithreading\service\service_plain_service.cpp" />
     <ClCompile Include="multithreading\_multithreading.cpp" />
+    <ClCompile Include="net\netserver\netserver_socket.cpp" />
+    <ClCompile Include="net\netserver\netserver_socket_handler.cpp" />
+    <ClCompile Include="net\netserver\netserver_socket_thread.cpp" />
     <ClCompile Include="net\net_url.cpp" />
     <ClCompile Include="net\sockets\bsd\basic\sockets_Socket.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='basis|ARM'">true</ExcludedFromBuild>
@@ -3145,7 +3151,6 @@
     <ClInclude Include="primitive\collection\collection_id_array.h" />
     <ClInclude Include="primitive\collection\collection_int_map.h" />
     <ClInclude Include="primitive\collection\collection_iterator.h" />
-    <ClInclude Include="primitive\collection\collection_key_sort_array.h" />
     <ClInclude Include="primitive\collection\collection_lemon_array.h" />
     <ClInclude Include="primitive\collection\collection_lemon_array_decl.h" />
     <ClInclude Include="primitive\collection\collection_list.h" />
@@ -3183,7 +3188,6 @@
     <ClInclude Include="primitive\collection\collection_string_array.h" />
     <ClInclude Include="primitive\collection\collection_string_list.h" />
     <ClInclude Include="primitive\collection\collection_string_map.h" />
-    <ClInclude Include="primitive\collection\collection_string_sort_array.h" />
     <ClInclude Include="primitive\collection\collection_string_to_string_map.h" />
     <ClInclude Include="primitive\collection\collection_template.h" />
     <ClInclude Include="primitive\collection\collection_typed_pointer_array.h" />
@@ -3225,10 +3229,10 @@
     <ClInclude Include="primitive\math\math_department.h" />
     <ClInclude Include="primitive\math\math_index.h" />
     <ClInclude Include="primitive\math\math_math.h" />
-    <ClInclude Include="primitive\math\math_math_rng.h" />
     <ClInclude Include="primitive\math\math_mkint_c.h" />
     <ClInclude Include="primitive\math\math_natural.h" />
     <ClInclude Include="primitive\math\math_numeric_info.h" />
+    <ClInclude Include="primitive\math\math_rng.h" />
     <ClInclude Include="primitive\math\math_scalar.h" />
     <ClInclude Include="primitive\math\math_scalar_enum.h" />
     <ClInclude Include="primitive\math\math_static_numeric_info.h" />

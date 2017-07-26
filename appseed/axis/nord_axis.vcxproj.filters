@@ -40,9 +40,6 @@
     <ClCompile Include="axis\fontopus\_fontopus.cpp">
       <Filter>Source Files\axis\fontopus</Filter>
     </ClCompile>
-    <ClCompile Include="axis\install\_install.cpp">
-      <Filter>Source Files\axis\install</Filter>
-    </ClCompile>
     <ClCompile Include="axis\node\android\_android_node.cpp">
       <Filter>Source Files\axis\node\android</Filter>
     </ClCompile>
@@ -214,33 +211,6 @@
     <ClCompile Include="database\simpledb\simpledb_veiev_post.cpp">
       <Filter>Source Files\database\simpledb</Filter>
     </ClCompile>
-    <ClCompile Include="axis\install\install.cpp">
-      <Filter>Source Files\axis\install</Filter>
-    </ClCompile>
-    <ClCompile Include="axis\install\install_boot.cpp">
-      <Filter>Source Files\axis\install</Filter>
-    </ClCompile>
-    <ClCompile Include="axis\install\install_bz.cpp">
-      <Filter>Source Files\axis\install</Filter>
-    </ClCompile>
-    <ClCompile Include="axis\install\install_canvas.cpp">
-      <Filter>Source Files\axis\install</Filter>
-    </ClCompile>
-    <ClCompile Include="axis\install\install_focus.cpp">
-      <Filter>Source Files\axis\install</Filter>
-    </ClCompile>
-    <ClCompile Include="axis\install\install_install.cpp">
-      <Filter>Source Files\axis\install</Filter>
-    </ClCompile>
-    <ClCompile Include="axis\install\install_installer_square.cpp">
-      <Filter>Source Files\axis\install</Filter>
-    </ClCompile>
-    <ClCompile Include="axis\install\install_small_bell.cpp">
-      <Filter>Source Files\axis\install</Filter>
-    </ClCompile>
-    <ClCompile Include="axis\install\install_trace.cpp">
-      <Filter>Source Files\axis\install</Filter>
-    </ClCompile>
     <ClCompile Include="user\user\user_copydesk.cpp">
       <Filter>Source Files\user\user</Filter>
     </ClCompile>
@@ -340,8 +310,8 @@
     <ClCompile Include="axis\_axis_axis.cpp">
       <Filter>Source Files\axis</Filter>
     </ClCompile>
-    <ClCompile Include="axis\install\install_installer_launcher.cpp">
-      <Filter>Source Files\axis\install</Filter>
+    <ClCompile Include="graphics\_graphics.cpp">
+      <Filter>Source Files\graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -404,30 +374,6 @@
     </ClInclude>
     <ClInclude Include="axis\crypto\crypto_crypto.h">
       <Filter>Header Files\axis\crypto</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\install\install.h">
-      <Filter>Header Files\axis\install</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\install\install_canvas.h">
-      <Filter>Header Files\axis\install</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\install\install_cube_run.h">
-      <Filter>Header Files\axis\install</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\install\install_focus.h">
-      <Filter>Header Files\axis\install</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\install\install_install.h">
-      <Filter>Header Files\axis\install</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\install\install_installer.h">
-      <Filter>Header Files\axis\install</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\install\install_small_bell.h">
-      <Filter>Header Files\axis\install</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\install\install_trace.h">
-      <Filter>Header Files\axis\install</Filter>
     </ClInclude>
     <ClInclude Include="axis\axis\axis.h">
       <Filter>Header Files\axis\axis</Filter>
@@ -809,9 +755,6 @@
     <Filter Include="Header Files\axis\crypto">
       <UniqueIdentifier>{bfedff91-e033-4fe8-9cc5-db9acd3199d2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\axis\install">
-      <UniqueIdentifier>{5cf13a84-14c4-4724-8bf6-c726f7664af5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\axis\axis">
       <UniqueIdentifier>{754393f3-ebe1-46f1-81a7-c99e3ae38bf0}</UniqueIdentifier>
     </Filter>
@@ -884,12 +827,6 @@
     <Filter Include="Source Files\axis\os\ansios">
       <UniqueIdentifier>{d9c6a340-3fcd-4e4e-8c0e-509e42569bf6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\axis\install">
-      <UniqueIdentifier>{cc3c66c4-24cc-4042-b4d2-0f72d0d9476d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\axis\install\windows">
-      <UniqueIdentifier>{2e096de4-2bfe-49c7-9a05-4265a14b6b1e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\axis\axis">
       <UniqueIdentifier>{e1266ae5-eebb-4e92-bdb1-2752018e5ee8}</UniqueIdentifier>
     </Filter>
@@ -958,6 +895,9 @@
     </Filter>
     <Filter Include="Header Files\html_lite\html_lite">
       <UniqueIdentifier>{14f57fb5-9997-418a-a5a2-0f84a9c81aa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\graphics">
+      <UniqueIdentifier>{c24f5a5c-1b43-4344-8400-e7425c000fec}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
