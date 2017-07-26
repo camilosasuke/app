@@ -15,7 +15,7 @@
 #include "android_windowing.cpp"
 #include "android_view_bitmap.cpp"
 #ifdef VSNORD
-#include "android_window_anative.cpp"
+#include "android_window_buffer.cpp"
 
 #else
 #include "android_window_android.cpp"

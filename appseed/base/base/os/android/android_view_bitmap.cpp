@@ -159,6 +159,16 @@ void android_fill_plasma(AndroidBitmapInfo * info, void * pixels, double  t)
 
    }
 
+   if (pbuffer->m_spdibBuffer2->m_pcolorref == NULL || pbuffer->m_spdibBuffer2->area() <= 0)
+   {
+
+      output_debug_string("android_fill_plasma : dib data is null or empty");
+
+      return;
+
+   }
+
+
    synch_lock sl(&pbuffer->m_mutex2);
 
    ::draw2d::copy_colorref(

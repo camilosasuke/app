@@ -2220,117 +2220,6 @@
     <ClInclude Include="filesystem\filesystem.h">
       <Filter>Header Files\filesystem</Filter>
     </ClInclude>
-    <ClInclude Include="filesystem\file\file.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_binary_buffer.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_buffer.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_buffered_buffer.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_byte_stream.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_byte_stream_memory_buffer.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_c.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_circular_buffer.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_composite.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_dir.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_exception.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_file_stream.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_file_stream_base.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_folder_watch.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_memory_buffer.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_opened.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_plain_text_stream.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_plain_text_stream_base.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_plain_text_stream_memory_buffer.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_plain_text_stream_string_buffer.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_reader.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_seekable.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_serializable.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_set.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_simple_binary_buffer.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_status.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_stream.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_stream2.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_streambuf.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_stream_base.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_stream_buffer.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_stream_buffer_base.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_string_buffer.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_text_buffer.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_transfer_buffer.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_writer.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
-    <ClInclude Include="filesystem\file\file_writer_flush.h">
-      <Filter>Header Files\filesystem\file</Filter>
-    </ClInclude>
     <ClInclude Include="aura\xml\xml.h">
       <Filter>Header Files\aura\xml</Filter>
     </ClInclude>
@@ -3173,6 +3062,156 @@
     </ClInclude>
     <ClInclude Include="primitive\math\math_rng.h">
       <Filter>Header Files\primitive\math</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_binary_file.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_buffer.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_buffered_file.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_byte_istream.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_byte_ostream.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_byte_stream.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_c.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_circular_file.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_common.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_composite.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_dir.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_edit_file.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_exception.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_file.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_file_base.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_file_istream.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_file_ostream.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_file_stream.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_file_stream_base.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_folder_watch.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_html_file.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_istream.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_listing_provider.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_md5.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_memory_file.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_opened.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_ostream.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_ostream_flush.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_path.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_plain_text_istream.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_plain_text_ostream.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_plain_text_stream.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_plain_text_stream_base.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_primitive.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_reader.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_seekable.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_serializable.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_set.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_simple_binary_file.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_status.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_stdio_file.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_stream.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_stream_base.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_stream2.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_string_file.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_text_file.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_transfer_file.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_writer.h">
+      <Filter>Header Files\filesystem\file</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\file\file_writer_flush.h">
+      <Filter>Header Files\filesystem\file</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

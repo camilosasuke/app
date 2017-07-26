@@ -709,7 +709,7 @@ int_bool GetClientRect(oswindow_data * pdata, RECT * prect)
 int_bool GetWindowRect(oswindow_data * pdata, RECT * prect)
 {
 
-	*prect = pdata->m_pimpl->m_rectParentClient;
+	*prect = pdata->m_pimpl->m_rectParentClientRequest;
 
 	return TRUE;
 

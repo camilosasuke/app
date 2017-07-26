@@ -238,9 +238,6 @@
     <ClCompile Include="base\os\android\android_vsnord_native_app_glue.c">
       <Filter>Source Files\base\os\android</Filter>
     </ClCompile>
-    <ClCompile Include="base\os\android\android_window_anative.cpp">
-      <Filter>Source Files\base\os\android</Filter>
-    </ClCompile>
     <ClCompile Include="base\os\android\android_window_android.cpp">
       <Filter>Source Files\base\os\android</Filter>
     </ClCompile>
@@ -460,6 +457,15 @@
     <ClCompile Include="graphics\_graphics.cpp">
       <Filter>Source Files\graphics</Filter>
     </ClCompile>
+    <ClCompile Include="base\os\android\android_window_buffer.cpp">
+      <Filter>Source Files\base\os\android</Filter>
+    </ClCompile>
+    <ClCompile Include="base\os\windows\windows_window_buffer.cpp">
+      <Filter>Source Files\base\node\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="base\os\android\android_window_anative.cpp">
+      <Filter>Source Files\base\os\android</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -538,9 +544,6 @@
       <Filter>Header Files\base\os\android</Filter>
     </ClInclude>
     <ClInclude Include="base\os\android\android_windowing.h">
-      <Filter>Header Files\base\os\android</Filter>
-    </ClInclude>
-    <ClInclude Include="base\os\android\android_window_anative.h">
       <Filter>Header Files\base\os\android</Filter>
     </ClInclude>
     <ClInclude Include="user\fontopus\simple_ui_style.h">
@@ -782,6 +785,9 @@
     </ClInclude>
     <ClInclude Include="user\wndfrm\frame\wndfrm_frame_updowninterface.h">
       <Filter>Header Files\user\wndfrm\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="base\os\android\android_window_buffer.h">
+      <Filter>Header Files\base\os\android</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

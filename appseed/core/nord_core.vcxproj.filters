@@ -484,6 +484,9 @@
     <ClCompile Include="user\simple\_simple.cpp">
       <Filter>Source Files\user\simple</Filter>
     </ClCompile>
+    <ClCompile Include="user\user\user_shell_android.cpp">
+      <Filter>Source Files\user\user</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="user\simple\simple_child_frame.h">
@@ -658,12 +661,6 @@
       <Filter>Header Files\user\user</Filter>
     </ClInclude>
     <ClInclude Include="user\user\user_form_list.h">
-      <Filter>Header Files\user\user</Filter>
-    </ClInclude>
-    <ClInclude Include="user\user\user_front_end.h">
-      <Filter>Header Files\user\user</Filter>
-    </ClInclude>
-    <ClInclude Include="user\user\user_front_end_schema.h">
       <Filter>Header Files\user\user</Filter>
     </ClInclude>
     <ClInclude Include="user\user\user_image_manager.h">
@@ -1128,6 +1125,12 @@
     <ClInclude Include="user\menu\menu.h">
       <Filter>Source Files\user\menu</Filter>
     </ClInclude>
+    <ClInclude Include="user\user\user_shell_ios.h">
+      <Filter>Header Files\user\user</Filter>
+    </ClInclude>
+    <ClInclude Include="user\user\user_shell_android.h">
+      <Filter>Header Files\user\user</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
@@ -1246,9 +1249,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="user\user\interaction.inl">
-      <Filter>Header Files\user\user</Filter>
-    </None>
     <None Include="user\user\user_interaction.inl">
       <Filter>Header Files\user\user</Filter>
     </None>

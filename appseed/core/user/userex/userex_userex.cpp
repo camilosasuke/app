@@ -8,6 +8,8 @@
 #include "core/user/user/user_shell_ios.h"
 #elif defined(LINUX)
 #include "core/user/user/user_shell_linux.h"
+#elif defined(ANDROID)
+#include "core/user/user/user_shell_android.h"
 #endif
 
 #include "base/database/simpledb/simpledb.h"
@@ -53,6 +55,10 @@ namespace userex
          
          m_pshell = canew(::user::shell::ios(get_app()));
          
+#elif defined(ANDROID)
+
+         m_pshell = canew(::user::shell::android(get_app()));
+
 #else
 
          #error "Implement for your platform."

@@ -52,6 +52,8 @@
 #include "user_shell_ios.cpp"
 #elif defined(MACOS)
 #include "user_shell_macos.cpp"
+#elif defined(ANDROID)
+#include "user_shell_android.cpp"
 #endif
 #include "user_single_document_template.cpp"
 #include "user_slider.cpp"

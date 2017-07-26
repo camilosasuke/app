@@ -318,63 +318,6 @@
     <ClInclude Include="framework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="version.config.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="version.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\bzip_stream.h">
-      <Filter>Header Files\axis\compress</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\compress.h">
-      <Filter>Header Files\axis\compress</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\compress_compress.h">
-      <Filter>Header Files\axis\compress</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\gzip_stream.h">
-      <Filter>Header Files\axis\compress</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\zip\api.h">
-      <Filter>Header Files\axis\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\zip\crypt.h">
-      <Filter>Header Files\axis\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\zip\File.h">
-      <Filter>Header Files\axis\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\zip\InFile.h">
-      <Filter>Header Files\axis\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\zip\ioapi.h">
-      <Filter>Header Files\axis\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\zip\iowin32.h">
-      <Filter>Header Files\axis\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\zip\memory_buffer.h">
-      <Filter>Header Files\axis\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\zip\unzip.h">
-      <Filter>Header Files\axis\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\zip\Util.h">
-      <Filter>Header Files\axis\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\zip\zip.h">
-      <Filter>Header Files\axis\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\compress\zip\zipImpl.h">
-      <Filter>Header Files\axis\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\crypto\crypto.h">
-      <Filter>Header Files\axis\crypto</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\crypto\crypto_crypto.h">
-      <Filter>Header Files\axis\crypto</Filter>
-    </ClInclude>
     <ClInclude Include="axis\axis\axis.h">
       <Filter>Header Files\axis\axis</Filter>
     </ClInclude>
@@ -500,36 +443,6 @@
     </ClInclude>
     <ClInclude Include="axis\node\ansios\ansios.h">
       <Filter>Header Files\axis\node\ansios</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\fontopus\fontopus.h">
-      <Filter>Header Files\axis\fontopus</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\fontopus\fontopus_authentication_map.h">
-      <Filter>Header Files\axis\fontopus</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\fontopus\fontopus_contact_list.h">
-      <Filter>Header Files\axis\fontopus</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\fontopus\fontopus_fontopus.h">
-      <Filter>Header Files\axis\fontopus</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\fontopus\fontopus_licensing.h">
-      <Filter>Header Files\axis\fontopus</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\fontopus\fontopus_user.h">
-      <Filter>Header Files\axis\fontopus</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\fontopus\fontopus_usera.h">
-      <Filter>Header Files\axis\fontopus</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\fontopus\fontopus_user_authentication.h">
-      <Filter>Header Files\axis\fontopus</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\fontopus\fontopus_user_set.h">
-      <Filter>Header Files\axis\fontopus</Filter>
-    </ClInclude>
-    <ClInclude Include="axis\fontopus\fontopus_validate.h">
-      <Filter>Header Files\axis\fontopus</Filter>
     </ClInclude>
     <ClInclude Include="filesystem\filesystem.h">
       <Filter>Header Files\filesystem</Filter>
@@ -743,18 +656,6 @@
     <Filter Include="Header Files\axis">
       <UniqueIdentifier>{20873475-ed96-47e2-8dd1-ab5d4bfde620}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\axis\compress">
-      <UniqueIdentifier>{bb54d9eb-a0a6-4111-b4c1-4b7a3755363a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\axis\compress\zip">
-      <UniqueIdentifier>{f0487b3d-f11b-4f1b-83e9-57383b53b856}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\axis\compress\bsdiff">
-      <UniqueIdentifier>{d9b6ae5c-a4e2-4e30-a4c2-35eb0534178f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\axis\crypto">
-      <UniqueIdentifier>{bfedff91-e033-4fe8-9cc5-db9acd3199d2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\axis\axis">
       <UniqueIdentifier>{754393f3-ebe1-46f1-81a7-c99e3ae38bf0}</UniqueIdentifier>
     </Filter>
@@ -784,9 +685,6 @@
     </Filter>
     <Filter Include="Header Files\axis\node\ansios">
       <UniqueIdentifier>{3e152637-ef42-426c-b7f9-11f3eaa0ac10}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\axis\fontopus">
-      <UniqueIdentifier>{21df666d-bb8b-4e54-9825-35ee60892b18}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\filesystem">
       <UniqueIdentifier>{8df598f6-dd6f-4af7-8140-2c96851f445b}</UniqueIdentifier>

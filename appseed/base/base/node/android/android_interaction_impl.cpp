@@ -478,7 +478,7 @@ namespace android
       ASSERT(pParentWnd != NULL);
       ASSERT((dwStyle & WS_POPUP) == 0);
 
-      return create_window_ex(pui, 0,lpszClassName,lpszWindowName,dwStyle | WS_CHILD,rect,pParentWnd,id,(LPVOID)pContext);
+      return create_window_ex(pui, 0,lpszClassName,lpszWindowName,dwStyle | WS_CHILD,rect,pParentWnd,id,(LPVOID)pcreate);
 
    }
 
@@ -2253,6 +2253,15 @@ void interaction_impl::_001OnCreate(::signal_details * pobj)
                   m_pui->on_after_graphical_update();
 
                }
+
+            }
+
+            _001UpdateBuffer();
+
+            if (m_spgraphics.is_set())
+            {
+
+               m_spgraphics->update_window();
 
             }
 
