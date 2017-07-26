@@ -265,3 +265,11 @@ public:
 };
 
 #endif
+
+
+#ifdef DEBUG
+
+void debug_ca2_variadic_template_base_formatting_integer_zero_padding()
+
+#endif
+

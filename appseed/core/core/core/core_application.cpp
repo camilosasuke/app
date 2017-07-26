@@ -444,6 +444,12 @@ namespace core
    bool application::initialize_application()
    {
 
+#ifdef DEBUG
+
+      debug_ca2_variadic_template_base_formatting_integer_zero_padding();
+
+#endif
+
       thisstart;
 
       //try

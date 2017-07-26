@@ -714,3 +714,31 @@ void string_format::format(const char * & s)
 
 
 #endif
+
+
+#ifdef DEBUG
+
+   void debug_ca2_variadic_template_base_formatting_integer_zero_padding()
+   {
+
+      string str1;
+
+      str1.Format("%d", 184);
+      str1.Format("%01d", 184);
+      str1.Format("%02d", 184);
+      str1.Format("%03d", 184);
+      str1.Format("%04d", 184);
+      str1.Format("%05d", 1984);
+      str1.Format("%06d", 1984);
+
+      short sh = 84;
+
+      short sh1 = 2;
+
+      str1.Format("%02d %03d", sh1, sh);
+
+   }
+
+#endif
+
+
