@@ -6,7 +6,7 @@ namespace sphere
 
 
    class CLASS_DECL_SPHERE application : 
-      public ::console::application
+      virtual public ::console::application
    {
    public:
       

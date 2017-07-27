@@ -563,6 +563,7 @@ namespace user
    void tab::_001OnDrawSchema01(::draw2d::graphics * pgraphics)
    {
 
+
       class rect rect;
       class rect rectBorder;
       class rect rectText;

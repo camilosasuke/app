@@ -6,7 +6,7 @@ namespace sphere
 
 
    class CLASS_DECL_SPHERE main_frame :
-      public simple_frame_window
+      virtual public simple_frame_window
    {
    public:
 

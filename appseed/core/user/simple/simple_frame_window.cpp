@@ -1903,8 +1903,6 @@ void simple_frame_window::_000OnDraw(::draw2d::graphics * pgraphicsParam)
 void simple_frame_window::_001OnDraw(::draw2d::graphics * pgraphics)
 {
 
-   single_lock sl(m_pmutex, true);
-
    if(m_bblur_Background)
    {
 

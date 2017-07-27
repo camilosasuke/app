@@ -1276,7 +1276,7 @@ namespace user
    }
 
 
-   void split_layout::_001OnDraw(::draw2d::graphics * pgraphics)
+   void split_layout::draw_control_background(::draw2d::graphics * pgraphics)
    {
 
       COLORREF crBackground = _001GetColor(::user::color_split_layout_background);
@@ -1293,6 +1293,13 @@ namespace user
          pgraphics->FillSolidRect(rectClient, crBackground);
 
       }
+
+
+   }
+
+   void split_layout::_001OnDraw(::draw2d::graphics * pgraphics)
+   {
+
 
    }
 

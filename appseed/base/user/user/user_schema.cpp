@@ -849,6 +849,13 @@ namespace user
    void schema::_001OnTabPaneDrawTitle(::user::tab_pane & pane, ::user::tab * ptab, ::draw2d::graphics * pgraphics, LPCRECT lpcrect, ::draw2d::brush_sp & brushText)
    {
 
+      if (Session.userschema() != this)
+      {
+
+         Session.userschema()->_001OnTabPaneDrawTitle(pane, ptab, pgraphics, lpcrect, brushText);
+
+      }
+
    }
 
 

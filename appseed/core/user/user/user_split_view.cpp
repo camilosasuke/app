@@ -151,7 +151,6 @@ namespace user
    void split_view::_001OnDraw(::draw2d::graphics * pgraphics)
    {
 
-      
       ::user::split_layout::_001OnDraw(pgraphics);
 
 
