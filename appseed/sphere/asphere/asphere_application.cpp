@@ -43,9 +43,14 @@ namespace asphere
    bool application::initialize_application()
    {
 
+
+      Sess(this).userex()->shell().m_straThemeableIconName.add("google-android.ico");
+      Sess(this).userex()->shell().m_straThemeableIconName.add("Folders-OS-Windows-8-Metro.ico");
+      Sess(this).userex()->shell().m_straThemeableIconName.add("firefox_weather.ico");
+
       ::file::patha patha;
 
-      dir().matter_ls("theme", patha);
+      dir().matter_ls("sphere/theme", patha);
 
       for (auto & path : patha)
       {
