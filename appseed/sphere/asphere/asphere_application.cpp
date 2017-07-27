@@ -240,7 +240,7 @@ namespace asphere
       if (strTheme.is_empty())
       {
 
-         data_get("theme" + strModifier, strTheme);
+         strTheme = sys_get("theme" + strModifier);
 
          if (strTheme.is_empty() && m_straTheme.get_size() > 0)
          {
@@ -285,12 +285,12 @@ namespace asphere
 
          string strThemeStored;
 
-         data_get("theme" + strModifier, strThemeStored);
+         strThemeStored = sys_get("theme" + strModifier);
 
          if (strThemeStored != strTheme)
          {
 
-            data_set("theme" + strModifier, strTheme);
+            sys_set("theme" + strModifier, strTheme);
 
          }
 

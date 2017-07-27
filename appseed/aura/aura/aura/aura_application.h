@@ -249,9 +249,9 @@ namespace aura
 
 
       virtual bool sys_set(string strPath, string strValue);
-      virtual bool sys_get(string strPath, string strDefault = "");
+      virtual string sys_get(string strPath, string strDefault = "");
       virtual bool app_set(string strPath, string strValue);
-      virtual bool app_get(string strPath, string strDefault = "");
+      virtual string app_get(string strPath, string strDefault = "");
 
 
       //virtual bool verb() override;
