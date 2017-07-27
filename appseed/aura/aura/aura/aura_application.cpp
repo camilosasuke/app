@@ -6915,7 +6915,7 @@ namespace aura
    }
 
    
-   bool application::sys_get(string strPath, string strDefault)
+   string application::sys_get(string strPath, string strDefault)
    {
 
       string strValue = Application.file().as_string(::dir::system() / "config" / strPath);
@@ -6940,7 +6940,7 @@ namespace aura
    }
 
    
-   bool application::app_get(string strPath, string strDefault)
+   string application::app_get(string strPath, string strDefault)
    {
 
       return sys_get(::file::path(m_strAppName) / strPath, strDefault);
