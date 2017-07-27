@@ -791,12 +791,6 @@ namespace core
 //#include "core/filesystem/file/file_transfer_buffer.h"
 
 
-class document;
-
-
-class main_frame;
-
-
 typedef sp(::aura::application) (*LP_GET_NEW_APP) ();
 
 

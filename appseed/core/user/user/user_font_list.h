@@ -14,6 +14,8 @@ namespace user
    public:
 
 
+      rect                             m_rectMargin;
+      int                              m_iSel;
       ::visual::font_list_data *       m_pfontlistdata;
 
 

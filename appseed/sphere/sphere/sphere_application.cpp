@@ -58,6 +58,11 @@ namespace sphere
 
    bool application::initialize_application()
    {
+
+
+      System.factory().creatable_small < main_frame >();
+
+
       string strId = m_strId;
       char chFirst = '\0';
       if(strId.get_length() > 0)

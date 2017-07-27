@@ -17,7 +17,6 @@
 #endif
 
 
-
 namespace sphere
 {
 
@@ -25,23 +24,26 @@ namespace sphere
    class application;
 
 
+   //enum e_theme
+   //{
+
+   //   theme_first = 0,
+   //   theme_lite = theme_first,
+   //   theme_blue,
+   //   theme_dark,
+   //   theme_count
+
+   //};
+
+
+
+
+
 } // namespace sphere
 
 
 #undef App
 #define App(pcaapp) (pcaapp->cast_app < ::sphere::application > ())
-
-
-namespace bergedge
-{
-
-
-   class bergedge;
-
-
-} // namespace bergedge
-
-
 
 
 #include "asphere_application.h"

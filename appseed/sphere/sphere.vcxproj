@@ -763,6 +763,7 @@
     <ClInclude Include="sphere\sphere.h" />
     <ClInclude Include="sphere\sphere_application.h" />
     <ClInclude Include="sphere\sphere_library.h" />
+    <ClInclude Include="sphere\sphere_main_frame.h" />
     <ClInclude Include="userstack\userstack.h" />
     <ClInclude Include="userstack\userstack_document.h" />
     <ClInclude Include="userstack\userstack_form_callback.h" />
@@ -957,6 +958,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='cover|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='stage|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="sphere\sphere_main_frame.cpp" />
     <ClCompile Include="userstack\userstack_document.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='basis|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='cover|Win32'">true</ExcludedFromBuild>

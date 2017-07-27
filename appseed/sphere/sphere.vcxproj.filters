@@ -176,6 +176,9 @@
     <ClInclude Include="console\console_prompt_impact.h">
       <Filter>Header Files\console</Filter>
     </ClInclude>
+    <ClInclude Include="sphere\sphere_main_frame.h">
+      <Filter>Header Files\sphere</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="calculator\calculator_application.cpp">
@@ -282,6 +285,9 @@
     </ClCompile>
     <ClCompile Include="_sphere.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sphere\sphere_main_frame.cpp">
+      <Filter>Source Files\sphere</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

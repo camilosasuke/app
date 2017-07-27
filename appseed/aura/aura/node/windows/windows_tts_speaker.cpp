@@ -268,6 +268,9 @@ namespace windows
          object(papp),
          ::tts::speaker(papp)
       {
+
+         m_strDefaultLang = "en";
+
       }
 
 
@@ -384,7 +387,7 @@ namespace windows
       bool speaker::speak(const string & text)
       {
 
-         return speak("",text);
+         return speak(m_strDefaultLang,text);
 
       }
 
@@ -493,6 +496,8 @@ namespace windows
 
             ::fork(get_app(), [=]()
             {
+
+               defer_co_initialize_ex(false);
                //
                // Speak input text
                //

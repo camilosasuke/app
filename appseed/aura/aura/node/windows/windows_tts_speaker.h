@@ -33,6 +33,7 @@ namespace windows
       public:
 
          
+         string                                                m_strDefaultLang;
          string_map < ::windows::comptr < ISpVoice > >         m_voice;
          string_map < ::windows::comptr < ISpObjectToken > >   m_token;
          string_map < DWORD > m_time;

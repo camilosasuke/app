@@ -6906,6 +6906,47 @@ namespace aura
 
    }
 
+   
+   bool application::sys_set(string strPath, string strValue)
+   {
+
+      return Application.file().put_contents_utf8(::dir::system() / "config" / strPath, strValue);
+
+   }
+
+   
+   bool application::sys_get(string strPath, string strDefault)
+   {
+
+      string strValue = Application.file().as_string(::dir::system() / "config" / strPath);
+
+      if (strValue.is_empty())
+      {
+
+         return strDefault;
+
+      }
+
+      return strValue;
+
+   }
+
+   
+   bool application::app_set(string strPath, string strValue)
+   {
+
+      return sys_set(::file::path(m_strAppName) / strPath, strValue);
+
+   }
+
+   
+   bool application::app_get(string strPath, string strDefault)
+   {
+
+      return sys_get(::file::path(m_strAppName) / strPath, strDefault);
+
+   }
+
 
 } // namespace aura
 
