@@ -1099,7 +1099,7 @@ else
       if (m_puserschemaSchema == NULL)
       {
 
-         m_puserschemaSchema = GetTopLevelFrame()->m_puserschemaSchema;
+         m_puserschemaSchema = GetTopLevelFrame();
 
       }
 

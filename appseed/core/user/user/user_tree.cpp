@@ -912,7 +912,7 @@ namespace user
       if (m_puserschemaSchema == NULL)
       {
 
-         m_puserschemaSchema = GetTopLevel()->m_puserschemaSchema;
+         m_puserschemaSchema = GetTopLevel();
 
       }
 

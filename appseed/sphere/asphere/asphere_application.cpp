@@ -43,6 +43,14 @@ namespace asphere
    bool application::initialize_application()
    {
 
+      if (!::core::application::initialize_application())
+      {
+
+         return false;
+
+      }
+
+
 
       Sess(this).userex()->shell().m_straThemeableIconName.add("google-android.ico");
       Sess(this).userex()->shell().m_straThemeableIconName.add("Folders-OS-Windows-8-Metro.ico");

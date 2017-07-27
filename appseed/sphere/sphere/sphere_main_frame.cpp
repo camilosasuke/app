@@ -78,7 +78,9 @@ namespace sphere
          cr = ARGB(255, 102, 153, 255);
 
       }
-      else if (ecolor == ::user::color_background || ecolor == ::user::color_edit_background)
+      else if (ecolor == ::user::color_background 
+         || ecolor == ::user::color_edit_background
+         || ecolor == ::user::color_toolbar_background)
       {
 
          //if (Application.get_theme() == theme_dark)
