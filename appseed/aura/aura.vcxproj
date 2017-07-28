@@ -2211,7 +2211,6 @@ copy $(SolutionDir)..\..\..\nodeapp\thirdparty\binary\$(PlatformName)\$(Configur
     <ClInclude Include="aura\aura\aura_trace.h" />
     <ClInclude Include="aura\aura\aura_types.h" />
     <ClInclude Include="aura\aura\aura_user.h" />
-    <ClInclude Include="aura\aura\aaa_want_to_remove_axis.h" />
     <ClInclude Include="aura\aura\aura_simple_log.h" />
     <ClInclude Include="aura\aura_policy\aura_c.h" />
     <ClInclude Include="aura\aura_policy\aura_cpp.h" />
@@ -2249,18 +2248,18 @@ copy $(SolutionDir)..\..\..\nodeapp\thirdparty\binary\$(PlatformName)\$(Configur
     <ClInclude Include="aura\compress\compress_department.h" />
     <ClInclude Include="aura\compress\compress_gz.h" />
     <ClInclude Include="aura\compress\compress_gzip.h" />
-    <ClInclude Include="aura\compress\zip\api.h" />
-    <ClInclude Include="aura\compress\zip\crypt.h" />
-    <ClInclude Include="aura\compress\zip\File.h" />
-    <ClInclude Include="aura\compress\zip\InFile.h" />
-    <ClInclude Include="aura\compress\zip\ioapi.h" />
-    <ClInclude Include="aura\compress\zip\iowin32.h" />
-    <ClInclude Include="aura\compress\zip\memory_buffer.h" />
-    <ClInclude Include="aura\compress\zip\unzip.h" />
-    <ClInclude Include="aura\compress\zip\Util.h" />
     <ClInclude Include="aura\compress\zip\zip.h" />
-    <ClInclude Include="aura\compress\zip\zipImpl.h" />
+    <ClInclude Include="aura\compress\zip\zip_api.h" />
+    <ClInclude Include="aura\compress\zip\zip_crypt.h" />
+    <ClInclude Include="aura\compress\zip\zip_file.h" />
+    <ClInclude Include="aura\compress\zip\zip_impl.h" />
     <ClInclude Include="aura\compress\zip\zip_internal.h" />
+    <ClInclude Include="aura\compress\zip\zip_in_file.h" />
+    <ClInclude Include="aura\compress\zip\zip_ioapi.h" />
+    <ClInclude Include="aura\compress\zip\zip_iowin32.h" />
+    <ClInclude Include="aura\compress\zip\zip_memory_buffer.h" />
+    <ClInclude Include="aura\compress\zip\zip_unzip.h" />
+    <ClInclude Include="aura\compress\zip\zip_util.h" />
     <ClInclude Include="aura\crypto\crypto.h" />
     <ClInclude Include="aura\crypto\crypto_crypto.h" />
     <ClInclude Include="aura\crypto\crypto_openssl.h" />
@@ -6907,6 +6906,7 @@ copy $(SolutionDir)..\..\..\nodeapp\thirdparty\binary\$(PlatformName)\$(Configur
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="aura\compress\zip\zip_algorithm.txt" />
     <Text Include="aura\scripting\javascript\from_tiny_js_42.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

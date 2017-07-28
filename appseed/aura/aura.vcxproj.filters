@@ -2642,42 +2642,6 @@
     <ClInclude Include="aura\compress\compress_gzip.h">
       <Filter>Header Files\aura\compress</Filter>
     </ClInclude>
-    <ClInclude Include="aura\compress\zip\api.h">
-      <Filter>Header Files\aura\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\compress\zip\crypt.h">
-      <Filter>Header Files\aura\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\compress\zip\File.h">
-      <Filter>Header Files\aura\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\compress\zip\InFile.h">
-      <Filter>Header Files\aura\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\compress\zip\ioapi.h">
-      <Filter>Header Files\aura\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\compress\zip\iowin32.h">
-      <Filter>Header Files\aura\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\compress\zip\memory_buffer.h">
-      <Filter>Header Files\aura\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\compress\zip\unzip.h">
-      <Filter>Header Files\aura\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\compress\zip\Util.h">
-      <Filter>Header Files\aura\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\compress\zip\zip.h">
-      <Filter>Header Files\aura\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\compress\zip\zip_internal.h">
-      <Filter>Header Files\aura\compress\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\compress\zip\zipImpl.h">
-      <Filter>Header Files\aura\compress\zip</Filter>
-    </ClInclude>
     <ClInclude Include="aura\compress\bsdiff\libbsdiff.h">
       <Filter>Header Files\aura\compress\bsdiff</Filter>
     </ClInclude>
@@ -2855,8 +2819,41 @@
     <ClInclude Include="aura\aura\aura_simple_log.h">
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
-    <ClInclude Include="aura\aura\aaa_want_to_remove_axis.h">
-      <Filter>Header Files\aura\aura</Filter>
+    <ClInclude Include="aura\compress\zip\zip.h">
+      <Filter>Header Files\aura\compress\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="aura\compress\zip\zip_api.h">
+      <Filter>Header Files\aura\compress\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="aura\compress\zip\zip_crypt.h">
+      <Filter>Header Files\aura\compress\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="aura\compress\zip\zip_file.h">
+      <Filter>Header Files\aura\compress\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="aura\compress\zip\zip_impl.h">
+      <Filter>Header Files\aura\compress\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="aura\compress\zip\zip_in_file.h">
+      <Filter>Header Files\aura\compress\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="aura\compress\zip\zip_internal.h">
+      <Filter>Header Files\aura\compress\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="aura\compress\zip\zip_ioapi.h">
+      <Filter>Header Files\aura\compress\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="aura\compress\zip\zip_iowin32.h">
+      <Filter>Header Files\aura\compress\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="aura\compress\zip\zip_memory_buffer.h">
+      <Filter>Header Files\aura\compress\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="aura\compress\zip\zip_unzip.h">
+      <Filter>Header Files\aura\compress\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="aura\compress\zip\zip_util.h">
+      <Filter>Header Files\aura\compress\zip</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -5038,6 +5035,9 @@
   <ItemGroup>
     <Text Include="aura\scripting\javascript\from_tiny_js_42.txt">
       <Filter>Source Files\aura\scripting\javascript</Filter>
+    </Text>
+    <Text Include="aura\compress\zip\zip_algorithm.txt">
+      <Filter>Source Files\aura\compress\zip</Filter>
     </Text>
   </ItemGroup>
 </Project>
