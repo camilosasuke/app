@@ -107,23 +107,6 @@ namespace user
 
       }
 
-      //rect rect;
-      //class rect rectClient;
-      //
-      //GetClientRect(rectClient);
-
-      //rect = rectClient;
-      //rect.left   += 3 + 16 + 2;
-      //rect.top    += 7;
-      //rect.bottom -= 6;
-      //m_rectText = rect;
-
-      //rect = rectClient;
-      //rect.left   += 3;
-      //rect.top    += 3;
-      //rect.right  -= 3;
-      //rect.bottom -= 3;
-      //m_rectCheckBox = rect;
    }
    
    void menu_button::_001OnNcDraw(::draw2d::graphics * pgraphics)
@@ -209,7 +192,7 @@ namespace user
 
       SCAST_PTR(::message::mouse,pmouse,pobj);
 
-         pmouse->previous();
+      pmouse->previous();
 
 
    }
@@ -230,23 +213,8 @@ namespace user
 
       pbutton->enable_window(bOn != FALSE);
 
-      /*ASSERT(pToolBar != NULL);
-      ASSERT_KINDOF(simple_toolbar, pToolBar);
-      ASSERT(m_nIndex < m_nIndexMax);*/
-
-      /*UINT nNewStyle = pToolBar->GetGetButtonStyle(m_nIndex) & ~TBBS_DISABLED;
-      if (!bOn)
-      {
-         nNewStyle |= TBBS_DISABLED;
-         // If a button is currently pressed and then is disabled
-         // COMCTL32.DLL does not unpress the button, even after the mouse
-         // button goes up!  We work around this bug by forcing TBBS_PRESSED
-         // off when a button is disabled.
-         nNewStyle &= ~TBBS_PRESSED;
-      }
-      ASSERT(!(nNewStyle & TBBS_SEPARATOR));
-      pToolBar->SetButtonStyle(m_nIndex, nNewStyle);*/
    }
+
 
    void menu_button_cmd_ui::_001SetCheck(check::e_check echeck, ::action::context actioncontext)
    {
@@ -257,23 +225,13 @@ namespace user
 
       pbutton->_001SetCheck(echeck, actioncontext);
 
-   /*   ASSERT(pToolBar != NULL);
-      ASSERT_KINDOF(simple_toolbar, pToolBar);
-      ASSERT(m_nIndex < m_nIndexMax);
-
-      UINT nNewStyle = pToolBar->GetButtonStyle(m_nIndex) &
-               ~(TBBS_CHECKED | TBBS_INDETERMINATE);
-      if (nCheck == 1)
-         nNewStyle |= TBBS_CHECKED;
-      else if (nCheck == 2)
-         nNewStyle |= TBBS_INDETERMINATE;
-      ASSERT(!(nNewStyle & TBBS_SEPARATOR));
-      pToolBar->SetButtonStyle(m_nIndex, nNewStyle | TBBS_CHECKBOX);*/
    }
+
 
    void menu_button_cmd_ui::SetText(const char *, ::action::context)
    {
-      // ignore it
+      
+
    }
 
 
