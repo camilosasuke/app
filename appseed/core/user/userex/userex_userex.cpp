@@ -25,6 +25,7 @@ namespace userex
    {
 
       m_pshell  = NULL;
+      m_ptemplateFontSel = NULL;
 
    }
 
@@ -46,14 +47,6 @@ namespace userex
       System.factory().creatable_small < top_view >();
 
 
-      System.factory().creatable_small < font_view >();
-
-      m_ptemplateFontSel = new  ::user::single_document_template(
-         get_app(),
-         "main",
-         System.type_info < ::user::document >(),
-         System.type_info < ::simple_frame_window >(),
-         System.type_info < font_view >());
 
 
 
@@ -1568,6 +1561,53 @@ namespace core
 
    }
 
+   void session::use_font_sel()
+   {
+
+      if (m_pfontlistdata != NULL)
+      {
+
+         return;
+
+      }
+
+      System.factory().creatable_small < ::user::font_list >();
+      System.factory().creatable_small < ::user::font_list_view >();
+      System.factory().creatable_small < ::userex::font_view >();
+
+      userex()->m_ptemplateFontSel = new  ::user::single_document_template(
+         get_app(),
+         "main",
+         System.type_info < ::user::document >(),
+         System.type_info < ::simple_frame_window >(),
+         System.type_info < ::userex::font_view >());
+
+
+      if (!is_installing() && !is_uninstalling())
+      {
+
+         m_pfontlistdata = new ::visual::font_list_data(this);
+
+         System.visual().fonts().defer_create_font_enumeration();
+
+         fork([&]()
+         {
+            ::multithreading::set_priority(::multithreading::priority_idle);
+            System.visual().fonts().update_font_enumeration();
+
+            m_pfontlistdata->update();
+
+            output_debug_string("fork with idle");
+
+         });
+
+      }
+
+
+
+   }
+
+
 
 } // namespace core
 
@@ -1598,6 +1638,7 @@ namespace user
       return Session.userex()->default_create_list_data(get_app());
 
    }
+
 
 
 } // namespace user
