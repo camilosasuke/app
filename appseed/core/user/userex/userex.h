@@ -21,6 +21,7 @@ namespace userex
    class document_manager;
    class impact_system;
    class document;
+   class top_view;
 
 
 } // namespace userex
@@ -35,6 +36,14 @@ namespace userex
 #include "userex_menu_frame.h"
 #include "userex_menu_document.h"
 #include "userex_menu_view.h"
+
+
+#include "userex_top_edit_view.h"
+#include "userex_top_toggle_view.h"
+#include "userex_top_view.h"
+
+
+#include "userex_font_view.h"
 
 #include "userex_dialog.h"
 

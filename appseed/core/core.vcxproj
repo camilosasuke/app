@@ -1010,6 +1010,12 @@
     <ClCompile Include="user\simple\simple_form_view.cpp" />
     <ClCompile Include="user\simple\simple_list_data.cpp" />
     <ClCompile Include="user\simple\simple_mesh_data.cpp" />
+    <ClCompile Include="user\userex\userex_top_toggle_view.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='basis|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="user\userex\userex_top_view.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='basis|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="user\userex\_userex.cpp" />
     <ClCompile Include="user\user\user_font_list.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='cover|Win32'">true</ExcludedFromBuild>
@@ -1569,8 +1575,15 @@
     <ClInclude Include="user\simple\simple_toolbar.h" />
     <ClInclude Include="user\simple\simple_tree_view.h" />
     <ClInclude Include="user\simple\simple.h" />
+    <ClInclude Include="user\userex\userex_font_view.h" />
     <ClInclude Include="user\userex\userex_keyboard_layout.h" />
     <ClInclude Include="user\userex\userex_message_box.h" />
+    <ClCompile Include="user\userex\userex_top_edit_view.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='basis|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClInclude Include="user\userex\userex_top_edit_view.h" />
+    <ClInclude Include="user\userex\userex_top_toggle_view.h" />
+    <ClInclude Include="user\userex\userex_top_view.h" />
     <ClInclude Include="user\userex\userex_userex.h" />
     <ClInclude Include="user\userex\userex_wait_message_dialog.h" />
     <ClInclude Include="user\user\user.h" />
@@ -2791,6 +2804,9 @@
     <None Include="core.def" />
     <None Include="core\core\core1.h" />
     <None Include="core\core\core.inl" />
+    <ClCompile Include="user\userex\userex_font_view.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='basis|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <None Include="user\user\user.inl" />
     <None Include="user\user\user_interaction.inl" />
   </ItemGroup>

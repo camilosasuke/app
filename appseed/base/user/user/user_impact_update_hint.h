@@ -17,13 +17,17 @@ namespace user
          hint_none,
          hint_open_document,
          hint_create_views,
-         hint_pre_close_document
+         hint_pre_close_document,
+         hint_after_change_text,
+         hint_control_event,
 
       };
 
 
-      e_hint         m_ehint;
-      bool           m_bOk;
+      e_hint                     m_ehint;
+      bool                       m_bOk;
+      ::user::control_event *    m_pusercontrolevent;
+      ::user::interaction *      m_pui;
 
 
       bool is_type_of(e_hint ehint) const;

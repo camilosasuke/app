@@ -1022,6 +1022,39 @@ namespace core
 
    }
 
+   void application::use_font_sel()
+   {
+
+      if (m_pfontlistdata != NULL)
+      {
+
+         return;
+
+      }
+
+      if (!is_installing() && !is_uninstalling())
+      {
+
+         m_pfontlistdata = new ::visual::font_list_data(this);
+
+         System.visual().fonts().defer_create_font_enumeration();
+
+         fork([&]()
+         {
+            ::multithreading::set_priority(::multithreading::priority_idle);
+            System.visual().fonts().update_font_enumeration();
+
+            m_pfontlistdata->update();
+
+            output_debug_string("fork with idle");
+
+         });
+
+      }
+
+
+
+   }
 
 
 } // namespace plane

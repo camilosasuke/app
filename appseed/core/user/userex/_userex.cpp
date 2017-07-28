@@ -31,4 +31,10 @@
 //             20 arquivo(s)         52.000 bytes
 
 
+#include "userex_top_edit_view.cpp"
+#include "userex_top_toggle_view.cpp"
+#include "userex_top_view.cpp"
+
+
+#include "userex_font_view.cpp"
 

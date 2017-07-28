@@ -35,8 +35,6 @@ namespace core
       class signal                           m_signalAppLanguageChange;
       string                                 m_strHelpFilePath;
 
-
-
 #ifdef WINDOWS
 
 

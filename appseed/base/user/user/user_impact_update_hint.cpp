@@ -10,8 +10,9 @@ namespace user
       ::object(papp)
    {
 
-      m_ehint     = hint_none;
-      m_bOk       = true;
+      m_ehint              = hint_none;
+      m_bOk                = true;
+      m_pusercontrolevent  = NULL;
 
    }
 

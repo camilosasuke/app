@@ -432,6 +432,12 @@ namespace user
          return ARGB(128, 0, 0, 0);
 
       }
+      else if (ecolor == color_view_background)
+      {
+
+         return 0;
+
+      }
 
       throw invalid_argument_exception(::get_thread_app());
 

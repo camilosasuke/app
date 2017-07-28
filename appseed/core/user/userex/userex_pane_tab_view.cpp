@@ -137,29 +137,60 @@ namespace userex
             filemanager_manager().get_filemanager_data()->m_pdocumentTopic = NULL;
          }
       }
-      if (m_pviewdata && ::str::begins_ci(m_pviewdata->m_id, "file_manager"))
+
+      if (m_pviewdata != NULL)
       {
 
-         for (auto & p : m_viewmap)
+         if (::str::begins_ci(m_pviewdata->m_id, "file_manager"))
          {
 
-            if (p.m_element2 == m_pviewdata || !p.m_element2->m_id.is_text())
+            for (auto & p : m_viewmap)
             {
 
-               continue;
+               if (p.m_element2 == m_pviewdata || !p.m_element2->m_id.is_text())
+               {
+
+                  continue;
+
+               }
+
+               if (::str::find_ci(p.m_element2->m_id.m_psz, "file_manager") >= 0)
+               {
+
+                  p.m_element2->m_pholder->ShowWindow(SW_HIDE);
+
+               }
 
             }
 
-            if (::str::find_ci(p.m_element2->m_id.m_psz, "file_manager") >= 0)
+         }
+         else if (::str::begins_ci(m_pviewdata->m_id, "font_sel"))
+         {
+
+            for (auto & p : m_viewmap)
             {
 
-               p.m_element2->m_pholder->ShowWindow(SW_HIDE);
+               if (p.m_element2 == m_pviewdata || !p.m_element2->m_id.is_text())
+               {
+
+                  continue;
+
+               }
+
+               if (::str::find_ci(p.m_element2->m_id.m_psz, "font_sel") >= 0)
+               {
+
+                  p.m_element2->m_pholder->ShowWindow(SW_HIDE);
+
+               }
 
             }
 
          }
 
       }
+
+      
 
    }
 
@@ -339,7 +370,16 @@ namespace userex
          }
 
       }
+      else if (::str::begins_ci(pcreatordata->m_id, "font_sel"))
+      {
 
+         Session.use_font_sel();
+
+         Session.userex()->m_ptemplateFontSel->open_document_file(NULL, false, pcreatordata->m_pholder);
+
+         Session.userex()->m_ptemplateFontSel->get_document()->get_typed_view<::user::font_list>()->attach_font_list_data(Application.m_pfontlistdata);
+
+      }
       else if(::str::begins_ci(pcreatordata->m_id, "file_manager")
          || pcreatordata->m_id == "left_file"
          || pcreatordata->m_id == "right_file"

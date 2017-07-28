@@ -18,6 +18,8 @@ namespace userex
       ::user::impact_system *                   m_ptemplateForm;
       ::user::impact_system *                   m_ptemplateChildForm;
       ::user::impact_system *                   m_ptemplatePlaceHolder;
+      ::user::impact_system *                   m_ptemplateFontSel;
+
 
       map < ::type *, type *, ::user::impact_system *, ::user::impact_system * > m_mapTemplate;
 
