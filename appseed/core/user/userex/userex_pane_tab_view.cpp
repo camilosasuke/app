@@ -375,9 +375,11 @@ namespace userex
 
          Session.use_font_sel();
 
-         Session.userex()->m_ptemplateFontSel->open_document_file(NULL, false, pcreatordata->m_pholder);
+         auto pdoc = Session.userex()->m_ptemplateFontSel->open_document_file(NULL, false, pcreatordata->m_pholder);
 
-         Session.userex()->m_ptemplateFontSel->get_document()->get_typed_view<::user::font_list>()->attach_font_list_data(Application.m_pfontlistdata);
+         m_pfontview = pdoc->get_typed_view<font_view>();
+
+         Session.userex()->m_ptemplateFontSel->get_document()->get_typed_view<::user::font_list>()->attach_font_list_data(Session.m_pfontlistdata);
 
       }
       else if(::str::begins_ci(pcreatordata->m_id, "file_manager")

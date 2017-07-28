@@ -48,8 +48,6 @@ namespace core
       thread(NULL)
    {
 
-      m_pfontlistdata = NULL;
-
       m_pmainpane = NULL;
 
       if (m_pauraapp == NULL)

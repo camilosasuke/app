@@ -39,6 +39,24 @@ namespace userex
    {
 
       System.factory().creatable_small < keyboard_layout >();
+      
+
+      System.factory().creatable_small < top_edit_view >();
+      System.factory().creatable_small < top_toggle_view >();
+      System.factory().creatable_small < top_view >();
+
+
+      System.factory().creatable_small < font_view >();
+
+      m_ptemplateFontSel = new  ::user::single_document_template(
+         get_app(),
+         "main",
+         System.type_info < ::user::document >(),
+         System.type_info < ::simple_frame_window >(),
+         System.type_info < font_view >());
+
+
+
 
       if (m_pshell.is_null())
       {

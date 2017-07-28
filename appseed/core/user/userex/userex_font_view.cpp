@@ -116,7 +116,8 @@ namespace userex
    {
 
 
-      if (pevent->m_eevent == ::user::event_after_change_cur_sel)
+      if (pevent->m_eevent == ::user::event_after_change_cur_sel
+         || pevent->m_eevent == ::user::event_after_change_cur_hover)
       {
 
          if (m_pview == pevent->m_puie)
@@ -133,17 +134,6 @@ namespace userex
          }
 
       }
-      else if (pevent->m_eevent == ::user::event_after_change_cur_hover)
-      {
-
-         if (m_pview == pevent->m_puie)
-         {
-
-
-         }
-
-      }
-
       return true;
 
    }

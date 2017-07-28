@@ -19,6 +19,8 @@ namespace core
       ::thread(papp)
    {
 
+      m_pfontlistdata = NULL;
+
       m_pdocs = create_session_docs();
 
       m_paurasystem                       = papp->m_paurasystem;
@@ -124,6 +126,7 @@ namespace core
          return false;
 
       }
+
 
       return true;
 
@@ -1022,7 +1025,7 @@ namespace core
 
    }
 
-   void application::use_font_sel()
+   void session::use_font_sel()
    {
 
       if (m_pfontlistdata != NULL)
