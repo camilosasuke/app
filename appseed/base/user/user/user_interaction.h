@@ -7,6 +7,7 @@
 #define MESSAGE_POST_MESSAGE  14000
 
 #define SWP_CHANGEVIEWPORTOFFSET  0x100000
+
 namespace message
 {
 
@@ -427,11 +428,11 @@ namespace user
 
       virtual interaction * GetDescendantWindow(id id) const override;
 
-      virtual void SetWindowText(const char * lpszString) override;
-      virtual strsize GetWindowText(LPSTR lpszStringBuf,int32_t nMaxCount) override;
-      virtual string GetWindowText() override;
-      virtual void GetWindowText(string & rString) override;
-      virtual strsize GetWindowTextLength() override;
+      virtual void set_window_text(const char * lpszString) override;
+      virtual strsize get_window_text(char * lpszStringBuf,strsize nMaxCount) override;
+      virtual string get_window_text() override;
+      virtual void get_window_text(string & rString) override;
+      virtual strsize get_window_text_length() override;
 
       virtual void install_message_handling(::message::dispatch * pinterface) override;
       virtual bool IsWindowVisible() override;

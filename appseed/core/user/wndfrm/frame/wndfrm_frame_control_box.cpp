@@ -628,7 +628,7 @@ namespace user
 
                pbutton->SetParent(this);
 
-               pbutton->SetWindowText(strCaption);
+               pbutton->set_window_text(strCaption);
 
                pbutton->m_pcontrolbox = this;
 

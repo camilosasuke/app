@@ -841,7 +841,7 @@ namespace android
       //// dump out interaction_impl specific statistics
       //char szBuf[64];
       ////if (!const_cast < interaction_impl * > (this)->send_message(WM_QUERYAFXWNDPROC, 0, 0) && pwindow == this)
-      //// ((::android::interaction_impl *)this)->GetWindowText(szBuf, _countof(szBuf));
+      //// ((::android::interaction_impl *)this)->get_window_text(szBuf, _countof(szBuf));
       ////else
       //// ::DefWindowProc(((::android::interaction_impl *)this)->get_handle(), WM_GETTEXT, _countof(szBuf), (LPARAM)&szBuf[0]);
       ////dumpcontext << "\ncaption = \"" << szBuf << "\"";
@@ -3756,43 +3756,7 @@ bool interaction_impl::DragDetect(POINT pt) const
 }
 
 
-//void interaction_impl::RedrawWindow(UINT nFlags)
-//{
-//
-//   _001UpdateWindow();
-//
-//}
-
-
-//void interaction_impl::SetWindowText(const char * lpszString)
-//{
-//
-//   m_strWindowText = lpszString;
-//
-//}
-
-//
-//strsize interaction_impl::GetWindowText(LPTSTR lpszString, strsize nMaxCount)
-//{
-//
-//   strncpy(lpszString, m_strWindowText, nMaxCount);
-//
-//   return MIN(nMaxCount, m_strWindowText.get_length());
-//
-//}
-
-
-//strsize interaction_impl::GetWindowTextLength()
-//{
-//
-//   throw not_implemented(get_app());
-//   //ASSERT(::IsWindow((oswindow) get_handle()));
-//
-//   //return ::GetWindowTextLength(get_handle());
-//
-//}
-//
-
+//void interaction_impl::RedrawWindo
 void interaction_impl::SetFont(::draw2d::font* pfont, bool bRedraw)
 {
 

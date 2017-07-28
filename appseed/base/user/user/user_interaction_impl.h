@@ -218,7 +218,7 @@ namespace user
 
 
       // Window Text Functions
-      virtual void SetWindowText(const char * lpszString);
+      virtual void set_window_text(const char * lpszString);
       virtual strsize GetWindowText(char * lpszStringBuf,int32_t nMaxCount);
       virtual void GetWindowText(string & rString);
       virtual strsize GetWindowTextLength();

@@ -87,7 +87,9 @@ namespace user
 
          
 
-         string strText(m_strWindowText);
+         string strText;
+
+         get_window_text(strText);
 
          rect rectClient;
          GetClientRect(rectClient);
@@ -428,7 +430,7 @@ namespace user
             select_font(pgraphics, font_button, this);
 
             string str;
-            GetWindowText(str);
+            get_window_text(str);
             size size = pgraphics->GetTextExtent(str);
 
             rect rect(0,0,0,0);
@@ -698,7 +700,7 @@ namespace user
 
       pgraphics->SelectObject(brushText);
 
-      string strText(GetWindowText());
+      string strText(get_window_text());
 
       select_font(pgraphics, font_button, this);
 

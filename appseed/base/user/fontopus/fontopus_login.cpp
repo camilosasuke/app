@@ -88,13 +88,13 @@ namespace fontopus
    {
 
       if (strUser.has_char())
-         m_plabelUser->SetWindowText(strUser);
+         m_plabelUser->set_window_text(strUser);
 
       if (strPass.has_char())
-         m_plabelPassword->SetWindowText(strPass);
+         m_plabelPassword->set_window_text(strPass);
 
       if (strOpen.has_char())
-         m_ptap->SetWindowText(strOpen);
+         m_ptap->set_window_text(strOpen);
 
    }
 
@@ -406,17 +406,17 @@ namespace fontopus
 
       m_ptapClose->m_estockicon = stock_icon_close;
 
-      //m_plabelUser->SetWindowText("e-mail:");
-      //m_plabelPassword->SetWindowText("password:");
-      //m_ptap->SetWindowText("open");
+      //m_plabelUser->set_window_text("e-mail:");
+      //m_plabelPassword->set_window_text("password:");
+      //m_ptap->set_window_text("open");
 
-      //m_plabelUser->SetWindowText("@");
-      //m_plabelPassword->SetWindowText("********");
-      //m_ptap->SetWindowText("===>");
+      //m_plabelUser->set_window_text("@");
+      //m_plabelPassword->set_window_text("********");
+      //m_ptap->set_window_text("===>");
 
-      m_plabelUser->SetWindowText("");
-      m_plabelPassword->SetWindowText("");
-      m_ptap->SetWindowText("");
+      m_plabelUser->set_window_text("");
+      m_plabelPassword->set_window_text("");
+      m_ptap->set_window_text("");
 
       int stdw = 800;
       int stdh = 177 + 23 + 184 + 49;

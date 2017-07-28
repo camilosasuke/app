@@ -48,9 +48,10 @@ namespace userstack
          return;
       }
 
-      SetWindowText("bergedge");
+      set_window_text("bergedge");
 
    }
+
 
    void frame::install_message_handling(::message::dispatch * pinterface)
    {

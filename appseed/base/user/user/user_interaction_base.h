@@ -390,11 +390,11 @@ namespace user
 
       virtual ::user::interaction * GetDescendantWindow(id id) const;
 
-      virtual void SetWindowText(const char * lpszString);
-      virtual strsize GetWindowText(LPSTR lpszStringBuf,int32_t nMaxCount);
-      virtual string GetWindowText();
-      virtual void GetWindowText(string & rString);
-      virtual strsize GetWindowTextLength();
+      virtual void set_window_text(const char * lpszString);
+      virtual strsize get_window_text(char * lpszStringBuf,strsize nMaxCount);
+      virtual string get_window_text();
+      virtual void get_window_text(string & rString);
+      virtual strsize get_window_text_length();
 
 
       virtual bool IsWindowVisible();

@@ -442,7 +442,7 @@ namespace draw2d_opengl
 
       case WM_TIMER:
          //         _stprintf(szBuffer, _TEXT("%d FPS"), g_frames);
-         //SetWindowText(hWnd, szBuffer);
+         //set_window_text(hWnd, szBuffer);
          //         g_frames = 0;
          return 0;
 

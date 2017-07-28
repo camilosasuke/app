@@ -121,17 +121,17 @@ visual::font * font_department::GetLyricViewCompactFont()
    return m_pfontLyricCompact;
 }
 
-CVmsGdiFontPtrArray & font_department::GetTitleFonts()
+visual_font_spa & font_department::GetTitleFonts()
 {
    return m_pTitleFonts;
 }
 
-CVmsGdiFontPtrArray & font_department::GetSubTitleFonts()
+visual_font_spa & font_department::GetSubTitleFonts()
 {
    return m_pSubTitleFonts;
 }
 
-CVmsGdiFontPtrArray & font_department::GetH3TitleFonts()
+visual_font_spa & font_department::GetH3TitleFonts()
 {
    return m_pH3TitleFonts;
 }

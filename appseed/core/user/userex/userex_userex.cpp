@@ -112,7 +112,7 @@ namespace userex
 
       System.factory().cloneable_small < int_biunique >();
       System.factory().creatable_small < ::user::plain_edit >();
-      System.factory().cloneable_small < XfplayerViewLine >();
+      System.factory().cloneable_small < xfplayer_view_line >();
       System.factory().creatable_small < ::user::place_holder >();
       System.factory().creatable_small < ::user::combo_box >();
       System.factory().creatable_small < ::user::check_box >();

@@ -90,7 +90,7 @@ namespace multimedia
 
          m_uiMixerID = uiMixerId;
 
-         //    AppSetWindowText(oswindow, "::multimedia::audio_mixer::audio_mixer Device: %s", (char *)mxcaps.szPname);
+         //    Appset_window_text(oswindow, "::multimedia::audio_mixer::audio_mixer Device: %s", (char *)mxcaps.szPname);
 
          return mmrc;
 

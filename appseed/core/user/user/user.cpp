@@ -502,7 +502,7 @@ namespace core
       {
          try
          {
-            get_view()->GetParentFrame()->SetWindowText(Session.m_pappCurrent->m_pbasesession->m_pfontopus->m_puser->m_strLogin);
+            get_view()->GetParentFrame()->set_window_text(Session.m_pappCurrent->m_pbasesession->m_pfontopus->m_puser->m_strLogin);
          }
          catch (...)
          {

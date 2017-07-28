@@ -153,7 +153,7 @@ namespace user
 
       select_font(pgraphics, font_static, this);
 
-      pgraphics->text_out(0, 0, GetWindowText());
+      pgraphics->text_out(0, 0, get_window_text());
 
    }
 

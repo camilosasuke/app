@@ -776,7 +776,7 @@ namespace user
 
                   string str;
 
-                  pwndiDraw->GetWindowText(str);
+                  pwndiDraw->get_window_text(str);
 
                   if(pappearance->m_fActive)
                   {
@@ -825,7 +825,7 @@ namespace user
 
                   string wstrWindowText;
 
-                  pwndiDraw->GetWindowText(wstrWindowText);
+                  pwndiDraw->get_window_text(wstrWindowText);
 
                   ::draw2d::brush_sp brushText(allocer());
 

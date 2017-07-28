@@ -1,6 +1,6 @@
 #include "framework.h"
 
-XfplayerViewLines::XfplayerViewLines(::aura::application * papp) :
+xfplayer_view_linea::xfplayer_view_linea(::aura::application * papp) :
    object(papp)
 {
 
@@ -11,13 +11,13 @@ XfplayerViewLines::XfplayerViewLines(::aura::application * papp) :
 
 }
 
-XfplayerViewLines::~XfplayerViewLines()
+xfplayer_view_linea::~xfplayer_view_linea()
 {
 }
 
 
 
-void XfplayerViewLines::OnChildSetVisible(XfplayerViewLine * pline, bool bVisible)
+void xfplayer_view_linea::OnChildSetVisible(xfplayer_view_line * pline, bool bVisible)
 {
    synch_lock sl(m_pmutex);
    index iLineIndex = FindLine(pline);
@@ -58,17 +58,17 @@ void XfplayerViewLines::OnChildSetVisible(XfplayerViewLine * pline, bool bVisibl
 
 }
 
-index XfplayerViewLines::GetFirstVisibleLineIndex()
+index xfplayer_view_linea::GetFirstVisibleLineIndex()
 {
    return m_iFirstVisible;
 }
 
-index XfplayerViewLines::GetLastVisibleLineIndex()
+index xfplayer_view_linea::GetLastVisibleLineIndex()
 {
    return m_iLastVisible;
 }
 
-void XfplayerViewLines::Prepare()
+void xfplayer_view_linea::Prepare()
 {
    synch_lock sl(m_pmutex);
    for (int32_t i = 0; i < this->get_size(); i++)
@@ -78,18 +78,18 @@ void XfplayerViewLines::Prepare()
    }
 }
 
-void XfplayerViewLines::Prepare(XfplayerViewLine *lpViewLine)
+void xfplayer_view_linea::Prepare(xfplayer_view_line *lpViewLine)
 {
    synch_lock sl(m_pmutex);
    lpViewLine->m_pContainer = this;
 }
 
-void XfplayerViewLines::set_user_interaction(sp(::user::interaction) pinteraction)
+void xfplayer_view_linea::set_user_interaction(sp(::user::interaction) pinteraction)
 {
    m_pinteraction = pinteraction;
 }
 
-void XfplayerViewLines::SetEffect(int32_t iEffect)
+void xfplayer_view_linea::SetEffect(int32_t iEffect)
 {
    synch_lock sl(m_pmutex);
    for (int32_t i = 0; i < this->get_size(); i++)
@@ -98,12 +98,12 @@ void XfplayerViewLines::SetEffect(int32_t iEffect)
    }
 }
 
-void XfplayerViewLines::SetRenderWindow(::window_sp pwindow)
+void xfplayer_view_linea::SetRenderWindow(::window_sp pwindow)
 {
    UNREFERENCED_PARAMETER(pwindow);
 }
 
-index XfplayerViewLines::FindLine(XfplayerViewLine * pline)
+index xfplayer_view_linea::FindLine(xfplayer_view_line * pline)
 {
    synch_lock sl(m_pmutex);
    for (int32_t iLine = 0; iLine < this->get_size(); iLine++)
@@ -114,7 +114,7 @@ index XfplayerViewLines::FindLine(XfplayerViewLine * pline)
    return -1;
 }
 
-::user::e_line_hit XfplayerViewLines::hit_test(POINT &ptCursor, index &iLine, strsize &iChar)
+::user::e_line_hit xfplayer_view_linea::hit_test(POINT &ptCursor, index &iLine, strsize &iChar)
 {
    synch_lock sl(m_pmutex);
    for (index i = 0; i < this->get_size(); i++)
@@ -130,16 +130,16 @@ index XfplayerViewLines::FindLine(XfplayerViewLine * pline)
 
 }
 
-void XfplayerViewLines::InstallMessageHandling(::message::dispatch *pinterface)
+void xfplayer_view_linea::InstallMessageHandling(::message::dispatch *pinterface)
 {
-   IGUI_WIN_MSG_LINK(WM_MOUSEMOVE, pinterface, this, &XfplayerViewLines::OnMouseMove);
-   IGUI_WIN_MSG_LINK(WM_SETCURSOR, pinterface, this, &XfplayerViewLines::OnSetCursor);
-   //IGUI_WIN_MSG_LINK(WM_TIMER,        pinterface, this, &XfplayerViewLines::OnTimer);
-   IGUI_WIN_MSG_LINK(WM_LBUTTONDOWN, pinterface, this, &XfplayerViewLines::OnLButtonDown);
-   IGUI_WIN_MSG_LINK(WM_LBUTTONUP, pinterface, this, &XfplayerViewLines::OnLButtonUp);
+   IGUI_WIN_MSG_LINK(WM_MOUSEMOVE, pinterface, this, &xfplayer_view_linea::OnMouseMove);
+   IGUI_WIN_MSG_LINK(WM_SETCURSOR, pinterface, this, &xfplayer_view_linea::OnSetCursor);
+   //IGUI_WIN_MSG_LINK(WM_TIMER,        pinterface, this, &xfplayer_view_linea::OnTimer);
+   IGUI_WIN_MSG_LINK(WM_LBUTTONDOWN, pinterface, this, &xfplayer_view_linea::OnLButtonDown);
+   IGUI_WIN_MSG_LINK(WM_LBUTTONUP, pinterface, this, &xfplayer_view_linea::OnLButtonUp);
 }
 
-void XfplayerViewLines::OnMouseMove(signal_details * pobj)
+void xfplayer_view_linea::OnMouseMove(signal_details * pobj)
 {
    synch_lock sl(m_pmutex);
    for (int32_t i = 0; i < this->get_size(); i++)
@@ -152,7 +152,7 @@ void XfplayerViewLines::OnMouseMove(signal_details * pobj)
    }
 }
 
-void XfplayerViewLines::OnLButtonDown(signal_details * pobj)
+void xfplayer_view_linea::OnLButtonDown(signal_details * pobj)
 {
    synch_lock sl(m_pmutex);
    for (int32_t i = 0; i < this->get_size(); i++)
@@ -165,7 +165,7 @@ void XfplayerViewLines::OnLButtonDown(signal_details * pobj)
    }
 }
 
-void XfplayerViewLines::OnLButtonUp(signal_details * pobj)
+void xfplayer_view_linea::OnLButtonUp(signal_details * pobj)
 {
    synch_lock sl(m_pmutex);
    for (int32_t i = 0; i < this->get_size(); i++)
@@ -176,7 +176,7 @@ void XfplayerViewLines::OnLButtonUp(signal_details * pobj)
    }
 }
 
-void XfplayerViewLines::_001OnTimer(::timer * ptimer)
+void xfplayer_view_linea::_001OnTimer(::timer * ptimer)
 {
    synch_lock sl(m_pmutex);
    for (int32_t i = 0; i < this->get_size(); i++)
@@ -187,7 +187,7 @@ void XfplayerViewLines::_001OnTimer(::timer * ptimer)
    }
 }
 
-void XfplayerViewLines::OnSetCursor(signal_details * pobj)
+void xfplayer_view_linea::OnSetCursor(signal_details * pobj)
 {
    synch_lock sl(m_pmutex);
    for (int32_t i = 0; i < this->get_size(); i++)
@@ -198,7 +198,7 @@ void XfplayerViewLines::OnSetCursor(signal_details * pobj)
    }
 }
 
-void XfplayerViewLines::SetBlend(double dBlend)
+void xfplayer_view_linea::SetBlend(double dBlend)
 {
    synch_lock sl(m_pmutex);
    for (int32_t iLine = 0; iLine < this->get_size(); iLine++)
@@ -208,13 +208,13 @@ void XfplayerViewLines::SetBlend(double dBlend)
 }
 
 
-XfplayerViewLineSelection & XfplayerViewLines::GetSelection()
+XfplayerViewLineSelection & xfplayer_view_linea::GetSelection()
 {
    return m_selection;
 }
 
 
-void XfplayerViewLines::get_sel_text(string & strSelText, const char * pszLineSeparator)
+void xfplayer_view_linea::get_sel_text(string & strSelText, const char * pszLineSeparator)
 {
    synch_lock sl(m_pmutex);
    index iLineStart;
@@ -267,7 +267,7 @@ void XfplayerViewLines::get_sel_text(string & strSelText, const char * pszLineSe
 
 }
 
-string XfplayerViewLines::get_sel_text(const char * pszLineSeparator)
+string xfplayer_view_linea::get_sel_text(const char * pszLineSeparator)
 {
 
    string strSelText;
@@ -279,7 +279,7 @@ string XfplayerViewLines::get_sel_text(const char * pszLineSeparator)
 }
 
 
-void XfplayerViewLines::get_text(string & strText, const char * pszLineSeparator)
+void xfplayer_view_linea::get_text(string & strText, const char * pszLineSeparator)
 {
    synch_lock sl(m_pmutex);
    if (get_count() > 0)
@@ -300,7 +300,7 @@ void XfplayerViewLines::get_text(string & strText, const char * pszLineSeparator
 
 }
 
-string XfplayerViewLines::get_text(const char * pszLineSeparator)
+string xfplayer_view_linea::get_text(const char * pszLineSeparator)
 {
 
    string strText;

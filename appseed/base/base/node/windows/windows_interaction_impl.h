@@ -181,10 +181,10 @@ namespace windows
 
 
       // Window Text Functions
-      void SetWindowText(const char * lpszString);
-      strsize GetWindowText(LPTSTR lpszStringBuf,strsize nMaxCount);
-      void GetWindowText(string & rString);
-      strsize GetWindowTextLength();
+      virtual void set_window_text(const char * lpszString) override;
+      virtual strsize get_window_text(char * lpszStringBuf,strsize nMaxCount) override;
+      virtual void get_window_text(string & rString) override;
+      virtual strsize get_window_text_length() override;
 
       virtual void on_layout() override;
       virtual void on_translate() override;

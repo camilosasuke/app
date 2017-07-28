@@ -60,7 +60,7 @@ namespace filemanager
       ::filemanager::tab_view * ptabview = GetTypedParent < ::filemanager::tab_view >();
       if (ptabview != NULL)
       {
-         GetWindowText(str);
+         get_window_text(str);
          ptabview->SetTitleById(m_idTab, str);
       }
 

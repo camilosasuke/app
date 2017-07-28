@@ -484,7 +484,7 @@ namespace user
 
             string strName;
 
-            GetWindowText(strName);
+            get_window_text(strName);
 
             int32_t iStyle = get_window_long(GWL_STYLE);
 
@@ -3393,7 +3393,7 @@ namespace user
    }
 
 
-   void interaction::SetWindowText(const char * lpszString)
+   void interaction::set_window_text(const char * lpszString)
    {
 
       m_strWindowText = lpszString;
@@ -3401,14 +3401,14 @@ namespace user
       if(m_pimpl != NULL)
       {
 
-         m_pimpl->SetWindowText(lpszString);
+         m_pimpl->set_window_text(lpszString);
 
       }
 
    }
 
 
-   strsize interaction::GetWindowText(LPSTR lpszStringBuf,int32_t nMaxCount)
+   strsize interaction::get_window_text(char * lpszStringBuf, strsize nMaxCount)
    {
 
       strsize n = MIN(nMaxCount,m_strWindowText.get_length());
@@ -3420,19 +3420,19 @@ namespace user
    }
 
 
-   string interaction::GetWindowText()
+   string interaction::get_window_text()
    {
 
       string str;
 
-      GetWindowText(str);
+      get_window_text(str);
 
       return str;
 
    }
 
 
-   void interaction::GetWindowText(string & rString)
+   void interaction::get_window_text(string & rString)
    {
 
       synch_lock sl(m_pmutex);
@@ -3442,7 +3442,7 @@ namespace user
    }
 
 
-   strsize interaction::GetWindowTextLength()
+   strsize interaction::get_window_text_length()
    {
 
       synch_lock sl(m_pmutex);
@@ -3454,7 +3454,7 @@ namespace user
 
       }
       
-      return m_pimpl->GetWindowTextLength();
+      return m_pimpl->get_window_text_length();
 
    }
 

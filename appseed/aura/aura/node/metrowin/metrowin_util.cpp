@@ -74,7 +74,7 @@ oswindow CLASS_DECL_AURA __child_window_from_point(oswindow hWnd, POINT pt)
 
 void CLASS_DECL_AURA __set_window_text(::user::interaction * hWndCtrl, const char * lpszNew)
 {
-   hWndCtrl->SetWindowText(lpszNew);
+   hWndCtrl->set_window_text(lpszNew);
    /*ENSURE(hWndCtrl);
    ENSURE(lpszNew);
 

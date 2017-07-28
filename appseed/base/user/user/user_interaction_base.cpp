@@ -1143,13 +1143,13 @@ Restart:
    }
 
 
-   void interaction_base::SetWindowText(const char * lpszString)
+   void interaction_base::set_window_text(const char * lpszString)
    {
 
    }
 
 
-   strsize interaction_base::GetWindowText(LPSTR lpszStringBuf,int32_t nMaxCount)
+   strsize interaction_base::get_window_text(char * lpszStringBuf, strsize nMaxCount)
    {
 
       ::exception::throw_interface_only(get_app());
@@ -1159,7 +1159,7 @@ Restart:
    }
 
 
-   string interaction_base::GetWindowText()
+   string interaction_base::get_window_text()
    {
 
       ::exception::throw_interface_only(get_app());
@@ -1169,7 +1169,7 @@ Restart:
    }
 
 
-   void interaction_base::GetWindowText(string & rString)
+   void interaction_base::get_window_text(string & rString)
    {
 
       ::exception::throw_interface_only(get_app());
@@ -1177,7 +1177,7 @@ Restart:
    }
 
 
-   strsize interaction_base::GetWindowTextLength()
+   strsize interaction_base::get_window_text_length()
    {
 
       ::exception::throw_interface_only(get_app());

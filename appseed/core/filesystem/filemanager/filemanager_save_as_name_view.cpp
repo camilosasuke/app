@@ -317,7 +317,7 @@ namespace filemanager
 
       m_pbutton = create_pane_view < save_as_button >(1);
 
-      m_pbutton->SetWindowText("Save");
+      m_pbutton->set_window_text("Save");
 
       m_pbutton->m_pmanager = m_pmanager;
 

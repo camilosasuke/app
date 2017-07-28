@@ -58,7 +58,7 @@ namespace user
             m_iFullHeightItemCount++;
             pitemNewChild->m_id = strCommand;
             pitemNewChild->m_iLevel = 0;
-            pitemNewChild->m_button.SetWindowText(strCommandTitle);
+            pitemNewChild->m_button.set_window_text(strCommandTitle);
          }
          add_item(pitemNewChild);
       }
@@ -67,20 +67,27 @@ namespace user
 
    }
 
-   bool menu_item::load_menu(sp(::xml::node) lpnode)
+
+   bool menu_item::load_menu(::xml::node * pnode)
    {
-      m_iSeparatorCount = 0;
-      m_iFullHeightItemCount = 0;
-      return load_menu(lpnode, m_iLevel);
+
+      m_iSeparatorCount       = 0;
+      m_iFullHeightItemCount  = 0;
+
+      return load_menu(pnode, m_iLevel);
+
    }
 
-   bool menu_item::load_menu(sp(::xml::node) lpnode, int32_t iLevel)
+
+   bool menu_item::load_menu(::xml::node * pnode, int32_t iLevel)
    {
 
-      ::count iItemCount = lpnode->get_children_count();
+      ::count iItemCount = pnode->get_children_count();
+
       for(int32_t i = 0; i < iItemCount; i++)
       {
-         sp(::xml::node) pnodeChild = lpnode->child_at(i);
+
+         sp(::xml::node) pnodeChild = pnode->child_at(i);
 
          sp(menu_item) pitemNewChild = canew(menu_item(get_app()));
 
@@ -101,14 +108,24 @@ namespace user
             m_iFullHeightItemCount++;
             pitemNewChild->m_id = pnodeChild->attr("id");
             pitemNewChild->m_iLevel = iLevel;
+
+            string strText;
+
             if(pitemNewChild->m_bPopup)
             {
-               pitemNewChild->m_button.SetWindowText(pnodeChild->attr("title"));
+
+               strText = pnodeChild->attr("title");
+
             }
             else
             {
-               pitemNewChild->m_button.SetWindowText(pnodeChild->get_value());
+
+               strText = pnodeChild->get_value();
+
             }
+
+            pitemNewChild->m_button.set_window_text(strText);
+
          }
          add_item(pitemNewChild);
       }

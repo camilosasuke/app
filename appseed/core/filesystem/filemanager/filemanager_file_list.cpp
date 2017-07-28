@@ -780,7 +780,7 @@ namespace filemanager
             for(int32_t i = 0; i < iCount; i++)
             {
                pmenuitem->m_id = "open with" + stra[i];
-               pmenuitem->m_button.SetWindowText(stra[i]);
+               pmenuitem->m_button.set_window_text(stra[i]);
                pmenuitem->m_iLevel = pitema->m_pitemContainer != NULL ? pitema->m_pitemContainer->m_iLevel + 1 : 0;
                pmenuitem->m_pbase = pbase;
                pitema->insert_at(iIndex, pmenuitem);

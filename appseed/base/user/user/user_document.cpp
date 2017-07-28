@@ -122,7 +122,7 @@ namespace user
 
       while(pframe.is_set())
       {
-         pframe->SetWindowText(str);
+         pframe->set_window_text(str);
          pframe = pframe->GetParentFrame();
 
       }

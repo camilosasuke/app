@@ -348,9 +348,9 @@ namespace base
 
       pui = canew(::fontopus::simple_ui(this,strRequestUrl));
 
-      pui->m_login.m_peditUser->SetWindowText(strUsername);
+      pui->m_login.m_peditUser->set_window_text(strUsername);
 
-      pui->m_login.m_ppassword->SetWindowText("");
+      pui->m_login.m_ppassword->set_window_text("");
 
       string strResult = pui->get_cred(rect,strUsername,strPassword,strToken,strTitle);
 
@@ -569,7 +569,7 @@ namespace base
    bool application::set_window_text(::user::interaction * pui,const string & strText)
    {
 
-      pui->SetWindowText(strText);
+      pui->set_window_text(strText);
 
       return true;
 

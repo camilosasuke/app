@@ -1347,7 +1347,7 @@ namespace user
             GetMessageString((UINT)wParam, strMessage);
             lpsz = strMessage;
          }
-         pMessageBar->SetWindowText(lpsz);
+         pMessageBar->set_window_text(lpsz);
 
          // update owner of the bar in terms of last message selected
          sp(::user::frame_window) pFrameWnd = pMessageBar->GetParentFrame();
@@ -1472,7 +1472,7 @@ namespace user
 
       // set title if changed, but don't remove completely
       // Note: will be excessive for MDI Frame with maximized child
-      SetWindowText(WindowText);
+      set_window_text(WindowText);
    }
 
    /////////////////////////////////////////////////////////////////////////////

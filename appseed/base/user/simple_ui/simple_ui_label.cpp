@@ -72,7 +72,7 @@ namespace simple_ui
 
       string strText;
 
-      GetWindowText(strText);
+      get_window_text(strText);
 
       pgraphics->text_out(rectClient.left, (int32_t)(rectClient.top + fMargin), strText);
 

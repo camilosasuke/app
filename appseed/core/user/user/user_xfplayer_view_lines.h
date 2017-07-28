@@ -1,8 +1,8 @@
 #pragma once
 
 
-class CLASS_DECL_CORE XfplayerViewLines :
-   virtual public spa(XfplayerViewLine),
+class CLASS_DECL_CORE xfplayer_view_linea :
+   virtual public spa(xfplayer_view_line),
    virtual public signalizable
 {
 public:
@@ -14,26 +14,26 @@ public:
    index                         m_iLastVisible;
 
 
-   XfplayerViewLines(::aura::application * papp);
+   xfplayer_view_linea(::aura::application * papp);
 
 
    void SetBlend(double dBlend);
-   index FindLine(XfplayerViewLine * pline);
+   index FindLine(xfplayer_view_line * pline);
    void SetRenderWindow(::window_sp pwindow);
    void SetEffect(int32_t iEffect);
    void set_user_interaction(sp(::user::interaction) pinteraction);
-   void Prepare(XfplayerViewLine * lpViewLine);
+   void Prepare(xfplayer_view_line * lpViewLine);
    void Prepare();
 
    index GetFirstVisibleLineIndex();
    index GetLastVisibleLineIndex();
-   void OnChildSetVisible(XfplayerViewLine * lpViewLine, bool bVisible);
+   void OnChildSetVisible(xfplayer_view_line * lpViewLine, bool bVisible);
 
    user::e_line_hit hit_test(POINT &ptCursor, strsize &iLine, strsize &iChar);
 
    void InstallMessageHandling(::message::dispatch *pinterface);
 
-   virtual ~XfplayerViewLines();
+   virtual ~xfplayer_view_linea();
 
    DECL_GEN_SIGNAL(OnMouseMove);
    DECL_GEN_SIGNAL(OnLButtonDown);

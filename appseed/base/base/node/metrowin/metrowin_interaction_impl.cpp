@@ -712,7 +712,7 @@ namespace metrowin
       //
       // dump out interaction_impl specific statistics
       //      if (!const_cast < interaction_impl * > (this)->send_message(WM_QUERYAFXWNDPROC, 0, 0) && pWnd == this)
-      //       ((::user::interaction_impl *) this)->GetWindowText(szBuf, _countof(szBuf));
+      //       ((::user::interaction_impl *) this)->get_window_text(szBuf, _countof(szBuf));
 #ifdef WINDOWSEX
       char szBuf [64];
       else

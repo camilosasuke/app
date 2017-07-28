@@ -1,6 +1,6 @@
 #pragma once
 
-class XfplayerViewLine;
+class xfplayer_view_line;
 
 class CLASS_DECL_CORE XfplayerViewLineSelectionItem  
 {
@@ -26,7 +26,7 @@ public:
       // Construction / Destruction
 public:
    void NormalizeSel();
-   bool Intersect(XfplayerViewLine & viewline);
+   bool Intersect(xfplayer_view_line & viewline);
    bool Intersect(index iLineStart, index iLineEnd);
    XfplayerViewLineSelectionItem();
    XfplayerViewLineSelectionItem(
@@ -79,17 +79,17 @@ public:
 
       // Conxtruction / Destruction
 public:
-   bool get_item(XfplayerViewLineSelectionItem & item, XfplayerViewLine & viewline);
+   bool get_item(XfplayerViewLineSelectionItem & item, xfplayer_view_line & viewline);
    e_state GetState();
    XfplayerViewLineSelection();
    virtual ~XfplayerViewLineSelection();
 
 
-   virtual void relay_event(XfplayerViewLine & viewline, signal_details * pobj);
-   virtual void OnSelEvent(XfplayerViewLine & viewline, e_event eselevent);
-   bool SetSelBefore(XfplayerViewLine & viewline);
-   bool SetSelAfter(XfplayerViewLine & viewline);
-   void NormalizeSel(XfplayerViewLine & viewline);
+   virtual void relay_event(xfplayer_view_line & viewline, signal_details * pobj);
+   virtual void OnSelEvent(xfplayer_view_line & viewline, e_event eselevent);
+   bool SetSelBefore(xfplayer_view_line & viewline);
+   bool SetSelAfter(xfplayer_view_line & viewline);
+   void NormalizeSel(xfplayer_view_line & viewline);
    void GetNormalSelection(index & iLineStart, strsize & iCharStart, index & iLineEnd, strsize & iCharEnd);
 
    void Select(
@@ -103,10 +103,10 @@ public:
 
    XfplayerViewLineSelection & operator =(XfplayerViewLineSelection & selection);
 
-   bool OnMouseMove(XfplayerViewLine & viewline, UINT user, point pt);
-   bool OnLButtonDown(XfplayerViewLine & viewline, UINT user, point pt);
-   bool OnLButtonUp(XfplayerViewLine & viewline, UINT user, point pt);
-   bool OnTimer(XfplayerViewLine & viewline, UINT user);
+   bool OnMouseMove(xfplayer_view_line & viewline, UINT user, point pt);
+   bool OnLButtonDown(xfplayer_view_line & viewline, UINT user, point pt);
+   bool OnLButtonUp(xfplayer_view_line & viewline, UINT user, point pt);
+   bool OnTimer(xfplayer_view_line & viewline, UINT user);
 
 };
 

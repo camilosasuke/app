@@ -945,7 +945,7 @@ namespace windows
       // dump out interaction_impl specific statistics
       char szBuf[64];
       //if (!const_cast < interaction_impl * > (this)->send_message(WM_QUERYAFXWNDPROC, 0, 0) && pwindow == this)
-      // ((::windows::interaction_impl *)this)->GetWindowText(szBuf, _countof(szBuf));
+      // ((::windows::interaction_impl *)this)->get_window_text(szBuf, _countof(szBuf));
       //else
       // ::DefWindowProc(((::windows::interaction_impl *)this)->get_handle(), WM_GETTEXT, _countof(szBuf), (LPARAM)&szBuf[0]);
       //dumpcontext << "\ncaption = \"" << szBuf << "\"";
@@ -4265,7 +4265,7 @@ namespace windows
 
    }
 
-   void interaction_impl::SetWindowText(const char * lpszString)
+   void interaction_impl::set_window_text(const char * lpszString)
    {
 
       DWORD_PTR lresult = 0;
@@ -4281,12 +4281,12 @@ namespace windows
 
    }
 
-   strsize interaction_impl::GetWindowText(LPTSTR lpszString, strsize nMaxCount)
+   strsize interaction_impl::get_window_text(char * lpszString, strsize nMaxCount)
    {
 
       string str;
 
-      GetWindowText(str);
+      get_window_text(str);
 
       strncpy(lpszString, str, MIN(nMaxCount, str.get_length()));
 
@@ -4294,7 +4294,7 @@ namespace windows
 
    }
 
-   void interaction_impl::GetWindowText(string & str)
+   void interaction_impl::get_window_text(string & str)
    {
 
       DWORD_PTR lresult = 0;
@@ -4311,7 +4311,7 @@ namespace windows
 
    }
 
-   strsize interaction_impl::GetWindowTextLength()
+   strsize interaction_impl::get_window_text_length()
    {
 
       ASSERT(::IsWindow(get_handle()));
@@ -6137,7 +6137,7 @@ namespace windows
 
 
 #define VARIAS_MENSAGENS_DO_WINDOWS_RECEBIDAS_PELA_FUNCAO_QUE_RECEBE_AS_MENSAGENS_A_FUNCAO_QUE_RECEBE_AS_MENSAGENS_RETORNA_1_SE_A_MENSAGEM_SE_PROCESSOU_OU_QUER_DIZER_QUE_PROCESSOU_SERA_QUE_ATINGIU_O_LIMITE 1
-// isso é um comentario e zero (0) se não processou
+// isso ï¿½ um comentario e zero (0) se nï¿½o processou
 LRESULT CALLBACK __window_procedure(oswindow oswindow, UINT message, WPARAM wparam, LPARAM lparam)
 {
 

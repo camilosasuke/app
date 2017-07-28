@@ -1498,7 +1498,7 @@ namespace user
       return false;
    }
 
-   void interaction_impl::SetWindowText(const char * lpszString)
+   void interaction_impl::set_window_text(const char * lpszString)
    {
       UNREFERENCED_PARAMETER(lpszString);
       ::exception::throw_interface_only(get_app());

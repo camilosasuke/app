@@ -336,7 +336,7 @@ namespace user
 
       if(!pcontrol->Validate(str))
       {
-         // que tal um balão para indicar o erro
+         // que tal um balï¿½o para indicar o erro
          return false;
       }
 
@@ -804,7 +804,7 @@ namespace user
 
             str.load_string(get_app(), descriptor.m_id);
 
-            descriptor.get_control(this)->SetWindowText(str);
+            descriptor.get_control(this)->set_window_text(str);
 
          }
          else if(descriptor.has_function(control::function_static2))
@@ -814,7 +814,7 @@ namespace user
 
             str.load_string(get_app(), descriptor.m_uiText);
 
-            descriptor.get_control(this)->SetWindowText(str);
+            descriptor.get_control(this)->set_window_text(str);
 
          }
 

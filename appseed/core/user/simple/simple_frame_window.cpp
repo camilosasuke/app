@@ -550,10 +550,10 @@ void simple_frame_window::_001OnCreate(signal_details * pobj)
    }
 
 
-   if (GetWindowText().is_empty())
+   if (get_window_text().is_empty())
    {
 
-      SetWindowText(Application.get_app_user_friendly_task_bar_name());
+      set_window_text(Application.get_app_user_friendly_task_bar_name());
 
    }
 
@@ -2778,7 +2778,7 @@ void simple_frame_window::_010OnDraw(::draw2d::graphics * pgraphics)
 
                   string str;
 
-                  pui->GetWindowText(str);
+                  pui->get_window_text(str);
 
                   if (str == "r")
                   {

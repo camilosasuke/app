@@ -27,8 +27,8 @@ namespace user
 
       void add_item(menu_item * pitem);
       bool create_menu(const stringa & straCommand, const stringa & straCommandTitle);
-      bool load_menu(sp(::xml::node) lpnode);
-      bool load_menu(sp(::xml::node) lpnode, int32_t iLevel);
+      bool load_menu(::xml::node * pxmlnode);
+      bool load_menu(::xml::node * pxmlnode, int32_t iLevel);
 
       virtual void OnAddRef();
       virtual void OnRelease();

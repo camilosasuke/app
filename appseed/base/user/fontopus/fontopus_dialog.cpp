@@ -234,7 +234,7 @@ namespace fontopus
       if(!create_window_ex(0,NULL,NULL,0,rectFontopus,puiParent,"fontopus"))
          return "";
 
-      SetWindowText( "fontopus Auth Windows");
+      set_window_text( "fontopus Auth Windows");
 
       SetWindowPos(ZORDER_TOP,rectFontopus,SWP_SHOWWINDOW);
 

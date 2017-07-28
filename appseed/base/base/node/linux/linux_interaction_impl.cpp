@@ -788,7 +788,7 @@ namespace linux
       // dump out interaction_impl specific statistics
       char szBuf [64];
 //      if (!const_cast < interaction_impl * > (this)->send_message(WM_QUERYAFXWNDPROC, 0, 0) && pWnd == this)
-  //       ((::interaction_impl *) this)->GetWindowText(szBuf, _countof(szBuf));
+  //       ((::interaction_impl *) this)->get_window_text(szBuf, _countof(szBuf));
   //    else
 //         ::DefWindowProc(get_handle(), WM_GETTEXT, _countof(szBuf), (LPARAM)&szBuf[0]);
     //  dumpcontext << "\ncaption = \"" << szBuf << "\"";

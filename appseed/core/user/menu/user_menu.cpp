@@ -107,7 +107,7 @@ namespace user
          return false;
 
 
-      m_itemClose.m_button.SetWindowText("r");
+      m_itemClose.m_button.set_window_text("r");
       m_itemClose.m_button.set_stock_icon(stock_icon_close);
       m_itemClose.m_button.m_pschema = m_pschema->m_pschemaSysMenuCloseButton;
       //m_itemClose.m_button.SetFont(m_itemClose.m_button.m_pschema->m_font);
@@ -125,23 +125,6 @@ namespace user
 
       return true;
    }
-
-
-   //bool menu::get_font(::draw2d::font_sp & spfont)
-   //{
-
-   //   if (m_pschema == NULL)
-   //   {
-
-   //      return false;
-
-   //   }
-
-   //   spfont = m_pschema->m_font;
-
-   //   return true;
-
-   //}
 
 
    void menu::layout_menu(point pt)
@@ -177,7 +160,7 @@ namespace user
       for (int32_t i = 0; i < spitema->get_size(); i++)
       {
          
-         string strButtonText = spitema->element_at(i)->m_button.GetWindowText();
+         string strButtonText = spitema->element_at(i)->m_button.get_window_text();
          
          class size size = pgraphics->GetTextExtent(strButtonText);
 
@@ -363,73 +346,8 @@ namespace user
          pgraphics->FillSolidRect(rectClient, ARGB(255, 255, 255, 255));
 
       }
-//      bool bEnabled = is_window_enabled();
-//      rect rectClient;
-//      GetClientRect(rectClient);
-//      if(_001IsTranslucent())
-//      {
-//         class imaging & imaging = System.visual().imaging();
-//         imaging.color_blend(
-//            pgraphics,
-//            rectClient,
-//            RGB(200, 255, 255),
-//            127);
-//      }
-//      else
-//      {
-//
-//#ifdef WINDOWSEX
-//
-//         pgraphics->FillSolidRect(rectClient, Session.get_default_color(COLOR_WINDOW));
-//
-//#else
-//
-//         throw todo(get_app());
-//
-//#endif
-//
-//      }
-
-      /*int32_t iMaxHeight = 0;
-      int32_t iMaxWidth = 0;
-      rect rect(4, m_iHeaderHeight + 4, m_size.cx - 8, 4);
-      pgraphics->set_text_color(RGB(0, 0, 0));
-      pgraphics->SetBkMode(TRANSPARENT);
-      pgraphics->SelectObject(m_pschema->m_font);
-      string str;
-      for(int32_t i = 0; i < m_pitem->m_pitema->get_size(); i++)
-      {
-         menu_item * pitem = m_pitem->m_pitema->element_at(i);
-         if(pitem->m_iId  == -1)
-         {
-            rect.bottom = rect.top + 3;
-         }
-         else
-         {
-            rect.bottom = rect.top + m_iItemHeight;
-            str = pitem->m_str;
-            pgraphics->draw_text(str, rect, DT_LEFT | DT_BOTTOM);
-         }
-         if(pitem->IsPopup())
-         {
-            rect rectPopupArrow(rect);
-            rectPopupArrow.left = rectPopupArrow.right - 5;
-            array < point, point & > pta;
-            pta.add(point(rectPopupArrow.left, rectPopupArrow.bottom - 2));
-            pta.add(point(rectPopupArrow.right, (rectPopupArrow.bottom + rectPopupArrow.top) / 2));
-            pta.add(point(rectPopupArrow.left, rectPopupArrow.top + 2));
-            pta.add(point(rectPopupArrow.left, rectPopupArrow.bottom - 2));
-            pgraphics->Polygon(pta.get_data(), pta.get_size());
-         }
-         rect.top = rect.bottom;
-      }*/
-
       ::user::interaction::_001OnDraw(pgraphics);
 
-      //rect r;
-      //GetClientRect(r);
-
-      //pgraphics->FillSolidRect(r, ARBV)
    }
 
 
@@ -734,12 +652,15 @@ namespace user
       IGUI_WIN_MSG_LINK(WM_SHOWWINDOW       , pinterface, this, &menu::_001OnShowWindow);
    }
 
+
    void menu::_001OnCreate(signal_details * pobj)
    {
+
       UNREFERENCED_PARAMETER(pobj);
-//      SCAST_PTR(::message::create, pcreate, pobj);
+
       m_pschema            = &::user::GetUfeSchema(get_app())->m_menu;
-      return;
+
+      
    }
 
 
@@ -786,7 +707,6 @@ namespace user
    void menu::_001OnEnable(signal_details * pobj)
    {
       UNREFERENCED_PARAMETER(pobj);
-//      SCAST_PTR(::message::enable, penable, pobj);
    }
 
 

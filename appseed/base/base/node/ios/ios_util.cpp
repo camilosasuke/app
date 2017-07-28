@@ -72,7 +72,7 @@
  
  void CLASS_DECL_lnx AfxSetWindowText(::user::interaction * hWndCtrl, const char * lpszNew)
  {
- hWndCtrl->SetWindowText(lpszNew);
+ hWndCtrl->set_window_text(lpszNew);
 ENSURE(hWndCtrl);
  ENSURE(lpszNew);
  

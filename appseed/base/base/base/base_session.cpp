@@ -694,9 +694,9 @@ namespace base
 
       pdialog = canew(::fontopus::dialog(papp,strRequestUrl));
 
-      pdialog->m_login.m_peditUser->SetWindowText(strUsername);
+      pdialog->m_login.m_peditUser->set_window_text(strUsername);
 
-      pdialog->m_login.m_ppassword->SetWindowText("");
+      pdialog->m_login.m_ppassword->set_window_text("");
 
       string strResult = pdialog->get_cred(rect,strUsername,strPassword,strToken,strTitle);
 

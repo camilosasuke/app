@@ -823,7 +823,7 @@ namespace macos
       // dump out user::interaction specific statistics
       char szBuf[64];
       //      if (!const_cast < user::interaction * > (this)->send_message(WM_QUERYAFXWNDPROC, 0, 0) && pWnd == this)
-      //         ((::user::interaction *) this)->GetWindowText(szBuf, _countof(szBuf));
+      //         ((::user::interaction *) this)->get_window_text(szBuf, _countof(szBuf));
             //    else
             //         ::DefWindowProc(get_handle(), WM_GETTEXT, _countof(szBuf), (LPARAM)&szBuf[0]);
       dumpcontext << "\ncaption = \"" << szBuf << "\"";

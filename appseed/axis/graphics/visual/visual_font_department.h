@@ -12,7 +12,7 @@ namespace visual
 }
 
 
-typedef spa(visual::font) CVmsGdiFontPtrArray;
+typedef spa(visual::font) visual_font_spa;
 
 
 class CLASS_DECL_AXIS font_department :
@@ -39,9 +39,9 @@ public:
    sp(visual::font)                 m_pfontLyric;
    sp(visual::font)                 m_pfontLyricCompact;
    sp(visual::font)                 m_pxffontMidiTrackName;
-   CVmsGdiFontPtrArray              m_pTitleFonts;
-   CVmsGdiFontPtrArray              m_pSubTitleFonts;
-   CVmsGdiFontPtrArray              m_pH3TitleFonts;
+   visual_font_spa              m_pTitleFonts;
+   visual_font_spa              m_pSubTitleFonts;
+   visual_font_spa              m_pH3TitleFonts;
    bool                             m_bInitialized;
    bool                             m_bLyric;
 
@@ -60,9 +60,9 @@ public:
    ::draw2d::font * GetMenuFont();
    visual::font * GetLyricViewFont();
    visual::font * GetLyricViewCompactFont();
-   CVmsGdiFontPtrArray & GetTitleFonts();
-   CVmsGdiFontPtrArray & GetSubTitleFonts();
-   CVmsGdiFontPtrArray & GetH3TitleFonts();
+   visual_font_spa & GetTitleFonts();
+   visual_font_spa & GetSubTitleFonts();
+   visual_font_spa & GetH3TitleFonts();
 
    void CreateLyricViewFonts();
    void DestroyLyricViewFonts();

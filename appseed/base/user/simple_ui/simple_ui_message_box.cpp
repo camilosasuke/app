@@ -55,7 +55,7 @@ namespace simple_ui
 
       sp(::simple_ui::tap) ptap = canew(::simple_ui::tap(get_app()));
       ptap->create_window(null_rect(), this,id);
-      ptap->SetWindowText(pszText);
+      ptap->set_window_text(pszText);
 
       tapa.add(ptap);
 
@@ -93,7 +93,7 @@ namespace simple_ui
 
       }
 
-      SetWindowText(m_strTitle);
+      set_window_text(m_strTitle);
 
       rect rectFontopus;
 

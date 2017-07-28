@@ -4,10 +4,10 @@
 #include "user_xfplayer_view_line_selection.h"
 
 
-class XfplayerViewLines;
+class xfplayer_view_linea;
 
 
-class CLASS_DECL_CORE XfplayerViewLine  :
+class CLASS_DECL_CORE xfplayer_view_line  :
    virtual public ::object
 {
 public:
@@ -51,7 +51,7 @@ public:
    bool                             m_bAutoSizeY;
    int32_t                              m_iAlign;
    ::user::interaction *            m_oswindow;
-   XfplayerViewLines *              m_pContainer;
+   xfplayer_view_linea *              m_pContainer;
 
    // 08, May 2004 attributes
    ::draw2d::graphics_sp                m_dc1;
@@ -94,10 +94,10 @@ public:
    COLORREF                         m_crLyricLeft;
    COLORREF                         m_crLyricRight;
 
-   XfplayerViewLine(::aura::application * papp);
-   XfplayerViewLine(const XfplayerViewLine & line);
-   XfplayerViewLine(XfplayerViewLines * pContainer);
-   virtual ~XfplayerViewLine();
+   xfplayer_view_line(::aura::application * papp);
+   xfplayer_view_line(const xfplayer_view_line & line);
+   xfplayer_view_line(xfplayer_view_linea * pContainer);
+   virtual ~xfplayer_view_line();
 
 
    void SetBlend(double d);
@@ -183,7 +183,7 @@ public:
    void OnTimerAnimate(::draw2d::graphics * pgraphics, rect_array &   rectaModified);
 
    void Show(bool bShow = true);
-   virtual XfplayerViewLine & operator = (const XfplayerViewLine & src);
+   virtual xfplayer_view_line & operator = (const xfplayer_view_line & src);
    void GetPlacement(LPRECT lpRect);
    void SetPlaement(const RECT & rect);
    void SetAlign(int32_t iAlign);

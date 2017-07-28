@@ -78,7 +78,7 @@ namespace user
 
          string str;
 
-         GetWindowText(str);
+         get_window_text(str);
 
          select_font(pgraphics, font_button, this);
 
