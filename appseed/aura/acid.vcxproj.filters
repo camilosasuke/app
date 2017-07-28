@@ -1802,10 +1802,10 @@
     <ClInclude Include="primitive\math\math_binary_operation.h">
       <Filter>Header Files\primitive\math</Filter>
     </ClInclude>
-    <ClInclude Include="graphics\visual\visual.h">
-      <Filter>Source Files\graphics\visual</Filter>
-    </ClInclude>
     <ClInclude Include="graphics\graphics.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\visual\visual.h">
       <Filter>Header Files\graphics</Filter>
     </ClInclude>
   </ItemGroup>
@@ -2001,39 +2001,6 @@
     </ClCompile>
     <ClCompile Include="aura\crypto\_crypto.cpp">
       <Filter>Source Files\aura\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\fontopus\fontopus.cpp">
-      <Filter>Source Files\aura\fontopus</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\fontopus\fontopus_authentication_map.cpp">
-      <Filter>Source Files\aura\fontopus</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\fontopus\fontopus_contact_list.cpp">
-      <Filter>Source Files\aura\fontopus</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\fontopus\fontopus_fontopus.cpp">
-      <Filter>Source Files\aura\fontopus</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\fontopus\fontopus_licensing.cpp">
-      <Filter>Source Files\aura\fontopus</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\fontopus\fontopus_user.cpp">
-      <Filter>Source Files\aura\fontopus</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\fontopus\fontopus_usera.cpp">
-      <Filter>Source Files\aura\fontopus</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\fontopus\fontopus_user_authentication.cpp">
-      <Filter>Source Files\aura\fontopus</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\fontopus\fontopus_user_set.cpp">
-      <Filter>Source Files\aura\fontopus</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\fontopus\fontopus_validate.cpp">
-      <Filter>Source Files\aura\fontopus</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\fontopus\fontopus_validate1.cpp">
-      <Filter>Source Files\aura\fontopus</Filter>
     </ClCompile>
     <ClCompile Include="aura\fontopus\_fontopus.cpp">
       <Filter>Source Files\aura\fontopus</Filter>
@@ -2326,63 +2293,6 @@
     <ClCompile Include="aura\install\_install.cpp">
       <Filter>Source Files\aura\install</Filter>
     </ClCompile>
-    <ClCompile Include="aura\install\install_window.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_trace_file.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_trace.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_tool.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_socket_thread.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_socket_handler.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_socket.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_small_bell.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_module_list.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_launcher.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_installer_square.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_installer_launcher.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_installer.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_install_item.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_install.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_focus.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_bootstrap.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install_application.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\install\install.cpp">
-      <Filter>Source Files\aura\install</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="multithreading\multithreading.inl">
@@ -2432,13 +2342,5 @@
     <ResourceCompile Include="aura.rc">
       <Filter>Source Files</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="aura\scripting\javascript\from_tiny_js_42.txt">
-      <Filter>Source Files\aura\scripting\javascript</Filter>
-    </Text>
-    <Text Include="aura\compress\zip\algorithm.txt">
-      <Filter>Source Files\aura\compress\zip</Filter>
-    </Text>
   </ItemGroup>
 </Project>

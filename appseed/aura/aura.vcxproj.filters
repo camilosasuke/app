@@ -1235,9 +1235,6 @@
     <ClInclude Include="aura\aura\aura_draw2d.h">
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
-    <ClInclude Include="aura\aura\aura_element.h">
-      <Filter>Header Files\aura\aura</Filter>
-    </ClInclude>
     <ClInclude Include="aura\aura\aura_enum.h">
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
@@ -1248,9 +1245,6 @@
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
     <ClInclude Include="aura\aura\aura_file_watcher_listener_thread.h">
-      <Filter>Header Files\aura\aura</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\aura\aura_file_watcher_thread.h">
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
     <ClInclude Include="aura\aura\aura_fixed_alloc.h">
@@ -1275,9 +1269,6 @@
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
     <ClInclude Include="aura\aura\aura_library.h">
-      <Filter>Header Files\aura\aura</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\aura\aura_live_object.h">
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
     <ClInclude Include="aura\aura\aura_live_signal.h">
@@ -1337,9 +1328,6 @@
     <ClInclude Include="aura\aura\aura_simple_app.h">
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
-    <ClInclude Include="aura\aura\aura_simple_pixel_font.h">
-      <Filter>Header Files\aura\aura</Filter>
-    </ClInclude>
     <ClInclude Include="aura\aura\aura_smart_pointer1.h">
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
@@ -1362,9 +1350,6 @@
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
     <ClInclude Include="aura\aura\aura_types.h">
-      <Filter>Header Files\aura\aura</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\aura\aura_url.h">
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
     <ClInclude Include="aura\os\os_binreloc.h">
@@ -1830,9 +1815,6 @@
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
     <ClInclude Include="aura\aura\aura_template.h">
-      <Filter>Header Files\aura\aura</Filter>
-    </ClInclude>
-    <ClInclude Include="aura\aura\axis.h">
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
     <ClInclude Include="aura\aura\aura_user.h">
@@ -2714,9 +2696,6 @@
     <ClInclude Include="primitive\primitive_property.h">
       <Filter>Header Files\primitive</Filter>
     </ClInclude>
-    <ClInclude Include="aura\aura\simple_log.h">
-      <Filter>Header Files\aura\aura</Filter>
-    </ClInclude>
     <ClInclude Include="primitive\str\str_str3.h">
       <Filter>Header Files\primitive\str</Filter>
     </ClInclude>
@@ -2872,6 +2851,12 @@
     </ClInclude>
     <ClInclude Include="aura\install\install2.h">
       <Filter>Header Files\aura\install</Filter>
+    </ClInclude>
+    <ClInclude Include="aura\aura\aura_simple_log.h">
+      <Filter>Header Files\aura\aura</Filter>
+    </ClInclude>
+    <ClInclude Include="aura\aura\aaa_want_to_remove_axis.h">
+      <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -5051,9 +5036,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="aura\compress\zip\algorithm.txt">
-      <Filter>Source Files\aura\compress\zip</Filter>
-    </Text>
     <Text Include="aura\scripting\javascript\from_tiny_js_42.txt">
       <Filter>Source Files\aura\scripting\javascript</Filter>
     </Text>
