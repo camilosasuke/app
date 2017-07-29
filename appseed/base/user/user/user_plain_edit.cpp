@@ -303,8 +303,10 @@ namespace user
          m_bFocus = false;
       }
 
-      strsize iSelStart;
+      strsize iSelBeg;
       strsize iSelEnd;
+      strsize iSelBegOriginal;
+      strsize iSelEndOriginal;
       strsize lim = 0;
 
       ::draw2d::pen_sp & penCaret = m_pinternal->m_penCaret;
@@ -345,9 +347,17 @@ namespace user
       pgraphics->OffsetViewportOrg(-ptOffset.x, 0);
 
       double y = rectClient.top;
-      _001GetViewSel(iSelStart, iSelEnd);
-      strsize iCursor = iSelEnd;
-      sort::sort(iSelStart, iSelEnd);
+      
+      _001GetViewSel(iSelBegOriginal, iSelEndOriginal);
+
+      iSelBeg = iSelBegOriginal;
+
+      iSelEnd = iSelEndOriginal;
+      
+      strsize iCursor = iSelEndOriginal;
+
+      sort::sort(iSelBeg, iSelEnd);
+
       select_font(pgraphics, font_plain_edit, this);
 
       pgraphics->set_text_rendering(::draw2d::text_rendering_anti_alias);
@@ -382,10 +392,17 @@ namespace user
          strLineGraphics = strLine;
 
          colorertake5::LineRegion * pregion = NULL;
+
          if (m_bColorerTake5)
+         {
+
             pregion = pcolorer->getLineRegions(i);
+
+         }
+
          if (pregion != NULL)
          {
+
             for (; pregion != NULL; pregion = pregion->next)
             {
                if (pregion->special || pregion->rdef == NULL)
@@ -441,13 +458,18 @@ namespace user
             }
 
             strsize iErrorBeg = -1;
+
             strsize iErrorEnd = -1;
+
             strsize iErrorA = 0;
 
             if (m_errora.get_size() > 0)
             {
-               DWORD dwTimeout = 1284;
-               DWORD dwPeriod = 84;
+
+               DWORD dwTimeout = 1000;
+
+               DWORD dwPeriod = 100;
+
                if (::get_tick_count() - m_errora[0].m_dwTime > dwTimeout)
                {
                   if (::get_tick_count() - m_errora[0].m_dwTime < (dwTimeout + dwPeriod))
@@ -466,15 +488,42 @@ namespace user
                   iErrorEnd = MIN(iErrorEnd, strLine.get_length());
                }
             }
+            
             stringa stra;
-            strsize i1 = iSelStart - lim;
-            strsize i2 = iSelEnd - lim;
-            strsize i3 = iCursor - lim;
-            strsize iStart = MAX(0, i1);
-            strsize iStart1 = iStart;
-            strsize iEnd = MAX(0, MIN(i2, strLine.get_length()));
-            strsize iEnd1 = iEnd;
-            ::str::replace_tab(0, strLineGraphics, m_iTabWidth, { &iStart, &iEnd, &i1, &i2, &i3 });
+
+            strsize iCurLineSelBeg = iSelBeg - lim;
+
+            strsize iCurLineSelEnd = iSelEnd - lim;
+
+            strsize iCurLineSelCur = iCursor - lim;
+
+            if (iCurLineSelBeg < 0)
+            {
+
+               iCurLineSelBeg = 0;
+
+            }
+            else if (iCurLineSelBeg >= strLineGraphics.length())
+            {
+
+               iCurLineSelBeg = strLineGraphics.length();
+
+            }
+
+            if (iCurLineSelEnd < 0)
+            {
+
+               iCurLineSelEnd = 0;
+
+            }
+            else if (iCurLineSelEnd >= strLineGraphics.length())
+            {
+
+               iCurLineSelEnd = strLineGraphics.length();
+
+            }
+
+            ::str::replace_tab(0, strLineGraphics, m_iTabWidth, { &iCurLineSelBeg, &iCurLineSelEnd, &iCurLineSelCur});
 
             if (m_bPassword)
             {
@@ -483,50 +532,87 @@ namespace user
 
             }
 
-            double x1 = get_line_extent(iLine, iStart1);
-            double x2 = get_line_extent(iLine, iEnd1);
+            double x1 = get_line_extent(iLine, iCurLineSelBeg);
+            
+            double x2 = get_line_extent(iLine, iCurLineSelEnd);
+
             if (m_bPassword)
             {
+
                strLineGraphics = ::str::block('*', strLineGraphics.get_length());
+
             }
 
-            if (iEnd > iStart)
+            if (iCurLineSelEnd > iCurLineSelBeg)
             {
+
                pgraphics->FillSolidRect(
                   (double)((double)left + x1),
                   (double)y,
                   (double)MIN(x2-x1, (double)rectClient.right - ((double)left + x1)),
                   (double)MIN((double)m_iLineHeight, (double)rectClient.bottom - y),
                   crBkSel);
+
                pgraphics->SelectObject(brushTextSel);
+
             }
 
 
-            if (bOverride)
+            if(bOverride)
             {
+
                brushText->create_solid(crOverride);
+
                pgraphics->SelectObject(brushText);
+
             }
             else
             {
+
                pgraphics->SelectObject(brushTextCr);
+
             }
-            pgraphics->text_out(left, y, strLineGraphics.Left(i1));
-            pgraphics->text_out(left+x2, y, strLineGraphics.Mid(i2));
+
+            
+            if(iCurLineSelBeg > 0)
+            {
+
+               // Draw Normal Text - not selected - before selection
+               pgraphics->text_out(left, y, strLineGraphics.Left(iCurLineSelBeg));
+
+            }
+            
+            if (iCurLineSelBeg < strLineGraphics.get_length())
+            {
+
+               // Draw Normal Text - not selected - after selection
+               pgraphics->text_out(left + x2, y, strLineGraphics.Mid(iCurLineSelEnd));
+
+            }
+
             if (bOverride)
             {
+
             }
             else
             {
+
                pgraphics->SelectObject(brushTextSel);
+
             }
-            pgraphics->text_out(left+x1, y, strLineGraphics.Mid(i1, i2 - i1));
+
+            if (iCurLineSelBeg >= 0 && iCurLineSelEnd > iCurLineSelBeg)
+            {
+
+               // Draw Selected Text
+               pgraphics->text_out(left + x1, y, strLineGraphics.Mid(iCurLineSelBeg, iCurLineSelEnd - iCurLineSelBeg));
+
+            }
 
             if (0 <= iErrorBeg && iErrorBeg <= strExtent1.length())
             {
 
                double xA = get_line_extent(iLine, iErrorBeg);
-
 
                double xB = get_line_extent(iLine, MIN(iErrorEnd, strExtent1.length()));
 
@@ -540,29 +626,37 @@ namespace user
 
             }
 
-
-            //maxcy = MAX(size1.cy, size2.cy);
-            //maxcy = MAX(maxcy, size3.cy);
-            if (m_bFocus && bCaretOn && i3 == iStart)
+            if (iCurLineSelCur >= 0 && m_bFocus && bCaretOn && iCurLineSelCur == iCurLineSelBeg)
             {
+
                pgraphics->SelectObject(penCaret);
+
                pgraphics->MoveTo(left + x1, y);
-               pgraphics->LineTo(left + x1, y + iLineHeight);
-            }
-            else if (m_bFocus && bCaretOn && i3 == iEnd1)
-            {
-               pgraphics->SelectObject(penCaret);
-               pgraphics->MoveTo(left + x2 + x1, y);
-               pgraphics->LineTo(left + x2 + x1, y + iLineHeight);
-            }
-         }
-         y += m_iLineHeight;
-         lim += m_iaLineLen[iLine];
-         //ASSERT(FALSE);
-      }
 
+               pgraphics->LineTo(left + x1, y + iLineHeight);
+
+            }
+            else if (iCurLineSelCur >= 0 && m_bFocus && bCaretOn && iCurLineSelCur == iCurLineSelEnd)
+            {
+
+               pgraphics->SelectObject(penCaret);
+
+               pgraphics->MoveTo(left + x2 + x1, y);
+
+               pgraphics->LineTo(left + x2 + x1, y + iLineHeight);
+
+            }
+
+         }
+
+         y += m_iLineHeight;
+
+         lim += m_iaLineLen[iLine];
+
+      }
       
    }
+
 
    void plain_edit::_001OnCreate(signal_details * pobj)
    {
@@ -1065,7 +1159,7 @@ namespace user
 
       ::sort::sort_non_negative(iSelStart, iSelEnd);
 
-      file_position_t iEnd;
+      file_position_t iProperEnd;
 
       file_position_t iStart;
 
@@ -1075,7 +1169,7 @@ namespace user
          if (iSelStart < 0)
          {
 
-            iEnd = (file_position_t)m_ptree->m_editfile.get_length();
+            iProperEnd = (file_position_t)m_ptree->m_editfile.get_length();
 
             iStart = 0;
 
@@ -1085,7 +1179,7 @@ namespace user
 
             iStart = iSelStart;
 
-            iEnd = (file_position_t)m_ptree->m_editfile.get_length();
+            iProperEnd = (file_position_t)m_ptree->m_editfile.get_length();
 
          }
 
@@ -1096,7 +1190,7 @@ namespace user
          if (iSelStart < 0)
          {
 
-            iEnd = iSelEnd;
+            iProperEnd = iSelEnd;
 
             iStart = 0;
 
@@ -1104,7 +1198,7 @@ namespace user
          else
          {
 
-            iEnd = iSelEnd;
+            iProperEnd = iSelEnd;
 
             iStart = iSelStart;
 
@@ -1112,18 +1206,18 @@ namespace user
 
       }
 
-      if (iEnd < iStart)
+      if (iProperEnd < iStart)
       {
 
-         file_position_t iSwap = iEnd;
+         file_position_t iSwap = iProperEnd;
 
-         iEnd = iStart;
+         iProperEnd = iStart;
 
          iStart = iSwap;
 
       }
 
-      file_position_t iSize = iEnd - iStart;
+      file_position_t iSize = iProperEnd - iStart;
 
       char * psz = str.GetBufferSetLength((strsize)(iSize + 1));
 
@@ -1489,11 +1583,11 @@ namespace user
 
       m_iViewOffset = m_iaLineBeg[m_iLineStart];
 
-      strsize iBeg = m_iaLineBeg[m_iLineEnd - 1];
+      strsize iProperBeg = m_iaLineBeg[m_iLineEnd - 1];
 
       strsize iLen = m_iaLineLen[m_iLineEnd - 1];
 
-      m_iViewSize = iBeg + iLen - m_iViewOffset;
+      m_iViewSize = iProperBeg + iLen - m_iViewOffset;
 
       int iLineStart;
 
@@ -1524,11 +1618,11 @@ namespace user
 
          iViewOffset = m_iaLineBeg[iLineStart];
 
-         iBeg = m_iaLineBeg[iLineEnd - 1];
+         iProperBeg = m_iaLineBeg[iLineEnd - 1];
 
          iLen = m_iaLineLen[iLineEnd - 1];
 
-         iViewSize = iBeg + iLen - iViewOffset;
+         iViewSize = iProperBeg + iLen - iViewOffset;
 
       }
 
@@ -1880,11 +1974,11 @@ namespace user
 
       m_iViewOffset = m_iaLineBeg[m_iLineStart];
 
-      strsize iBeg = m_iaLineBeg[m_iLineEnd - 1];
+      strsize iProperBeg = m_iaLineBeg[m_iLineEnd - 1];
 
       strsize iLen = m_iaLineLen[m_iLineEnd - 1];
 
-      m_iViewSize = iBeg + iLen - m_iViewOffset;
+      m_iViewSize = iProperBeg + iLen - m_iViewOffset;
 
       int iLineStart;
 
@@ -1915,11 +2009,11 @@ namespace user
 
          iViewOffset = m_iaLineBeg[iLineStart];
 
-         iBeg = m_iaLineBeg[iLineEnd - 1];
+         iProperBeg = m_iaLineBeg[iLineEnd - 1];
 
          iLen = m_iaLineLen[iLineEnd - 1];
 
-         iViewSize = iBeg + iLen - iViewOffset;
+         iViewSize = iProperBeg + iLen - iViewOffset;
 
       }
 
@@ -2752,6 +2846,7 @@ namespace user
 
    }
 
+
    void plain_edit::_001OnMouseLeave(signal_details * pobj)
    {
 
@@ -2761,6 +2856,7 @@ namespace user
 
    }
 
+
    void plain_edit::_001GetViewSel(strsize &iSelStart, strsize &iSelEnd)
    {
 
@@ -2769,9 +2865,9 @@ namespace user
       if (m_ptree == NULL)
       {
 
-         iSelStart = -1;
+         iSelStart = 0;
 
-         iSelEnd = -1;
+         iSelEnd = 0;
 
       }
       else
@@ -2780,6 +2876,32 @@ namespace user
          iSelStart = m_ptree->m_iSelStart - m_iViewOffset;
 
          iSelEnd = m_ptree->m_iSelEnd - m_iViewOffset;
+
+         if (iSelStart < 0)
+         {
+
+            iSelStart = 0;
+
+         }
+         else if (iSelStart > m_ptree->m_editfile.get_length())
+         {
+
+            iSelStart = m_ptree->m_editfile.get_length();
+
+         }
+
+         if (iSelEnd < 0)
+         {
+
+            iSelEnd = 0;
+
+         }
+         else if (iSelEnd > m_ptree->m_editfile.get_length())
+         {
+
+            iSelEnd = m_ptree->m_editfile.get_length();
+
+         }
 
       }
 
@@ -3266,9 +3388,9 @@ namespace user
          {
             char buf[512];
             memset(buf, 0, sizeof(buf));
-            strsize iBegin = MAX(0, m_ptree->m_iSelEnd - 256);
-            strsize iCur = m_ptree->m_iSelEnd - iBegin;
-            m_ptree->m_editfile.seek(iBegin, ::file::seek_begin);
+            strsize iProperBegin = MAX(0, m_ptree->m_iSelEnd - 256);
+            strsize iCur = m_ptree->m_iSelEnd - iProperBegin;
+            m_ptree->m_editfile.seek(iProperBegin, ::file::seek_begin);
             m_ptree->m_editfile.read(buf, sizeof(buf));
             const char * psz = ::str::utf8_dec(buf, &buf[iCur]);
             strsize iMultiByteUtf8DeleteCount = &buf[iCur] - psz;
@@ -3303,6 +3425,8 @@ namespace user
 
    void plain_edit::_001OnChar(signal_details * pobj)
    {
+
+      bool bUpdate = true;
 
       bool bFullUpdate = false;
 
@@ -3488,9 +3612,9 @@ namespace user
                         psetsel->m_iPreviousSelEnd = m_ptree->m_iSelEnd;
                         char buf[512];
                         memset(buf, 0, sizeof(buf));
-                        strsize iBegin = MAX(0, m_ptree->m_iSelEnd - 256);
-                        strsize iCur = m_ptree->m_iSelEnd - iBegin;
-                        m_ptree->m_editfile.seek(iBegin, ::file::seek_begin);
+                        strsize iProperBegin = MAX(0, m_ptree->m_iSelEnd - 256);
+                        strsize iCur = m_ptree->m_iSelEnd - iProperBegin;
+                        m_ptree->m_editfile.seek(iProperBegin, ::file::seek_begin);
                         m_ptree->m_editfile.read(buf, sizeof(buf));
                         const char * psz;
                         strsize iMultiByteUtf8DeleteCount;
@@ -3792,9 +3916,9 @@ namespace user
                      str = Session.keyboard().process_key(pkey);
                   }
 
-
                   insert_text(str, false);
 
+                  bUpdate = false;
 
                }
 
@@ -3817,7 +3941,12 @@ namespace user
 
       }
 
-      internal_edit_update(bFullUpdate, iLineUpdate);
+      if (bUpdate)
+      {
+
+         internal_edit_update(bFullUpdate, iLineUpdate);
+
+      }
 
    }
 
@@ -3854,9 +3983,9 @@ namespace user
             {
                char buf[512];
                memset(buf, 0, sizeof(buf));
-               strsize iBegin = MAX(0, m_ptree->m_iSelEnd - 256);
-               strsize iCur = m_ptree->m_iSelEnd - iBegin;
-               m_ptree->m_editfile.seek(iBegin, ::file::seek_begin);
+               strsize iProperBegin = MAX(0, m_ptree->m_iSelEnd - 256);
+               strsize iCur = m_ptree->m_iSelEnd - iProperBegin;
+               m_ptree->m_editfile.seek(iProperBegin, ::file::seek_begin);
                m_ptree->m_editfile.read(buf, sizeof(buf));
                const char * psz = ::str::utf8_dec(buf, &buf[iCur]);
                strsize iMultiByteUtf8DeleteCount = &buf[iCur] - psz;
@@ -4694,6 +4823,7 @@ namespace user
 
    }
 
+
    bool plain_edit::has_text_input()
    {
 
@@ -4762,7 +4892,6 @@ namespace user
 
       }
 
-
       return strLine;
 
    }
@@ -4783,9 +4912,11 @@ namespace user
 
       bFullUpdate = strText.find('\n') >= 0 || strText.find('\r') >= 0;
       if (!bForceNewStep && !bFullUpdate && i1 == i2 && i1 >= 0 && m_pinsert != NULL
-         && m_pinsert->m_dwPosition + m_pinsert->m_memstorage.get_size() == i1)
+         && m_pinsert->m_dwPosition + m_pinsert->m_memstorage.get_size() == i1
+         && m_ptree->m_editfile.m_ptreeitem != m_ptree->m_editfile.m_ptreeitemFlush)
       {
 
+         // insert character at the last insert operation
          m_pinsert->m_memstorage.append(strText, strText.get_length());
 
          m_ptree->m_editfile.m_dwFileLength += strText.get_length();

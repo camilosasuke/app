@@ -840,6 +840,8 @@ namespace file
 
       Save(*spfile);
 
+      file_size_t dwLen = spfile->get_length();
+
       char buf[4096];
 
       memory_size_t uiRead;
@@ -858,6 +860,8 @@ namespace file
       m_pfile->flush();
       
       m_dwFileLength = m_pfile->get_length();
+
+      ASSERT(m_dwFileLength == dwLen);
       
       m_ptreeitemFlush = m_ptreeitem;
 
