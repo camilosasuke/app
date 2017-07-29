@@ -384,7 +384,7 @@ WINPR_API DWORD GetLogicalDriveStringsW(DWORD nBufferLength, LPWSTR lpBuffer);
 
 WINPR_API BOOL PathIsDirectoryEmptyA(LPCSTR pszPath);
 
-WINPR_API UINT GetACP(void);
+//WINPR_API UINT GetACP(void);
 
 #ifdef UNICODE
 #define CreateFile		CreateFileW

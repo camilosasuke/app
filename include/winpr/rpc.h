@@ -97,12 +97,14 @@ typedef struct _UUID_VECTOR
 
 typedef void* RPC_IF_HANDLE;
 
+#ifndef _UWP
 typedef struct _RPC_IF_ID
 {
 	UUID Uuid;
 	unsigned short VersMajor;
 	unsigned short VersMinor;
 } RPC_IF_ID;
+#endif
 
 #define RPC_C_BINDING_INFINITE_TIMEOUT		10
 #define RPC_C_BINDING_MIN_TIMEOUT		0
@@ -184,22 +186,25 @@ typedef void RPC_SECURITY_CALLBACK_FN(void* Context);
 
 #define RPC_MGR_EPV void
 
+#ifndef _UWP
 typedef struct
 {
 	unsigned int Count;
 	unsigned long Stats[1];
 } RPC_STATS_VECTOR;
-
+#endif
 #define RPC_C_STATS_CALLS_IN		0
 #define RPC_C_STATS_CALLS_OUT		1
 #define RPC_C_STATS_PKTS_IN		2
 #define RPC_C_STATS_PKTS_OUT		3
 
+#ifndef _UWP
 typedef struct
 {
 	unsigned long Count;
 	RPC_IF_ID* IfId[1];
 } RPC_IF_ID_VECTOR;
+#endif
 
 #ifndef _WIN32
 
@@ -425,6 +430,7 @@ typedef int (*RPC_MGMT_AUTHORIZATION_FN)(RPC_BINDING_HANDLE ClientBinding,
 #define RPC_IF_ALLOW_LOCAL_ONLY			0x0020
 #define RPC_IF_SEC_NO_CACHE			0x0040
 
+#ifndef _UWP
 typedef struct _RPC_BINDING_HANDLE_OPTIONS_V1
 {
 	unsigned long Version;
@@ -432,7 +438,9 @@ typedef struct _RPC_BINDING_HANDLE_OPTIONS_V1
 	unsigned long ComTimeout;
 	unsigned long CallTimeout;
 } RPC_BINDING_HANDLE_OPTIONS_V1, RPC_BINDING_HANDLE_OPTIONS;
+#endif
 
+#ifndef _UWP
 typedef struct
 {
 	unsigned long Version;
@@ -442,7 +450,9 @@ typedef struct
 	SEC_WINNT_AUTH_IDENTITY* AuthIdentity;
 	RPC_SECURITY_QOS* SecurityQos;
 } RPC_BINDING_HANDLE_SECURITY_V1, RPC_BINDING_HANDLE_SECURITY;
+#endif
 
+#ifndef _UWP
 typedef struct _RPC_BINDING_HANDLE_TEMPLATE
 {
 	unsigned long Version;
@@ -456,10 +466,13 @@ typedef struct _RPC_BINDING_HANDLE_TEMPLATE
 	} u1;
 	UUID ObjectUuid;
 } RPC_BINDING_HANDLE_TEMPLATE_V1, RPC_BINDING_HANDLE_TEMPLATE;
+#endif
 
 #define RPC_CALL_STATUS_IN_PROGRESS		0x01
+#ifndef _UWP
 #define RPC_CALL_STATUS_CANCELLED		0x02
 #define RPC_CALL_STATUS_DISCONNECTED		0x03
+#endif
 
 #include <winpr/ndr.h>
 #include <winpr/midl.h>
@@ -467,7 +480,7 @@ typedef struct _RPC_BINDING_HANDLE_TEMPLATE
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+#ifndef _UWP
 WINPR_API RPC_STATUS RpcBindingCopy(RPC_BINDING_HANDLE SourceBinding,
                                     RPC_BINDING_HANDLE* DestinationBinding);
 WINPR_API RPC_STATUS RpcBindingFree(RPC_BINDING_HANDLE* Binding);
@@ -479,19 +492,24 @@ WINPR_API RPC_STATUS RpcBindingFromStringBindingA(RPC_CSTR StringBinding,
         RPC_BINDING_HANDLE* Binding);
 WINPR_API RPC_STATUS RpcBindingFromStringBindingW(RPC_WSTR StringBinding,
         RPC_BINDING_HANDLE* Binding);
+#endif
 WINPR_API RPC_STATUS RpcSsGetContextBinding(void* ContextHandle,
         RPC_BINDING_HANDLE* Binding);
+#ifndef _UWP
 WINPR_API RPC_STATUS RpcBindingInqObject(RPC_BINDING_HANDLE Binding,
         UUID* ObjectUuid);
 WINPR_API RPC_STATUS RpcBindingReset(RPC_BINDING_HANDLE Binding);
 WINPR_API RPC_STATUS RpcBindingSetObject(RPC_BINDING_HANDLE Binding,
         UUID* ObjectUuid);
+#endif
 WINPR_API RPC_STATUS RpcMgmtInqDefaultProtectLevel(unsigned long AuthnSvc,
         unsigned long* AuthnLevel);
+#ifndef _UWP
 WINPR_API RPC_STATUS RpcBindingToStringBindingA(RPC_BINDING_HANDLE Binding,
         RPC_CSTR* StringBinding);
 WINPR_API RPC_STATUS RpcBindingToStringBindingW(RPC_BINDING_HANDLE Binding,
         RPC_WSTR* StringBinding);
+#endif
 WINPR_API RPC_STATUS RpcBindingVectorFree(RPC_BINDING_VECTOR** BindingVector);
 WINPR_API RPC_STATUS RpcStringBindingComposeA(RPC_CSTR ObjUuid,
         RPC_CSTR Protseq, RPC_CSTR NetworkAddr,
@@ -510,11 +528,13 @@ WINPR_API RPC_STATUS RpcStringFreeW(RPC_WSTR* String);
 WINPR_API RPC_STATUS RpcIfInqId(RPC_IF_HANDLE RpcIfHandle, RPC_IF_ID* RpcIfId);
 WINPR_API RPC_STATUS RpcNetworkIsProtseqValidA(RPC_CSTR Protseq);
 WINPR_API RPC_STATUS RpcNetworkIsProtseqValidW(RPC_WSTR Protseq);
+#ifndef _UWP
 WINPR_API RPC_STATUS RpcMgmtInqComTimeout(RPC_BINDING_HANDLE Binding,
         unsigned int* Timeout);
 WINPR_API RPC_STATUS RpcMgmtSetComTimeout(RPC_BINDING_HANDLE Binding,
         unsigned int Timeout);
 WINPR_API RPC_STATUS RpcMgmtSetCancelTimeout(long Timeout);
+#endif
 WINPR_API RPC_STATUS RpcNetworkInqProtseqsA(RPC_PROTSEQ_VECTORA**
         ProtseqVector);
 WINPR_API RPC_STATUS RpcNetworkInqProtseqsW(RPC_PROTSEQ_VECTORW**
@@ -580,9 +600,11 @@ WINPR_API RPC_STATUS RpcServerUseProtseqIfExW(RPC_WSTR Protseq,
         PRPC_POLICY Policy);
 WINPR_API void RpcServerYield(void);
 WINPR_API RPC_STATUS RpcMgmtStatsVectorFree(RPC_STATS_VECTOR** StatsVector);
+#ifndef _UWP
 WINPR_API RPC_STATUS RpcMgmtInqStats(RPC_BINDING_HANDLE Binding,
                                      RPC_STATS_VECTOR** Statistics);
 WINPR_API RPC_STATUS RpcMgmtIsServerListening(RPC_BINDING_HANDLE Binding);
+#endif
 WINPR_API RPC_STATUS RpcMgmtStopServerListening(RPC_BINDING_HANDLE Binding);
 WINPR_API RPC_STATUS RpcMgmtWaitServerListen(void);
 WINPR_API RPC_STATUS RpcMgmtSetServerStackSize(unsigned long ThreadStackSize);
@@ -599,8 +621,10 @@ WINPR_API RPC_STATUS RpcServerInqDefaultPrincNameA(unsigned long AuthnSvc,
         RPC_CSTR* PrincName);
 WINPR_API RPC_STATUS RpcServerInqDefaultPrincNameW(unsigned long AuthnSvc,
         RPC_WSTR* PrincName);
+#ifndef _UWP
 WINPR_API RPC_STATUS RpcEpResolveBinding(RPC_BINDING_HANDLE Binding,
         RPC_IF_HANDLE IfSpec);
+#endif
 WINPR_API RPC_STATUS RpcNsBindingInqEntryNameA(RPC_BINDING_HANDLE Binding,
         unsigned long EntryNameSyntax, RPC_CSTR* EntryName);
 WINPR_API RPC_STATUS RpcNsBindingInqEntryNameW(RPC_BINDING_HANDLE Binding,
@@ -667,12 +691,15 @@ WINPR_API RPC_STATUS RpcServerRegisterAuthInfoW(RPC_WSTR ServerPrincName,
 
 WINPR_API RPC_STATUS RpcBindingServerFromClient(RPC_BINDING_HANDLE
         ClientBinding, RPC_BINDING_HANDLE* ServerBinding);
+#ifndef _UWP
 WINPR_API DECLSPEC_NORETURN void RpcRaiseException(RPC_STATUS exception);
 WINPR_API RPC_STATUS RpcTestCancel(void);
+#endif
 WINPR_API RPC_STATUS RpcServerTestCancel(RPC_BINDING_HANDLE BindingHandle);
 WINPR_API RPC_STATUS RpcCancelThread(void* Thread);
 WINPR_API RPC_STATUS RpcCancelThreadEx(void* Thread, long Timeout);
 
+#ifndef _UWP
 WINPR_API RPC_STATUS UuidCreate(UUID* Uuid);
 WINPR_API RPC_STATUS UuidCreateSequential(UUID* Uuid);
 WINPR_API RPC_STATUS UuidToStringA(const UUID* Uuid, RPC_CSTR* StringUuid);
@@ -686,7 +713,7 @@ WINPR_API int UuidEqual(const UUID* Uuid1, const UUID* Uuid2,
                         RPC_STATUS* Status);
 WINPR_API unsigned short UuidHash(const UUID* Uuid, RPC_STATUS* Status);
 WINPR_API int UuidIsNil(const UUID* Uuid, RPC_STATUS* Status);
-
+#endif
 WINPR_API RPC_STATUS RpcEpRegisterNoReplaceA(RPC_IF_HANDLE IfSpec,
         RPC_BINDING_VECTOR* BindingVector, UUID_VECTOR* UuidVector,
         RPC_CSTR Annotation);
