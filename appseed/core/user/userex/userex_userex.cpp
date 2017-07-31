@@ -10,6 +10,10 @@
 #include "core/user/user/user_shell_linux.h"
 #elif defined(ANDROID)
 #include "core/user/user/user_shell_android.h"
+#elif defined(METROWIN)
+#include "core/user/user/user_shell_metrowin.h"
+#else
+#error "Implement here"
 #endif
 
 #include "base/database/simpledb/simpledb.h"
@@ -69,6 +73,10 @@ namespace userex
 #elif defined(ANDROID)
 
          m_pshell = canew(::user::shell::android(get_app()));
+
+#elif defined(METROWIN)
+
+         m_pshell = canew(::user::shell::metrowin(get_app()));
 
 #else
 

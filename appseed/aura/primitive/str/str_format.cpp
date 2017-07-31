@@ -514,7 +514,7 @@ void string_format::format(const char * & s)
       void format(string_format * pformat, double const & d)
       {
          // TODO: use specs
-         #ifdef WINDOWSEX
+         #ifdef WINDOWS
          char sz[_CVTBUFSIZE];
 #elif defined(__APPLE__) || defined(LINUX) || defined(VSNORD)
          char sz[500];

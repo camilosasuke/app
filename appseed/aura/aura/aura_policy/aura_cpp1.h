@@ -282,6 +282,7 @@ namespace user
 
 } // namespace aura
 
+#if defined(INSTALL_SUBSYSTEM)
 
 namespace install
 {
@@ -290,6 +291,8 @@ namespace install
 
 
 } // namespace install
+
+#endif
 
 
 namespace data

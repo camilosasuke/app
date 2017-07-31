@@ -1,6 +1,9 @@
 #pragma once
 
 
+#if defined(HOTPLUGIN_SUBSYSTEM)
+
+
 namespace hotplugin
 {
 
@@ -27,5 +30,7 @@ namespace hotplugin
 
 } // namespace ca2plugin_container
 
+
+#endif
 
 

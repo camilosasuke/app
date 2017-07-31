@@ -2018,7 +2018,7 @@ int_bool close_handle(handle h)
    if(folder == nullptr)
       return nullptr;
 
-   ::String ^ strFileName = file_title_dup(lpcszFileName);
+   ::String ^ strFileName = file_name_dup(lpcszFileName);
 
    if(dwCreationDisposition == CREATE_ALWAYS)
    {

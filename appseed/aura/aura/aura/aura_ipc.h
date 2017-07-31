@@ -10,7 +10,6 @@ typedef __key_t key_t;
 //#include "ca_mutex.h"
 #endif
 
-
 namespace aura
 {
 
@@ -84,7 +83,11 @@ namespace aura
 
 
 
-         bool open(const char * pszChannel,launcher * plauncher = NULL);
+#if defined(METROWIN)
+         bool open(const char * pszChannel);
+#else
+         bool open(const char * pszChannel, launcher * plauncher = NULL);
+#endif
          bool close();
 
 
@@ -178,7 +181,10 @@ namespace aura
          ipc(::aura::application * papp);
          virtual ~ipc();
 
-#ifdef WINDOWS
+#if defined(METROWIN)
+         bool open_ab(const char * pszChannel, const char * pszModule);
+         bool open_ba(const char * pszChannel, const char * pszModule);
+#elif defined(WINDOWS)
          bool open_ab(const char * pszChannel,const char * pszModule,launcher * plauncher = NULL);
          bool open_ba(const char * pszChannel,const char * pszModule,launcher * plauncher = NULL);
 #else

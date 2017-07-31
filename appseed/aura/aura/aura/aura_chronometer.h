@@ -19,7 +19,7 @@ namespace aura
 {
 
 
-   class microtimer
+   class chronometer
    {
    public:
 
@@ -30,8 +30,8 @@ namespace aura
       uint64_t       m_end; // nanos
 
 
-      microtimer();                                    // default constructor
-      ~microtimer();                                   // default destructor
+      chronometer();                                    // default constructor
+      ~chronometer();                                   // default destructor
 
       void   start();                             // start timer
       void   stop();                              // stop the timer

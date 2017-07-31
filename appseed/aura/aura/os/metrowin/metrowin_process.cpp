@@ -304,3 +304,38 @@ bool load_modules_diff(stringa & straOld, stringa & straNew, const char * pszExc
 
 
 #endif
+
+
+
+int get_current_process_affinity_order()
+{
+
+   return 1;
+
+
+}
+
+
+unsigned long translate_processor_affinity(int i)
+{
+
+   return 1;
+
+
+}
+
+
+
+
+CLASS_DECL_AURA int ui_open_url(const char * pszUrl)
+{
+
+   string strUrl(pszUrl);
+
+   auto uri = ref new Windows::Foundation::Uri(strUrl);
+
+   Windows::System::Launcher::LaunchUriAsync(uri);
+
+   return 0;
+
+}

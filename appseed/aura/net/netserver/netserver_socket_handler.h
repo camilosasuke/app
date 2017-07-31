@@ -17,7 +17,6 @@ namespace netserver
    };
 
 
-} // namespace install
-
+} // namespace netserver
 
 

@@ -1,6 +1,9 @@
 #pragma once
 
 
+#if defined(INSTALL_SUBSYSTEM)
+
+
 namespace install
 {
 
@@ -11,7 +14,6 @@ namespace install
 
 
 } // namespace install
-
 
 
 
@@ -44,5 +46,11 @@ namespace install
 
 
 #include "install_module_list.h"
+
+
+#endif
+
+
+
 
 

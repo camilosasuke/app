@@ -40,6 +40,8 @@ namespace aura
       {
       }
 
+#if defined(INSTALL_SUBSYSTEM)
+
       bool tx::open(const char * pszChannel, launcher * plauncher)
       {
 
@@ -59,6 +61,27 @@ namespace aura
 
       }
 
+#else
+
+      bool tx::open(const char * pszChannel)
+      {
+
+         if (m_strBaseChannel.has_char())
+            close();
+
+         // LaunchUri protocol is m_strBaseChannel
+
+         m_strBaseChannel = pszChannel;
+
+         m_strBaseChannel.replace("_", "-");
+         m_strBaseChannel.replace("/", "-");
+
+         return true;
+
+   }
+
+
+#endif
 
       bool tx::close()
       {
@@ -267,6 +290,9 @@ namespace aura
       }
 
 
+#ifdef INSTALL_SUBSYSTEM
+
+
       bool ipc::open_ab(const char * pszChannel, const char * pszModule, launcher * plauncher)
       {
 
@@ -325,6 +351,70 @@ namespace aura
          return true;
 
       }
+
+#else
+
+      bool ipc::open_ab(const char * pszChannel, const char * pszModule)
+      {
+
+         m_strChannel = pszChannel;
+
+         m_rx.m_preceiver = this;
+
+         string strChannelRx = m_strChannel;
+
+         string strChannelTx = m_strChannel;
+
+         if (!m_rx.create(strChannelRx))
+         {
+
+            return false;
+
+         }
+
+         if (!tx::open(strChannelTx))
+         {
+
+            return false;
+
+         }
+
+         return true;
+
+      }
+
+
+      bool ipc::open_ba(const char * pszChannel, const char * pszModule)
+      {
+
+         m_strChannel = pszChannel;
+
+         m_rx.m_preceiver = this;
+
+         string strChannelRx = m_strChannel;
+
+         string strChannelTx = m_strChannel;
+
+         if (!m_rx.create(strChannelRx))
+         {
+
+            return false;
+
+         }
+
+         if (!tx::open(strChannelTx))
+         {
+
+            return false;
+
+         }
+
+         return true;
+
+      }
+
+
+#endif
 
 
       bool ipc::is_rx_tx_ok()

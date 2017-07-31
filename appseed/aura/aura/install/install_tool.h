@@ -1,6 +1,9 @@
 #pragma once
 
 
+#if defined(INSTALL_SUBSYSTEM)
+
+
 namespace install
 {
 
@@ -44,7 +47,7 @@ namespace install
 
       virtual bool get_admin();
 
-#ifdef WINDOWS
+#ifdef WINDOWSEX
       
       virtual void run_vcredist(string strPlatform);
       
@@ -56,6 +59,8 @@ namespace install
 
 } // namespace install
 
+
+#endif
 
 
 

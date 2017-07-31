@@ -1,6 +1,7 @@
 #include "framework.h"
 
 
+#if defined(INSTALL_SUBSYSTEM)
 
 
 namespace install
@@ -79,14 +80,14 @@ namespace install
          if (m_pbootstrap->check_app_app_admin_bin(strPlatform))
          {
 
-            OutputDebugString("op_spa spaadmin Success\r\n");
+            output_debug_string("op_spa spaadmin Success\r\n");
             _gen_InterlockedIncrement(&m_pstatus->m_lOk);
 
          }
          else
          {
 
-            OutputDebugString("op_spa spaadmin Failed\r\n");
+            output_debug_string("op_spa spaadmin Failed\r\n");
             _gen_InterlockedIncrement(&m_pstatus->m_lBad);
 
          }
@@ -98,13 +99,13 @@ namespace install
          if (m_pbootstrap->check_app_app_bin(strPlatform))
          {
 
-            OutputDebugString("op_spa install Success\r\n");
+            output_debug_string("op_spa install Success\r\n");
             _gen_InterlockedIncrement(&m_pstatus->m_lOk);
 
          }
          else
          {
-            OutputDebugString("op_spa install Failed\r\n");
+            output_debug_string("op_spa install Failed\r\n");
             _gen_InterlockedIncrement(&m_pstatus->m_lBad);
 
          }
@@ -117,13 +118,13 @@ namespace install
          if (m_pbootstrap->check_vcredist(strPlatform))
          {
 
-            OutputDebugString("op_spa vcredist Success\r\n");
+            output_debug_string("op_spa vcredist Success\r\n");
             InterlockedIncrement(&m_pstatus->m_lOk);
 
          }
          else
          {
-            OutputDebugString("op_spa vcredist Failed\r\n");
+            output_debug_string("op_spa vcredist Failed\r\n");
             InterlockedIncrement(&m_pstatus->m_lBad);
 
          }
@@ -226,6 +227,9 @@ namespace install
 
 
 } // namespace install
+
+
+#endif
 
 
 

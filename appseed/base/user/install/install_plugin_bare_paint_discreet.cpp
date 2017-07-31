@@ -2,6 +2,8 @@
 //#include "base/user/user.h"
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
 #include <math.h>
 
 
@@ -331,5 +333,6 @@ namespace hotplugin
 } // namespace hotplugin
 
 
+#endif
 
 

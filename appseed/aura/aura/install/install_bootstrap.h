@@ -1,6 +1,9 @@
 #pragma once
 
 
+#if defined(INSTALL_SUBSYSTEM)
+
+
 namespace install
 {
 
@@ -78,7 +81,7 @@ namespace install
       virtual string download_tmp_app_app_admin_bin(string strPlatform);
 
       virtual bool is_downloading_admin();
-#ifdef WINDOWS
+#ifdef WINDOWSEX
       virtual bool is_vcredist_installed(string strPlatform);
 #endif
 
@@ -88,7 +91,7 @@ namespace install
 } // namespace install
 
 
-
+#endif
 
 
 

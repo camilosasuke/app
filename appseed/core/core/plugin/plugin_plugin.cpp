@@ -2,6 +2,9 @@
 //#include "core/user/user/user.h"
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+
 #ifdef WINDOWS
 #undef new
 #define min MIN
@@ -1193,9 +1196,10 @@ namespace plugin
    }
 
 
-
 } // namespace plugin
 
+
+#endif
 
 
 

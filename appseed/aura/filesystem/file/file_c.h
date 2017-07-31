@@ -328,7 +328,7 @@ typedef string_array < string > stringa;
 
 
 CLASS_DECL_AURA string file_title_dup(const char * path);
-CLASS_DECL_AURA const char * file_name_dup(const char * path);
+CLASS_DECL_AURA string file_name_dup(const char * path);
 CLASS_DECL_AURA string file_module_path_dup();
 
 CLASS_DECL_AURA int_bool file_copy_dup(const char * pszDup, const char * pszSrc, int_bool bOverwrite );

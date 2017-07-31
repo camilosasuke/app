@@ -201,7 +201,7 @@ namespace sockets {
 
 #elif defined(METROWIN)
 
-CLASS_DECL_AXIS const char *StrError(int x);
+CLASS_DECL_AURA const char *StrError(int x);
 #define Errno GetLastError()
 
 #elif defined(WINDOWSEX)

@@ -1,6 +1,7 @@
 #pragma once
 
 
+
 #ifndef METROWIN
 
 
@@ -48,7 +49,14 @@ END_EXTERN_C
 
 #ifndef METROWIN
 #include "windows_base_tsd.h"
+#endif
+
+
+
 #include "windows_internals.h"
+
+
+#ifndef METROWIN
 #include "windows_file.h"
 #include "windows_ntstatus.h"
 #include "windows_mmeapi.h"

@@ -203,6 +203,13 @@ namespace aura
 
       }
 
+
+#ifdef METROWIN
+
+      throw todo(get_app());
+
+#else
+
       ::aura::app_launcher launcher(process_platform_dir_name2(), strApp);
 
       int iPid = -1;
@@ -264,6 +271,7 @@ namespace aura
 
       return m_txmap[strKey]->open(key(strApp,iPid));
 
+#endif
 
    }
 
@@ -627,6 +635,8 @@ namespace aura
    void ipi::defer_add_module(const string & strModule, int iPid)
    {
 
+#ifndef METROWIN
+
       ::file::path pathModule;
 
       m_straModule.remove_all();
@@ -673,6 +683,8 @@ namespace aura
       strModuleList = m_straModule.implode("\n");
 
       file_put_contents_dup(pathModule,strModuleList);
+
+#endif
 
    }
 

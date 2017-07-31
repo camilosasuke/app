@@ -76,7 +76,7 @@
 #include "aura_machine_event_data.cpp"
 #include "aura_math.cpp"
 //#include "aura_message_queue.cpp"
-#include "aura_microtimer.cpp"
+#include "aura_chronometer.cpp"
 #include "aura_mktime.cpp"
 #include "aura_muldiv64.cpp"
 #include "aura_net.cpp"

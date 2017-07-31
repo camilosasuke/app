@@ -2,6 +2,9 @@
 //#include "base/user/user.h"
 
 
+#if defined(INSTALL_SUBSYSTEM)
+
+
 namespace install
 {
 
@@ -195,6 +198,8 @@ namespace install
 
 
 
+
+#endif 
 
 
 

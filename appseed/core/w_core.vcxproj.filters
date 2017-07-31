@@ -133,11 +133,11 @@
     <Filter Include="Source Files\user\html\hi5">
       <UniqueIdentifier>{f8f02952-5f1b-4b49-b22e-b4de6d137b4a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\user\userhtml">
-      <UniqueIdentifier>{01d3008d-f5f5-4892-8065-da7112d35a90}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\math">
       <UniqueIdentifier>{e61d0167-746a-4cfc-b7df-4be1e1a80d0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\user\html\user">
+      <UniqueIdentifier>{9d993504-5f45-4939-bdd4-5130f92702be}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -795,25 +795,37 @@
     <ClCompile Include="user\html\graphics\impl\_html_impl.cpp">
       <Filter>Source Files\user\html\graphics\impl</Filter>
     </ClCompile>
-    <ClCompile Include="user\html\graphics\_graphics.cpp">
-      <Filter>Source Files\user\html\graphics</Filter>
-    </ClCompile>
     <ClCompile Include="user\html\hi5\hi5_twitter_authorization.cpp">
       <Filter>Source Files\user\html\hi5</Filter>
     </ClCompile>
-    <ClCompile Include="user\userhtml\_userhtml.cpp">
-      <Filter>Source Files\user\userhtml</Filter>
-    </ClCompile>
     <ClCompile Include="math\_math_math.cpp">
       <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="user\html\_html.cpp">
+      <Filter>Source Files\user\html</Filter>
+    </ClCompile>
+    <ClCompile Include="user\html\user\_userhtml.cpp">
+      <Filter>Source Files\user\html\user</Filter>
+    </ClCompile>
+    <ClCompile Include="user\userex\_userex.cpp">
+      <Filter>Source Files\user\userex</Filter>
+    </ClCompile>
+    <ClCompile Include="user\user\user_shell_metrowin.cpp">
+      <Filter>Source Files\user\user</Filter>
+    </ClCompile>
+    <ClCompile Include="user\wndfrm\_wndfrm.cpp">
+      <Filter>Source Files\user\wndfrm</Filter>
+    </ClCompile>
+    <ClCompile Include="user\user\_user.cpp">
+      <Filter>Source Files\user\user</Filter>
+    </ClCompile>
+    <ClCompile Include="user\simple\_simple.cpp">
+      <Filter>Source Files\user\simple</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="core.def">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="user\user\interaction.inl">
-      <Filter>Header Files\user\user</Filter>
     </None>
     <None Include="user\user\user_interaction.inl">
       <Filter>Header Files\user\user</Filter>
@@ -992,12 +1004,6 @@
       <Filter>Header Files\user\user</Filter>
     </ClInclude>
     <ClInclude Include="user\user\user_form_list.h">
-      <Filter>Header Files\user\user</Filter>
-    </ClInclude>
-    <ClInclude Include="user\user\user_front_end.h">
-      <Filter>Header Files\user\user</Filter>
-    </ClInclude>
-    <ClInclude Include="user\user\user_front_end_schema.h">
       <Filter>Header Files\user\user</Filter>
     </ClInclude>
     <ClInclude Include="user\user\user_image_manager.h">
@@ -1488,6 +1494,9 @@
     </ClInclude>
     <ClInclude Include="user\databaseuser\databaseuser.h">
       <Filter>Header Files\user\databaseuser</Filter>
+    </ClInclude>
+    <ClInclude Include="user\user\user_shell_metrowin.h">
+      <Filter>Header Files\user\user</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

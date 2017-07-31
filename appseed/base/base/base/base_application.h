@@ -77,8 +77,11 @@ namespace base
       virtual bool process_message(LPMESSAGE lpmessage);
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
       int32_t hotplugin_host_host_starter_start_sync(const char * pszCommandLine,::aura::application * papp,::hotplugin::host * phost,::hotplugin::plugin * pplugin);
 
+#endif
 
       virtual ::user::interaction * FindWindow(const char * lpszClassName,const char * lpszWindowName);
       virtual ::user::interaction * FindWindowEx(oswindow oswindowParent,oswindow oswindowChildAfter,const char * lpszClass,const char * lpszWindow);

@@ -1,5 +1,9 @@
 #pragma once
 
+
+#if defined(INSTALL_SUBSYSTEM)
+
+
 #include "base/install/install_canvas.h"
 
 
@@ -151,4 +155,6 @@ namespace install
 } // namespace install
 
 
+
+#endif // INSTALL_SUBSYSTEM
 

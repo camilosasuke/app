@@ -1,6 +1,9 @@
 #pragma once
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+
 // plugin - core plugin
 // simple hotplugin implementation for NPAPI
 
@@ -14,6 +17,10 @@
 #include "plugin_host_interaction.h"
 #include "plugin_system.h"
 #include "plugin_instance.h"
+
+
+#endif
+
 
 
 

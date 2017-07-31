@@ -458,7 +458,7 @@
     <None Include="base\base\base.inl">
       <Filter>Header Files\base\base</Filter>
     </None>
-    <None Include="base.def">
+    <None Include="w_base.def">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
@@ -664,13 +664,7 @@
     <ClCompile Include="base\os\metrowin\metrowin_multithreading.cpp">
       <Filter>Source Files\base\os\metrowin</Filter>
     </ClCompile>
-    <ClCompile Include="base\os\metrowin\metrowin_process.cpp">
-      <Filter>Source Files\base\os\metrowin</Filter>
-    </ClCompile>
     <ClCompile Include="base\os\metrowin\metrowin_simple_app.cpp">
-      <Filter>Source Files\base\os\metrowin</Filter>
-    </ClCompile>
-    <ClCompile Include="base\os\metrowin\metrowin_trace_message.cpp">
       <Filter>Source Files\base\os\metrowin</Filter>
     </ClCompile>
     <ClCompile Include="base\os\metrowin\metrowin_user.cpp">
@@ -711,9 +705,6 @@
     </ClCompile>
     <ClCompile Include="base\node\_node.cpp">
       <Filter>Source Files\base\node</Filter>
-    </ClCompile>
-    <ClCompile Include="base\node\metrowin\metrowin_copydesk.cpp">
-      <Filter>Source Files\base\node\metrowin</Filter>
     </ClCompile>
     <ClCompile Include="base\node\metrowin\metrowin_directx.cpp">
       <Filter>Source Files\base\node\metrowin</Filter>

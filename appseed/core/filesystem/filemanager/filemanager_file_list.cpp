@@ -26,7 +26,7 @@ namespace filemanager
 
       bool bDoubleClickInWebView = true;
 
-#ifdef WINDOWS
+#ifdef WINDOWSEX
       
       SHELLSTATE shellstate;
 

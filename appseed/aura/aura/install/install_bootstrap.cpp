@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 
-#ifdef WINDOWS
+#ifdef WINDOWSEX
 
 
 typedef BOOL(WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL);
@@ -27,8 +27,7 @@ bool get_os_bit(bool & isWindows64bit)
    //Use GetModuleHandle to get a handle to the DLL that contains the function
    //and GetProcAddress to get a pointer to the function if available.
 
-   LPFN_ISWOW64PROCESS fnIsWow64Process = (LPFN_ISWOW64PROCESS)
-      GetProcAddress(GetModuleHandle(TEXT("kernel32")), "IsWow64Process");
+   LPFN_ISWOW64PROCESS fnIsWow64Process = (LPFN_ISWOW64PROCESS) GetProcAddress(GetModuleHandle(TEXT("kernel32")), "IsWow64Process");
 
    if (fnIsWow64Process)
    {
@@ -65,6 +64,10 @@ bool get_os_bit(bool & b64)
 }
 
 #endif
+
+
+#if defined(INSTALL_SUBSYSTEM)
+
 
 namespace install
 {
@@ -976,7 +979,7 @@ namespace install
 
          string strApplication = dir::stage(strPlatform) / "app_core_user_service.exe";
 
-#ifdef WINDOWS
+#ifdef WINDOWSEX
          SHELLEXECUTEINFOW sei = {};
 
          wstring wstrFile(strApplication);
@@ -1019,7 +1022,7 @@ namespace install
 
    }
 
-#ifdef WINDOWS
+#ifdef WINDOWSEX
    
    bool bootstrap::is_vcredist_installed(string strPlatform)
    {
@@ -1368,9 +1371,7 @@ namespace install
 
          }
          
-         
-#ifdef WINDOWS
-
+#ifdef WINDOWSEX
 
          SHELLEXECUTEINFOW sei = {};
 
@@ -1630,6 +1631,10 @@ namespace install
 
 
 } // namespace install
+
+
+
+#endif
 
 
 

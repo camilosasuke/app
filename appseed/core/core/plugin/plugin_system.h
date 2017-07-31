@@ -1,6 +1,9 @@
 #pragma once
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+
 #include "core/core/core/core_system.h"
 
 
@@ -35,6 +38,9 @@ namespace plugin
 
 
 } // namespace plugin
+
+
+#endif
 
 
 

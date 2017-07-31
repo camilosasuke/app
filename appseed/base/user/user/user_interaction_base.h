@@ -88,6 +88,10 @@ namespace user
       
       };
 
+      manual_reset_event      m_evNewMessage;
+      spa(::message::base)    m_messagequeue;
+      sp(::thread)            m_pthread;
+
 
       interaction_base();
       interaction_base(::aura::application * papp);
@@ -186,6 +190,7 @@ namespace user
 
       void _001BaseWndInterfaceMap();
 
+      virtual void queue_message_handler(signal_details * pobj);
       virtual void message_handler(signal_details * pobj) override;
       virtual LRESULT message_handler(LPMESSAGE lpmessage);
       virtual void on_select();

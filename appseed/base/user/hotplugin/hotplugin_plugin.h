@@ -1,6 +1,9 @@
 #pragma once
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+
 #include "base/user/simple_ui/simple_ui_style.h"
 #include "base/user/simple_ui/simple_ui_interaction.h"
 #include "base/base/base/base_session.h"
@@ -175,6 +178,9 @@ namespace hotplugin
 
 
 } // namespace hotplugin
+
+
+#endif
 
 
 

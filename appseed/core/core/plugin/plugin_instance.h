@@ -1,6 +1,9 @@
 #pragma once
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+
 namespace plugin
 {
 
@@ -35,3 +38,8 @@ namespace plugin
 
 
 } // namespace plugin
+
+
+#endif
+
+

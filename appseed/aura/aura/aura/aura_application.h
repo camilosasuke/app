@@ -183,7 +183,11 @@ namespace aura
       virtual bool load_cached_string_by_id(string & str,id id,bool bLoadStringTable);
       virtual void load_string_table(const string & pszApp,const string & pszId);
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
       virtual int32_t hotplugin_host_starter_start_sync(const char * pszCommandLine,::aura::application * papp,hotplugin::host * phost,hotplugin::plugin * pplugin = NULL);
+
+#endif
 
       inline class ::file::dir::application &   dir()          { return *m_spdir; }
       inline class ::file::application &        file()         { return *m_spfile; }

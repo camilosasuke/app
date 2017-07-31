@@ -1,6 +1,9 @@
 #include "framework.h"
 
 
+#if defined(INSTALL_SUBSYSTEM)
+
+
 namespace install
 {
 
@@ -56,7 +59,7 @@ namespace install
       if (hwnd != NULL)
       {
 
-#ifdef WINDOWS
+#ifdef WINDOWSEX
          
          ::ShowWindow(hwnd, SW_HIDE);
 
@@ -846,6 +849,9 @@ namespace install
 
 
 } // namespace install
+
+
+#endif
 
 
 

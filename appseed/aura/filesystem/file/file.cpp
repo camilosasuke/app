@@ -513,74 +513,67 @@ CLASS_DECL_AURA string defer_solve_relative_name(const char * pszRelative,const 
 
 string get_temp_file_name_dup(const char * pszName,const char * pszExtension)
 {
-   char lpPathBuffer[MAX_PATH * 16];
-   // Get the temp path.
-#ifdef WINDOWS
-   DWORD dwRetVal = GetTempPath(sizeof(lpPathBuffer),     // length of the buffer
-      lpPathBuffer); // buffer for path
-#else
-
-   DWORD dwRetVal = strlen(lpPathBuffer);
    
-   if(dwRetVal > sizeof(lpPathBuffer))
+#ifdef WINDOWS
+   
+   WCHAR lpPathBuffer[MAX_PATH * 16];
+   
+   DWORD dwRetVal = GetTempPath(sizeof(lpPathBuffer), lpPathBuffer);
+
+   if (dwRetVal > sizeof(lpPathBuffer) || (dwRetVal == 0))
    {
       
-      return "";
+      debug_print("GetTempPath failed (%d)\n", GetLastError());
       
+      return "";
+
    }
-   
+
+#else
+
+   char lpPathBuffer[MAX_PATH * 16];
+
    strcpy(lpPathBuffer, "/tmp/");
    
 #endif
    
+   ::file::path pathFolder(lpPathBuffer);
    
-   if(dwRetVal > sizeof(lpPathBuffer) || (dwRetVal == 0))
-   {
-      debug_print("GetTempPath failed (%d)\n",GetLastError());
-      return "";
-   }
-   string str;
-   char buf[30];
-   size_t iLen= strlen(lpPathBuffer);
-   if(!(lpPathBuffer[iLen - 1] == '/'
-      || lpPathBuffer[iLen - 1] == '\\'))
-   {
-      lpPathBuffer[iLen] = '\\';
-      lpPathBuffer[iLen + 1] = '\0';
-   }
    for(int i = 0; i < 1000; i++)
    {
-      sprintf(buf,"%d",i);
-      str = lpPathBuffer;
-      str += pszName;
-      str += "\\";
-      str += buf;
-      str += "\\";
-      str += pszName;
-      str += ".";
-      str += pszExtension;
-      if(file_exists_dup(str.c_str()))
+      
+      ::file::path path;
+
+      path = pathFolder;
+
+      path /= pszName;
+
+      path /= ::str::from(i);
+
+      path /= (string(pszName) + "." + string(pszExtension));
+
+      if(file_exists_dup(path))
       {
          
-#ifdef WINDOWS
-      
-         if(::DeleteFileA(str.c_str()))
-            return str;
-         
-#else
+         if (::file_delete_dup(path))
+         {
 
-         if(::file_delete_dup(str.c_str()))
-            return str;
+            return path;
 
-#endif
+         }
          
       }
       else
       {
-         return str;
+
+         return path;
+
       }
+
    }
+
    return "";
+
 }
 
 

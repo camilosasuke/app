@@ -166,6 +166,8 @@ namespace user
 } // namespace aura
 
 
+#if defined(INSTALL_SUBSYSTEM)
+
 namespace install
 {
 
@@ -175,6 +177,8 @@ namespace install
 
 
 } // namespace install
+
+#endif
 
 
 namespace data
@@ -309,13 +313,15 @@ namespace file
 
 class machine_event_data;
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
 namespace hotplugin
 {
    class host;
    class plugin;
 }
 
-
+#endif
 
 
 
@@ -1437,7 +1443,7 @@ inline void string_format::format(const char * & s,const T & value,Args... args)
 //#include "aura/aura/aura/aura_core_os.h"
 
 
-#include "aura/aura/aura/aura_microtimer.h"
+#include "aura/aura/aura/aura_chronometer.h"
 
 
 

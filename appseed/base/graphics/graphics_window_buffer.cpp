@@ -57,7 +57,7 @@ void window_buffer::update_window(::draw2d::dib * pdib)
    if (!(m_pimpl->GetExStyle() & WS_EX_LAYERED))
    {
       rect r;
-      ::GetWindowRect(m_pimpl->get_handle(), &r);
+      m_pimpl->GetWindowRect(&r);
       m_pimpl->m_rectParentClientRequest = r;
 
    }

@@ -3,6 +3,9 @@
 //#include "plugin_instance.h"
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+
 ::hotplugin::plugin * new_hotplugin(::aura::application * papp);
 
 
@@ -112,4 +115,9 @@ namespace plugin
    return new ::plugin::instance(papp);
 
 }
+
+
+#endif
+
+
 

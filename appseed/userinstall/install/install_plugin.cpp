@@ -2,6 +2,7 @@
 //#include "base/user/user.h"
 
 
+#if defined(INSTALL_SUBSYSTEM)
 
 
 #undef new
@@ -1664,4 +1665,11 @@ restart:
 }
 
 #endif
+
+
+#endif
+
+
+
+
 

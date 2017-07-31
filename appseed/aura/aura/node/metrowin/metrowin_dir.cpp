@@ -111,7 +111,7 @@ namespace metrowin
 
             string strName = strPath.name();
 
-            if(!matches_wildcard_criteria(listing.m_strPattern,strName))
+            if(!matches_wildcard_criteria(listing.m_straPattern,strName))
                continue;
 
             bool bDir = is(strPath, papp);
@@ -156,7 +156,7 @@ namespace metrowin
 
             string strName = strPath.name();
 
-            if(listing.m_strPattern.has_char() && !matches_wildcard_criteria(listing.m_strPattern,strName))
+            if(matches_wildcard_criteria(listing.m_straPattern,strName))
                continue;
 
             bool bDir = strPath.m_iDir < 0 ? is(strPath, papp) : strPath.m_iDir != 0;

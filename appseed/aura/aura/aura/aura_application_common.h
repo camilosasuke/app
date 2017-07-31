@@ -4,6 +4,7 @@
 class service_base;
 class not_installed;
 
+#ifdef HOTPLUGIN_SUBSYSTEM
 
 namespace hotplugin
 {
@@ -14,6 +15,8 @@ namespace hotplugin
 
 
 } // namespace hotplugin
+
+#endif
 
 
 namespace file

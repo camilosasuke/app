@@ -1,13 +1,20 @@
 #pragma once
 
 
+#ifdef INSTALL_SUBSYSTEM
+
 int32_t spaboot_start(const char * pszVersion, const char * pszId);
+
+#endif
 
 
 namespace core
 {
    class file;
 }
+
+
+#ifdef HOTPLUGIN_SUBSYSTEM
 
 
 namespace plugin
@@ -94,5 +101,10 @@ namespace plugin
    };
 
 
-
 } // namespace npca2
+
+
+#endif
+
+
+

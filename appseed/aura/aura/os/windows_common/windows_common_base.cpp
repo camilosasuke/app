@@ -38,4 +38,3 @@ void output_debug_string(const char * psz)
    g_pfnOutputDebugString(psz);
 }
 
-

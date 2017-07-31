@@ -1,6 +1,8 @@
 //#include "framework.h"
 
 
+#if defined(INSTALL_SUBSYSTEM)
+
 #ifdef LINUX
 
 //#include <unistd.h>
@@ -29,6 +31,9 @@ int32_t run_file(const char * pszFile, int32_t nCmdShow);
 #ifdef SUPORTA_MATEMATICA_AVANCADA
 double g_dPi = asin_dup(1.0) * 4;
 #endif
+
+
+
 
 
 namespace install
@@ -170,6 +175,6 @@ string url_query_param(int32_t & iParam, const char * pszParam)
 
 
 
-
+#endif
 
 

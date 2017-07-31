@@ -80,6 +80,7 @@ CLASS_DECL_AXIS HMONITOR GetPrimaryMonitorHandle();
 CLASS_DECL_AXIS bool GetPrimaryMonitorRect(LPRECT lprect);
 CLASS_DECL_AXIS WSADATA get_wsadata();
 
+#ifdef HOTPLUGIN_SUBSYSTEM
 
 #ifdef cplusplus
 
@@ -91,6 +92,6 @@ namespace hotplugin
 
 } // namespace hotplugin
 
-
+#endif
 
 #endif

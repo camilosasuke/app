@@ -181,7 +181,8 @@ namespace visual
 
       m_itemptra.set_size(iCount);
 
-      OutputDebugString("Middle");
+      output_debug_string("Middle");
+
       ::fork_count(get_app(), m_itema.get_count(), [&](index iOrder, index i, index iCount, index iScan)
       {
 
@@ -362,7 +363,7 @@ namespace visual
       }
             );
 
-      OutputDebugString("End");
+      output_debug_string("End");
       /*
       ,
       [&]()

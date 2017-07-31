@@ -1,6 +1,8 @@
 #pragma once
 
 
+#ifdef INSTALL_SUBSYSTEM
+
 namespace install
 {
 
@@ -21,3 +23,4 @@ namespace install
 
 
 
+#endif

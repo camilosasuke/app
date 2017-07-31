@@ -5,6 +5,9 @@
 #endif
 
 
+#if defined(INSTALL_SUBSYSTEM)
+
+
 namespace install
 {
 
@@ -3159,6 +3162,9 @@ AdjustTokenPrivileges(hToken, FALSE, &tkp, 0, (PTOKEN_PRIVILEGES)NULL, 0);
 } // namespace app_app_admin
 
 
+
+
+#endif
 
 
 

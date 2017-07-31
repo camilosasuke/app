@@ -2,6 +2,9 @@
 //#include "base/user/user.h"
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+
 #undef new
 
 
@@ -1141,7 +1144,7 @@ namespace hotplugin
 } // namespace hotplugin
 
 
-
+#endif
 
 
 

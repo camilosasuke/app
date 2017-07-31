@@ -1007,3 +1007,19 @@ inline void to_string(string & str, const DWORD & ui)
 
 #endif
 
+
+
+#if defined(METROWIN) && defined(__cplusplus_winrt)
+
+
+inline string & string::operator = (String ^ & str)
+{
+
+
+   return operator = (begin(str));
+
+
+}
+
+
+#endif

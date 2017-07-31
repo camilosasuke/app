@@ -2,6 +2,7 @@
 //#include "core/user/user/user.h"
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
 
 
 #ifdef Application
@@ -325,3 +326,8 @@ namespace plugin
 
 #undef Application
 #define Application App(m_pauraapp)
+
+
+#endif
+
+

@@ -1,6 +1,9 @@
 #pragma once
 
 
+#if defined(INSTALL_SUBSYSTEM)
+
+
 //namespace install
 //{
 //
@@ -34,3 +37,8 @@
 
 
 //#include "install_install.h"
+
+
+#endif
+
+

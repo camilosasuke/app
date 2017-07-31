@@ -1,6 +1,7 @@
 #pragma once
 
 
+#if defined(INSTALL_SUBSYSTEM)
 
 
 int32_t spaboot_start(const char * pszVersion, const char * pszId);
@@ -148,6 +149,10 @@ namespace install
 
 
 } // namespace install
+
+
+
+#endif
 
 
 

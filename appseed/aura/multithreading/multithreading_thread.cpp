@@ -1483,7 +1483,7 @@ uint32_t __thread_entry(void * pparam)
          if (pthread->m_dwThreadAffinityMask != 0)
          {
 
-#if defined(WINDOWS) || defined(LINUX)
+#if defined(WINDOWSEX) || defined(LINUX)
 
             BOOL bOk = ::SetThreadAffinityMask(::GetCurrentThread(), pthread->m_dwThreadAffinityMask);
 

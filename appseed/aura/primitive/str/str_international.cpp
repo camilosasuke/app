@@ -283,7 +283,7 @@ namespace str
          return str;
       }
 
-#ifndef WINDOWSEX
+#ifndef WINDOWS
       
       string unicode_to_utf8(const wchar_t * lpcsz)
       {
@@ -394,7 +394,7 @@ namespace str
          return UnicodeToMultiByte(CodePageUtf8, str, lpcsz);
       }
 
-#ifndef WINDOWSEX
+#ifndef WINDOWS
 
       bool unicode_to_utf8(string & str, const wchar_t * lpcsz)
       {

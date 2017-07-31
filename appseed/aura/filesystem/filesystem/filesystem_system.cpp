@@ -1253,8 +1253,14 @@ restart:
 
       ::Windows::Storage::StorageFile ^ file = get_os_file(psz,  0, 0, NULL, OPEN_EXISTING, 0, NULL);
 
-      if(file == nullptr)
+      if (file == nullptr)
+      {
+
+         output_debug_string("test");
+
          throw "file::system::move Could not move file, could not open source file";
+
+      }
 
       string strDirOld     = psz.folder();
       string strDirNew     = pszNew.folder();

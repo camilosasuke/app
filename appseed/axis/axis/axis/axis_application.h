@@ -241,8 +241,13 @@ namespace axis
 
 
       virtual bool set_keyboard_layout(const char * pszPath, ::action::context actioncontext);
-      virtual int32_t hotplugin_host_starter_start_sync(const char * pszCommandLine, ::aura::application * papp, hotplugin::host * phost, hotplugin::plugin * pplugin = NULL) override;
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+      virtual int32_t hotplugin_host_starter_start_sync(const char * pszCommandLine, ::aura::application * papp, hotplugin::host * phost, hotplugin::plugin * pplugin = NULL) override;
+      virtual int32_t hotplugin_host_host_starter_start_sync(const char * pszCommandLine, ::aura::application * papp, hotplugin::host * phost, hotplugin::plugin * pplugin = NULL);
+
+#endif
 
       virtual bool BaseOnControlEvent(::user::control_event * pevent);
 
@@ -256,7 +261,6 @@ namespace axis
       virtual bool on_save_document(::user::document * pdocument, var varFile);
 
 
-      virtual int32_t hotplugin_host_host_starter_start_sync(const char * pszCommandLine, ::aura::application * papp, hotplugin::host * phost, hotplugin::plugin * pplugin = NULL);
 
 
       virtual bool check_install() override;

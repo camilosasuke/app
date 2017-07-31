@@ -799,7 +799,7 @@ namespace metrowin
 //      pkey->m_charrecv = args;
 
 
-      m_psystem->m_possystemwindow->m_pui->m_pimpl->message_handler(spbase);
+      m_psystem->m_possystemwindow->m_pui->m_pimpl->queue_message_handler(spbase);
 
    }
 
@@ -836,7 +836,7 @@ namespace metrowin
 //      pkey->m_key = args;
 
 
-      m_psystem->m_possystemwindow->m_pui->m_pimpl->message_handler(spbase);
+      m_psystem->m_possystemwindow->m_pui->m_pimpl->queue_message_handler(spbase);
 
    }
 
@@ -901,7 +901,7 @@ namespace metrowin
       //}
       //else
       //{
-         m_psystem->m_possystemwindow->m_pui->m_pimpl->message_handler(spbase);
+         m_psystem->m_possystemwindow->m_pui->m_pimpl->queue_message_handler(spbase);
       //}
 
 
@@ -938,7 +938,7 @@ namespace metrowin
 
       m_ptLastCursor = pointerPoint->RawPosition;
 
-      m_psystem->m_possystemwindow->m_pui->m_pimpl->message_handler(spbase);
+      m_psystem->m_possystemwindow->m_pui->m_pimpl->queue_message_handler(spbase);
 
    }
 
@@ -1004,7 +1004,7 @@ namespace metrowin
 
       m_ptLastCursor = pointerPoint->RawPosition;
 
-      m_psystem->m_possystemwindow->m_pui->m_pimpl->message_handler(spbase);
+      m_psystem->m_possystemwindow->m_pui->m_pimpl->queue_message_handler(spbase);
 
    }
 
@@ -1073,7 +1073,7 @@ namespace metrowin
 
       }
 
-      m_psystem->m_possystemwindow->m_pui->m_pimpl->message_handler(spbase);
+      m_psystem->m_possystemwindow->m_pui->m_pimpl->queue_message_handler(spbase);
 
    }
 

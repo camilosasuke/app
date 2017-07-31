@@ -1,6 +1,9 @@
 #include "framework.h"
 
 
+#if defined(INSTALL_SUBSYSTEM)
+
+
 namespace install
 {
 
@@ -277,34 +280,34 @@ namespace install
          if (straMd5.size() != straPath.size())
          {
 
-            OutputDebugString("Error: Fetched " + str::from(straMd5.size()));
-            OutputDebugString(" from " + str::from(straPath.size()));
-            OutputDebugString("\r\n");
+            output_debug_string("Error: Fetched " + str::from(straMd5.size()));
+            output_debug_string(" from " + str::from(straPath.size()));
+            output_debug_string("\r\n");
 
             int iMax = MAX(straMd5.size(), straPath.size());
             for (index i = 0; i < iMax; i++)
             {
 
-               OutputDebugString("File: ");
+               output_debug_string("File: ");
                if (i < straPath.size())
                {
-                  OutputDebugString(straPath[i]);
+                  output_debug_string(straPath[i]);
                }
                else
                {
-                  OutputDebugString("(missing)");
+                  output_debug_string("(missing)");
                }
-               OutputDebugString("\r\n");
-               OutputDebugString("MD5: ");
+               output_debug_string("\r\n");
+               output_debug_string("MD5: ");
                if (i < straPath.size())
                {
-                  OutputDebugString(straMd5[i]);
+                  output_debug_string(straMd5[i]);
                }
                else
                {
-                  OutputDebugString("(missing)");
+                  output_debug_string("(missing)");
                }
-               OutputDebugString("\r\n");
+               output_debug_string("\r\n");
 
             }
 
@@ -333,8 +336,8 @@ namespace install
          if (strFileMd5.compare_ci(strMd5) != 0)
          {
 
-            OutputDebugString("MD5 failed: " + strPath + " file MD5=" + strFileMd5 + " ref MD5=" + strMd5);
-            OutputDebugString("\r\n");
+            output_debug_string("MD5 failed: " + strPath + " file MD5=" + strFileMd5 + " ref MD5=" + strMd5);
+            output_debug_string("\r\n");
 
             return false;
 
@@ -374,13 +377,11 @@ namespace install
 
    }
 
-#ifdef WINDOWS
+#ifdef WINDOWSEX
 
    void tool::run_vcredist(string strPlatform)
    {
 
-#ifdef WINDOWS
-      
       SHELLEXECUTEINFOW sei = {};
 
       string str = ::path::vcredist(strPlatform);
@@ -433,8 +434,6 @@ namespace install
 
       ::CloseHandle(sei.hProcess);
       
-#endif
-
    }
 
 #endif
@@ -443,6 +442,11 @@ namespace install
 
 
 } // namespace install
+
+
+#endif
+
+
 
 
 

@@ -11,6 +11,13 @@
 
 #include "aura_types.h"
 
+#if !defined(METROWIN)
+
+#define INSTALL_SUBSYSTEM
+#define HOTPLUGIN_SUBSYSTEM
+
+#endif
+
 #include "aura/aura/os/os.h"
 
 #include "aura/primitive/math/math_math.h"

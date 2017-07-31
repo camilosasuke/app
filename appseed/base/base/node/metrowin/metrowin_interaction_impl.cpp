@@ -406,6 +406,8 @@ namespace metrowin
 
             }
 
+            _001UpdateBuffer();
+
             if (::get_tick_count() - dwLastRedraw < 5)
             {
 

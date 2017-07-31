@@ -1,6 +1,9 @@
 #pragma once
 
 
+#if defined(INSTALL_SUBSYSTEM)
+
+
 namespace install
 {
 
@@ -10,7 +13,6 @@ namespace install
       virtual public int_scalar_source::listener
    {
    public:
-
 
 
       stringa                          m_straTerminateProcesses;
@@ -215,5 +217,7 @@ namespace install
 } // namespace install
 
 
+
+#endif
 
 

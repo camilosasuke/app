@@ -685,6 +685,8 @@ namespace axis
 
       ::aura::application::SetCurrentHandles();
 
+#ifdef INSTALL_SUBSYSTEM
+
       if (is_installing() || is_uninstalling())
       {
 
@@ -696,6 +698,8 @@ namespace axis
          }
 
       }
+
+#endif
 
    }
 
@@ -765,12 +769,21 @@ namespace axis
 
       for (int32_t i = 0; i < (1024 * 1024); i++)
       {
+
          strRet = ::file::path(str) / (strRelative + "-" + hex::lower_from(i + 1)) / (string(pszName) + string(".") + pszExtension);
+
+#ifdef INSTALL_SUBSYSTEM
+
          if (pszTemplate != NULL)
          {
+
             if (System.install().is_file_ok(strRet, pszTemplate, ""))
                return true;
+
          }
+
+#endif
+
 
          if (file_exists_dup(strRet))
          {
@@ -1535,7 +1548,11 @@ namespace axis
 
          }
 
+#ifdef INSTALL_SUBSYSTEM
+
          System.install().remove_spa_start(m_strAppId);
+
+#endif
 
       }
 
@@ -4037,8 +4054,7 @@ namespace axis
 
 
 
-
-
+#ifdef HOTPLUGIN_SUBSYSTEM
 
    int32_t application::hotplugin_host_starter_start_sync(const char * pszCommandLine,::aura::application * papp,hotplugin::host * phost,hotplugin::plugin * pplugin)
    {
@@ -4083,13 +4099,16 @@ namespace axis
 
    }
 
-
-   int32_t application::hotplugin_host_host_starter_start_sync(const char * pszCommandLine,::aura::application * papp,hotplugin::host * phost,hotplugin::plugin * pplugin)
+   int32_t application::hotplugin_host_host_starter_start_sync(const char * pszCommandLine, ::aura::application * papp, hotplugin::host * phost, hotplugin::plugin * pplugin)
    {
 
       return -1;
 
    }
+
+
+#endif
+
 
 
    bool application::BaseOnControlEvent(::user::control_event * pevent)

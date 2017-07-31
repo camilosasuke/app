@@ -1202,3 +1202,5 @@ UINT   get_main_thread_id()
 {
    return g_uiMainThread;
 }
+
+

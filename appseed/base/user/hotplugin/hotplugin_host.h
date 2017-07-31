@@ -1,6 +1,9 @@
 #pragma once
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+
 namespace hotplugin
 {
 
@@ -140,4 +143,8 @@ namespace hotplugin
 
 
 } // namespace hotplugin
+
+
+#endif
+
 

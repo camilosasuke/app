@@ -1,6 +1,9 @@
 #pragma once
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+
 namespace plugin
 {
 
@@ -72,8 +75,10 @@ namespace plugin
    };
 
 
-} // namespace npca2
+} // namespace plugin
 
 
+
+#endif
 
 

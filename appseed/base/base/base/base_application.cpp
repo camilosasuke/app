@@ -748,12 +748,16 @@ run:
    }
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
    int32_t application::hotplugin_host_host_starter_start_sync(const char * pszCommandLine,::aura::application * papp,::hotplugin::host * phost,::hotplugin::plugin * pplugin)
    {
 
       return hotplugin::host::host_starter_start_sync(pszCommandLine,get_app(),NULL);
 
    }
+
+#endif
 
 
    ::user::interaction * application::FindWindow(const char * lpszClassName,const char * lpszWindowName)

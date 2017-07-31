@@ -1,5 +1,9 @@
 //#include "framework.h"
 
+
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+
 #undef new
 
 #define min MIN
@@ -219,19 +223,9 @@ namespace hotplugin
 //::rect rectBar(left,top,right,bottom);
 
 
-
-
-
-
-
-
-
-
-
-
-
 } // namespace hotplugin
 
 
+#endif
 
 

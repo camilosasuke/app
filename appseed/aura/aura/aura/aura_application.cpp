@@ -52,8 +52,8 @@ CLASS_DECL_IMPORT void draw2d_factory_exchange(::aura::application * papp);
 #endif
 
 
-#ifdef APPLE_IOS
-int ui_open_url(const char * psz);
+#if defined(APPLE_IOS) || defined(METROWIN)
+CLASS_DECL_AURA int ui_open_url(const char * psz);
 #endif
 
 
@@ -931,6 +931,13 @@ namespace aura
    void application::chromium(string strUrl, string strBrowser, string strId, ::file::path path, string strProfile, string strParam)
    {
 
+
+#ifdef METROWIN
+
+      ui_open_url(strUrl);
+
+#else
+
 //      manual_reset_event evClose(this);
 
       ::file::path pathDir;
@@ -1365,11 +1372,19 @@ namespace aura
 
       }
 
+#endif
+
    }
 
 
    void application::commander(string strUrl, string strWeather, string strUser, ::file::path path, string strParam)
    {
+
+#ifdef METROWIN
+
+      ui_open_url(strUrl);
+
+#else
 
       ::file::path pathDir;
 
@@ -1495,12 +1510,18 @@ namespace aura
 
 #endif
 
+#endif
 
    }
 
 
    void application::defer_create_firefox_profile(::file::path pathFirefox, string strProfileName, ::file::path pathProfile)
    {
+
+#ifdef METROWIN
+
+
+#else
 
       if (Application.dir().is(pathProfile))
       {
@@ -1523,11 +1544,19 @@ namespace aura
 
       call_sync(pathFirefox, strParam, pathDir, SW_SHOWDEFAULT, false);
 
+#endif
+
    }
 
 
    void application::firefox(string strUrl, string strBrowser, string strProfile, string strParam)
    {
+
+#ifdef METROWIN
+
+      ui_open_url(strUrl);
+
+#else
 
       string strBrowserPath;
       string strBrowserDir;
@@ -1687,6 +1716,8 @@ namespace aura
       }
 
       evClose.wait(seconds(60));
+
+#endif
 
    }
 
@@ -3278,7 +3309,7 @@ namespace aura
       stringa straLocale = command()->m_varTopicQuery["locale"].stra();
       stringa straSchema = command()->m_varTopicQuery["schema"].stra();
 
-
+#if defined(INSTALL_SUBSYSTEM)
 
       System.install().remove_spa_start(strId);
       System.install().add_app_install(strId, strBuild, strSystemLocale, m_strSchema);
@@ -3332,6 +3363,8 @@ namespace aura
       }
 
       System.install().add_app_install(strId, strBuild, "", "");
+
+#endif
 
       return true;
 
@@ -6045,6 +6078,8 @@ namespace aura
 
       }
 
+#if defined(INSTALL_SUBSYSTEM)
+
       if ((papp == NULL || papp->m_strAppId != strAppId)
          &&
          (!Application.command()->m_varTopicQuery.has_property("install")
@@ -6070,6 +6105,8 @@ namespace aura
          return NULL;
 
       }
+
+#endif
 
       return papp;
 
@@ -6490,6 +6527,8 @@ namespace aura
       else
       {
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
          string strAddUp;
 
          if (System.directrix()->m_varTopicQuery.has_property("enable_desktop_launch"))
@@ -6512,6 +6551,12 @@ namespace aura
 
          hotplugin_host_starter_start_sync(": app=" + notinstalled.m_strAppId + " install locale=" + notinstalled.m_strLocale + " schema=" + notinstalled.m_strSchema + " configuration=" + notinstalled.m_strConfiguration + " platform=" + notinstalled.m_strPlatform + strAddUp, get_app(), NULL);
 
+#else
+
+         throw todo(get_app());
+
+#endif
+
       }
 
       return false;
@@ -6519,12 +6564,16 @@ namespace aura
    }
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
    int32_t application::hotplugin_host_starter_start_sync(const char * pszCommandLine, ::aura::application * papp, hotplugin::host * phost, hotplugin::plugin * pplugin)
    {
 
       return -1;
 
    }
+
+#endif
 
 
    bool application::is_application()
@@ -6769,7 +6818,8 @@ namespace aura
    void application::draw2d_factory_exchange()
    {
       
-#if defined(METROWIN) || defined(CUBE)
+//#if defined(METROWIN) || defined(CUBE)
+#if defined(CUBE)
 
       ::draw2d_factory_exchange(this);
 

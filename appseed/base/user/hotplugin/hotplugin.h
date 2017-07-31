@@ -1,6 +1,9 @@
 #pragma once
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+
 // hotplugin
 // interface for a hot plugin
 // hot plugin - a plugin that can easily change underlying plugin implementation
@@ -64,6 +67,9 @@ namespace hotplugin
 #endif
 
 } // namespace ca2plugin_container
+
+
+#endif
 
 
 

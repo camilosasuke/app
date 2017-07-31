@@ -141,9 +141,11 @@ namespace aura
       string                                       m_strIosTemp;
       string_to_string                             m_mapCachedLatestBuild;
 
+#if !defined(METROWIN)
+
       sp(::install::install)                       m_spinstall;
 
-
+#endif
 
 
 
@@ -394,7 +396,12 @@ namespace aura
 
       virtual void * & ftlibrary();
 
+#if !defined(METROWIN)
+
       ::install::install                           & install() { return *m_spinstall; }
+
+#endif
+
 
       virtual bool find_applications_from_cache();
       virtual bool find_applications_to_cache(bool bSave = true);
@@ -418,7 +425,10 @@ namespace aura
       virtual string get_system_configuration();
       virtual bool is_application_installed(const char * pszAppId, const char * pszBuild = NULL, const char * pszPlatform = NULL, const char * pszConfiguration = NULL, const char * pszLocale = NULL, const char * pszSchema = NULL);
       virtual string get_latest_build_number(const char * pszConfiguration);
+
+#if defined(INSTALL_SUBSYSTEM)
       virtual int32_t start_installation(const char * pszCommand);
+#endif
 
 
       virtual void on_start_find_applications_from_cache();

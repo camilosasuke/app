@@ -36,7 +36,13 @@ namespace userstack
 
       SCAST_PTR(::message::create, pcreate, pobj);
 
+      m_bWindowFrame = true;
+      
+#ifdef HOTPLUGIN_SUBSYSTEM
+      
       m_bWindowFrame = GetTypedParent < ::plugin::host_interaction >() == NULL;
+
+#endif
 
       if(pobj->previous())
          return;

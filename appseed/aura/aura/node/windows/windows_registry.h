@@ -1,6 +1,9 @@
 #pragma once
 
 
+#ifdef WINDOWSEX
+
+
 namespace windows
 {
 
@@ -73,5 +76,10 @@ namespace windows
 
 
 } // namespace windows
+
+
+
+#endif
+
 
 

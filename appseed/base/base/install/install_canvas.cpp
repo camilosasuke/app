@@ -1,4 +1,9 @@
 #include "framework.h"
+
+
+#if defined(INSTALL_SUBSYSTEM)
+
+
 #include "install_canvas.h"
 #include <stdio.h>
 
@@ -643,3 +648,10 @@ void canvas_zero::zero(HDC hdc, POINT pt, int32_t iSize, int32_t iStep)
 //
 //
 //} // namespace base
+
+
+#endif
+
+
+
+

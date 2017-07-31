@@ -54,6 +54,10 @@
 #include "user_shell_macos.cpp"
 #elif defined(ANDROID)
 #include "user_shell_android.cpp"
+#elif defined(METROWIN)
+#include "user_shell_metrowin.cpp"
+#else
+#error "Implement here"
 #endif
 #include "user_single_document_template.cpp"
 #include "user_slider.cpp"

@@ -1,6 +1,9 @@
 #include "framework.h"
 
 
+#if defined(INSTALL_SUBSYSTEM)
+
+
 CLASS_DECL_AURA bool send_short_message_to_installer(const char * psz, bool bLaunch);
 CLASS_DECL_AURA void installer_call_sync(const char * path, const char * param);
 
@@ -83,5 +86,10 @@ void send_spaboot_install_response(const char * param)
 #endif
 
 }
+
+
+#endif
+
+
 
 

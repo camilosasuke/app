@@ -1,5 +1,10 @@
 //#include "framework.h"
 //#include "base/user/user.h"
+
+
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+
 #undef new
 #ifdef WINDOWS
 #define min MIN
@@ -737,7 +742,7 @@ namespace hotplugin
 } // namespace hotplugin
 
 
-
+#endif
 
 
 

@@ -137,9 +137,17 @@ CLASS_DECL_AURA ::file::path memcnts_base_path()
 
       g_pMemoryCounters = new ::file::path();
 
+#if defined(METROWIN)
+
+      string strBasePath = ::dir::system() / "memory_counters";
+
+#else
+
       ::file::path strModule = module_path_from_pid(getpid());
 
       string strBasePath = ::dir::system() / "memory_counters" / strModule.title() / ::str::from(getpid());
+
+#endif
 
       *g_pMemoryCounters = strBasePath;
 

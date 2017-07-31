@@ -21,12 +21,19 @@ namespace html
 } // namespace html
 
 
+
+#if defined(INSTALL_SUBSYSTEM)
+
+
 namespace install
 {
 
    class install;
 
 } // namespace install
+
+
+#endif
 
 
 namespace message
@@ -39,6 +46,8 @@ namespace message
 } // namespace message
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
 namespace hotplugin
 {
 
@@ -47,7 +56,7 @@ namespace hotplugin
 
 }
 
-
+#endif
 
 namespace user
 {

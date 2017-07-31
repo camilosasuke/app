@@ -1,6 +1,9 @@
 #include "framework.h"
 
 
+#if defined(INSTALL_SUBSYSTEM)
+
+
 namespace aura
 {
 
@@ -159,6 +162,8 @@ namespace aura
 
 } // namespace aura
 
+
+#endif
 
 
 

@@ -233,3 +233,26 @@ int DestroyWindow(oswindow oswindow)
    return TRUE;
 
 }
+
+
+
+CLASS_DECL_BASE ::user::interaction * oswindow_interaction(oswindow oswindow)
+{
+
+   if (is_ptr_null(oswindow, sizeof(*oswindow)))
+   {
+
+      return NULL;
+
+   }
+
+   if (is_ptr_null(oswindow->m_pimpl, sizeof(*oswindow->m_pimpl)))
+   {
+
+      return NULL;
+
+   }
+
+   return oswindow->m_pimpl->m_pui;
+
+}

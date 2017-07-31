@@ -1575,3 +1575,18 @@ retry:
 
 
 #endif
+
+
+
+#ifdef METROWIN
+
+::file::path dir::home()
+{
+
+   return "";
+
+}
+
+#endif
+
+

@@ -1,6 +1,9 @@
 #pragma once
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+
 #include "core/core/core/core_run_start_installer.h"
 
 
@@ -27,3 +30,8 @@ namespace plugin
 
 
 } // namespace plugin
+
+
+#endif
+
+

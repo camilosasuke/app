@@ -265,9 +265,12 @@ namespace file_watcher
       return begin(m_watchmap[watchid].w->m_strDirName);
    }
 
-	void os_file_watcher::update()
+	bool os_file_watcher::update()
 	{
 		//MsgWaitForMultipleObjectsEx(0, NULL, 0, QS_ALLINPUT, MWMO_ALERTABLE);
+
+      return true;
+
 	}
 
 	void os_file_watcher::handle_action(action * paction)

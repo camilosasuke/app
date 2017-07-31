@@ -1,6 +1,9 @@
 #pragma once
 
 
+#if defined(INSTALL_SUBSYSTEM)
+
+
 namespace install
 {
 
@@ -54,5 +57,7 @@ namespace install
 
 } // namespace install
 
+
+#endif
 
 

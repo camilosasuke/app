@@ -2,6 +2,9 @@
 //#include "core/user/user/user.h"
 
 
+#ifdef HOTPLUGIN_SUBSYSTEM
+
+
 namespace plugin
 {
 
@@ -58,6 +61,8 @@ namespace plugin
 
 } // namespace plugin
 
+
+#endif
 
 
 

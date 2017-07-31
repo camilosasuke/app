@@ -2,7 +2,7 @@
 
 
 #include "user_interaction_base.h"
-
+#include "user_interaction_impl_base.h"
 
 #define MESSAGE_POST_MESSAGE  14000
 

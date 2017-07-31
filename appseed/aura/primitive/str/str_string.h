@@ -218,8 +218,15 @@ public:
       strSrc.m_pszData = NULL;
    }
 
+#ifdef METROWIN
+   string(String ^ & str)
+   {
 
-   
+      operator = (begin(str));
+
+   }
+#endif
+
 
    string(e_context_switcher_null):
       stdstring< simple_string>(string_trait::GetDefaultManager())
@@ -324,9 +331,11 @@ public:
    string & operator = (unichar32 * pszSrc);
    string & operator = (uchar* pszSrc);
    string & operator = (char ch);
+
 #if defined(METROWIN) && defined(__cplusplus_winrt)
-   string & operator = (const String ^ & str);
+   string & operator = (String ^ & str);
 #endif
+
    string & operator = (unichar ch);
 
    // Assignment operators
@@ -1704,21 +1713,21 @@ inline void to_string(string & str, const string & strSrc)
 //
 
 
-#if defined(METROWIN) && defined(__cplusplus_winrt)
-
-
-template < >
-inline string & to_string(string & str, String ^ & strSrc)
-{
-
-   str= (const unichar *) wstring(begin(strSrc));
-
-   return str;
-
-}
-
-
-#endif
+//#if defined(METROWIN) && defined(__cplusplus_winrt)
+//
+//
+//template < >
+//inline void to_string(string & str, const String ^ & strSrc)
+//{
+//
+//   str= (const unichar *) wstring(begin(strSrc));
+//
+//   //return str;
+//
+//}
+//
+//
+//#endif
 
 
 
