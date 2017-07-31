@@ -29,9 +29,6 @@
 
 #elif defined(METROWIN)
 
-#define BSD_STYLE_SOCKETS
-#define HAVE_OPENSSL
-#define _WINSOCK_DEPRECATED_NO_WARNINGS
 
 #include "aura/os/metrowin/metrowin_metrowin.h"
 
