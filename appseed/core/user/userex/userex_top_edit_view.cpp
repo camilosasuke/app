@@ -71,7 +71,7 @@ namespace userex
       uh.m_ehint = ::user::view_update_hint::hint_after_change_text;
       uh.m_pui = this;
 
-      GetTypedParent<::userex::pane_tab_view>()->get_document()->update_all_views(this, 0, &uh);
+      get_document()->update_all_views(this, 0, &uh);
 
 
    }

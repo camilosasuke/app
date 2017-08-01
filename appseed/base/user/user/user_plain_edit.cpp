@@ -661,8 +661,13 @@ namespace user
    void plain_edit::_001OnCreate(signal_details * pobj)
    {
 
-
       SCAST_PTR(::message::create, pcreate, pobj);
+
+
+      pcreate->previous();
+
+
+
 
 #if !defined(APPLE_IOS) && !defined(VSNORD)
       Session.keyboard(); // trigger keyboard creationg
@@ -693,9 +698,6 @@ namespace user
 
 
       //m_pitem          = get_base_item();
-
-      pcreate->previous();
-
 
 
       SetTimer(100, 100, NULL);

@@ -54,7 +54,7 @@ namespace userex
          if (puh->m_ehint == ::user::view_update_hint::hint_after_change_text)
          {
 
-            if (puh->m_pui == m_ptopview->m_peditview)
+            if (m_ptopview != NULL && puh->m_pui == m_ptopview->m_peditview)
             {
                
                synch_lock sl(m_pview->m_pfontlistdata->m_pmutex);
@@ -107,7 +107,6 @@ namespace userex
          System.simple_message_box(NULL, "Could not create file list ::user::impact");
 
       }
-
 
    }
 
