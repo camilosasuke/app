@@ -235,6 +235,102 @@ namespace user
       virtual void mouse_hover_remove(::user::interaction * pinterface) override;
 
 
+      template < typename TYPE >
+      TYPE * typed_descedant(::user::interaction * puiExclude = NULL)
+      {
+
+         for (auto & pui : m_uiptraChild)
+         {
+
+            if (pui != puiExclude)
+            {
+
+               TYPE * p = dynamic_cast < TYPE * > (pui.m_p);
+
+               if (p != NULL)
+               {
+
+                  return p;
+
+               }
+
+            }
+
+
+         }
+
+         for (auto & pui : m_uiptraChild)
+         {
+
+            if (pui != puiExclude)
+            {
+
+               TYPE * p = pui->typed_descedant < TYPE >(pui.m_p);
+
+               if (p != NULL)
+               {
+
+                  return p;
+
+               }
+
+            }
+
+
+         }
+
+         return NULL;
+
+      }
+
+
+      template < typename TYPE >
+      TYPE * _001TypedWindow() // search descedants first, then ascendants descedants.
+      {
+
+         ::user::interaction * pui = this;
+
+         ::user::interaction * puiExclude = NULL;
+
+         while (pui != NULL)
+         {
+
+            TYPE * p = pui->typed_descedant < TYPE >(puiExclude);
+
+            if (p != NULL)
+            {
+
+               return p;
+
+            }
+
+            puiExclude = pui;
+
+            pui = pui->GetParent();
+
+            if (pui == NULL)
+            {
+
+               return NULL;
+
+            }
+
+            p = dynamic_cast < TYPE * > (pui);
+
+            if (p != NULL)
+            {
+
+               return p;
+
+            }
+
+         }
+
+         return NULL;
+
+      }
+
+
       virtual bool CheckAutoCenter() override;
 
       virtual void track_mouse_hover() override;

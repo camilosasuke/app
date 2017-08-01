@@ -518,7 +518,7 @@ string get_temp_file_name_dup(const char * pszName,const char * pszExtension)
    
    WCHAR lpPathBuffer[MAX_PATH * 16];
    
-   DWORD dwRetVal = GetTempPath(sizeof(lpPathBuffer), lpPathBuffer);
+   DWORD dwRetVal = GetTempPathW(sizeof(lpPathBuffer) / sizeof(WCHAR), lpPathBuffer);
 
    if (dwRetVal > sizeof(lpPathBuffer) || (dwRetVal == 0))
    {

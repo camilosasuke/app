@@ -312,10 +312,6 @@ waitable_callback::~waitable_callback()
 Sleep((uint32_t)duration.total_milliseconds());
 }*/
 
-CLASS_DECL_AURA void sleep(const duration & duration)
-{
-   ::Sleep(static_cast<uint32_t>(duration.total_milliseconds()));
-}
 
 
 

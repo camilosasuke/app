@@ -28,3 +28,8 @@
 //2015-01-05  08:57                 0 _ansios_os.cpp"
 //               9 arquivo(s)         60.496 bytes
 //               0 pasta(s)   19.156.402.176 bytes dispon¡veis
+
+#include "ansios_base.cpp"
+
+
+

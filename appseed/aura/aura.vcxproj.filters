@@ -1298,9 +1298,6 @@
     <ClInclude Include="aura\aura\aura_message_loop.h">
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
-    <ClInclude Include="aura\aura\aura_microtimer.h">
-      <Filter>Header Files\aura\aura</Filter>
-    </ClInclude>
     <ClInclude Include="aura\aura\aura_muldiv64.h">
       <Filter>Header Files\aura\aura</Filter>
     </ClInclude>
@@ -2855,6 +2852,9 @@
     <ClInclude Include="aura\compress\zip\zip_util.h">
       <Filter>Header Files\aura\compress\zip</Filter>
     </ClInclude>
+    <ClInclude Include="aura\aura\aura_chronometer.h">
+      <Filter>Header Files\aura\aura</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="multithreading\multithreading_condition.cpp">
@@ -3482,9 +3482,6 @@
       <Filter>Source Files\aura\aura</Filter>
     </ClCompile>
     <ClCompile Include="aura\aura\aura_message_queue.cpp">
-      <Filter>Source Files\aura\aura</Filter>
-    </ClCompile>
-    <ClCompile Include="aura\aura\aura_microtimer.cpp">
       <Filter>Source Files\aura\aura</Filter>
     </ClCompile>
     <ClCompile Include="aura\aura\aura_mktime.cpp">
@@ -4953,6 +4950,21 @@
     </ClCompile>
     <ClCompile Include="filesystem\file\file_path.cpp">
       <Filter>Source Files\filesystem\file</Filter>
+    </ClCompile>
+    <ClCompile Include="aura\os\cross\metrowin\_cross_metrowin.cpp">
+      <Filter>Source Files\aura\os\cross\metrowin</Filter>
+    </ClCompile>
+    <ClCompile Include="aura\os\windows_common\windows_common_multithreading.cpp">
+      <Filter>Source Files\aura\os\windows_common</Filter>
+    </ClCompile>
+    <ClCompile Include="aura\os\ansios\ansios_base.cpp">
+      <Filter>Source Files\aura\os\ansios</Filter>
+    </ClCompile>
+    <ClCompile Include="aura\os\ansios\_ansios_os.cpp">
+      <Filter>Source Files\aura\os\ansios</Filter>
+    </ClCompile>
+    <ClCompile Include="aura\aura\aura_chronometer.cpp">
+      <Filter>Source Files\aura\aura</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

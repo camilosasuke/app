@@ -85,24 +85,24 @@ void attach_thread_input_to_main_thread(bool bAttach)
 //}
 
 
-namespace multithreading
-{
-
-   bool set_priority(int32_t priority)
-   {
-
-      return (::SetThreadPriority(::GetCurrentThread(),get_os_thread_priority(priority)) != 0);
-   }
-
-   int32_t priority()
-   {
-      return ::GetThreadPriority(::GetCurrentThread());
-   }
-
-
-} // namespace core
-
-
+//namespace multithreading
+//{
+//
+//   bool set_priority(int32_t priority)
+//   {
+//
+//      return (::SetThreadPriority(::GetCurrentThread(),get_os_thread_priority(priority)) != 0);
+//   }
+//
+//   int32_t priority()
+//   {
+//      return ::GetThreadPriority(::GetCurrentThread());
+//   }
+//
+//
+//} // namespace core
+//
+//
 
 
 HTHREAD get_current_thread()

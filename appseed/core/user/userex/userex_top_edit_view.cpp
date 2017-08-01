@@ -54,11 +54,11 @@ namespace userex
    void top_edit_view::_001OnAfterChangeText(::action::context actioncontext)
    {
 
-      if (actioncontext.is_source(::action::source_sync))
-         return;
+//      if (actioncontext.is_source(::action::source_sync))
+  //       return;
 
-      if (m_ptopview == NULL)
-         return;
+      //if (m_ptopview == NULL)
+        // return;
 
 
 

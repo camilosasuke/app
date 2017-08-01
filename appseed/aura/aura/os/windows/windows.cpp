@@ -838,15 +838,15 @@ bool __is_valid_atom(const char * psz)
 
 
 
-int get_processor_count()
-{
-   
-   SYSTEM_INFO sysinfo;
-   GetSystemInfo(&sysinfo);
-
-   return sysinfo.dwNumberOfProcessors;
-
-}
+//int get_processor_count()
+//{
+//   
+//   SYSTEM_INFO sysinfo;
+//   GetSystemInfo(&sysinfo);
+//
+//   return sysinfo.dwNumberOfProcessors;
+//
+//}
 
 
 

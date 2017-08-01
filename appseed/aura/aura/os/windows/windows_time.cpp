@@ -119,7 +119,7 @@ BOOLEAN nanosleep(LONGLONG ns) {
                        /* Create timer */
    if (!(timer = CreateWaitableTimer(NULL, TRUE, NULL)))
    {
-      Sleep(ns / (1000 * 1000))
+      Sleep(ns / (1000 * 1000));
       return TRUE;
    }
    /* Set timer properties */
@@ -140,7 +140,7 @@ BOOLEAN nanosleep(LONGLONG ns) {
 void sleep(const ::duration & dur)
 {
 
-   nanosleep(dur.get_total_nanos());
+   nanosleep(dur.total_nanoseconds());
 
 }
 

@@ -32,55 +32,97 @@ namespace userex
    {
    }
 
+   
    ::user::interaction * pane_tab_view::get_view_uie()
    {
+      
       return ::user::tab_view::get_view_uie();
+
    }
+
 
    id pane_tab_view::get_view_id()
    {
+
       return ::user::tab_view::get_view_id();
+
    }
+
 
    void pane_tab_view::GetTabClientRect(LPRECT lprect)
    {
+
       if(m_pviewdata == NULL || m_pviewdata->m_pwnd == NULL || m_pviewdata->m_iExtendOnParent == 0)
       {
+
          ::user::tab_view::GetTabClientRect(lprect);
+
       }
       else if(m_pviewdata->m_iExtendOnParent > 0)
       {
+
          int32_t i = m_pviewdata->m_iExtendOnParent;
+
          sp(::user::interaction) pui = m_pviewdata->m_pwnd;
+
          sp(::user::interaction) puiNext = m_pviewdata->m_pwnd;
+
          for(; i > 0; i--)
          {
+
             puiNext = pui->GetParent();
-            if(puiNext == NULL || !puiNext->IsWindow())
+
+            if (puiNext == NULL || !puiNext->IsWindow())
+            {
+
                break;
+
+            }
+
             pui = puiNext;
+
          }
+
          pui->GetWindowRect(lprect);
+
          ScreenToClient(lprect);
+
       }
       else if(m_pviewdata->m_iExtendOnParent < 0)
       {
+         
          sp(::user::interaction) pui = m_pviewdata->m_pwnd;
+
          sp(::user::interaction) puiNext = m_pviewdata->m_pwnd;
+
          user::interaction_spa wnda(get_app());
+
          while(true)
          {
+
             wnda.add(pui);
+
             puiNext = pui->GetParent();
-            if(puiNext == NULL || (pui->m_pimpl) != NULL)
+
+            if (puiNext == NULL || (pui->m_pimpl) != NULL)
+            {
+
                break;
+
+            }
+
             pui = puiNext;
+
          }
-         //         int32_t i = MAX(0, wnda.get_size() + m_pviewdata->m_iExtendOnParent);
+         
          pui = wnda[wnda.get_size() + m_pviewdata->m_iExtendOnParent];
+
          pui->GetWindowRect(lprect);
+
          ScreenToClient(lprect);
+
       }
+
    }
 
 
@@ -601,8 +643,7 @@ namespace userex
       if (pdoc.is_set())
       {
 
-         pdoc->get_html_data()->m_propertyset["app_options_title"] = 
-            get_pane_by_id(pcreatordata->m_id)->m_istrTitleEx.to_string();
+         pdoc->get_html_data()->m_propertyset["app_options_title"] = get_pane_by_id(pcreatordata->m_id)->m_istrTitleEx.to_string();
 
       }
 
@@ -617,9 +658,7 @@ namespace userex
 
       }
 
-
       m_pdocAppOptions->open_document(strAppOptions);
-
 
       return true;
 

@@ -53,6 +53,10 @@ public:
    void set(double d, e_unit eunit);
 
 
+   inline int64_t get_total_nanoseconds() const;
+   inline int64_t total_nanoseconds() const;
+   inline int64_t get_total_microseconds() const;
+   inline int64_t total_microseconds() const;
    inline int64_t get_total_milliseconds() const;
    inline int64_t total_milliseconds() const;
    inline int64_t get_total_seconds() const;
@@ -167,6 +171,22 @@ inline int64_t duration::get_total_milliseconds() const
 }
 
 
+inline int64_t duration::get_total_microseconds() const
+{
+
+   return m_iSeconds * 1000000 + m_iNanoseconds / 1000;
+
+}
+
+
+inline int64_t duration::get_total_nanoseconds() const
+{
+
+   return m_iSeconds * 1000 * 1000 * 1000 + m_iNanoseconds;
+
+}
+
+
 inline lock_duration duration::lock_duration() const
 {
 
@@ -211,6 +231,18 @@ inline duration::operator ::tick_duration() const
 inline int64_t duration::total_milliseconds() const
 {
    return get_total_milliseconds();
+}
+
+
+inline int64_t duration::total_microseconds() const
+{
+   return get_total_microseconds();
+}
+
+
+inline int64_t duration::total_nanoseconds() const
+{
+   return get_total_nanoseconds();
 }
 
 

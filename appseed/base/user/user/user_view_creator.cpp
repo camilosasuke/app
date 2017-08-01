@@ -494,7 +494,23 @@ namespace user
 
          m_viewmap.get_next_assoc(pos, id, pcreatordata);
 
-         if(pcreatordata->m_pdoc != NULL && pcreatordata->m_pdoc != pdocument && (pSender == NULL || pSender->get_document() != pcreatordata->m_pdoc))
+         bool bUpdateView = true;
+
+         if (pcreatordata->m_eflag.is_signalized(::user::view_creator_data::flag_strict_update))
+         {
+
+            bUpdateView = pcreatordata->m_pdoc != NULL && pSender->get_document() != pcreatordata->m_pdoc;
+
+            if (bUpdateView)
+            {
+
+               bUpdateView = pcreatordata->m_pdoc != NULL && pcreatordata->m_pdoc != pdocument;
+
+            }
+
+         }
+
+         if(bUpdateView && pcreatordata->m_pdoc != NULL)
          {
 
             pcreatordata->m_pdoc->update_all_views(pSender, lHint, pHint);
