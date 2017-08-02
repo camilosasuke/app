@@ -700,7 +700,7 @@ Restart:
    {
 
       
-      return _001IsPointInside(point(pt));
+      return false;
 
    }
 

@@ -534,7 +534,8 @@ namespace core
 
       virtual void remove_document_template(::user::impact_system * pimpactsystem);
 
-      virtual bool _001OnAgreeExit();
+      virtual bool _001OnAgreeExit() override;
+      virtual void _001OnFranceExit() override;
 
    };
 

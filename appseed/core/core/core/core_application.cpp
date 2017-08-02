@@ -3526,13 +3526,20 @@ namespace core
    bool application::_001OnAgreeExit()
    {
 
-      document_manager().close_all_documents(true);
-
       return true;
 
    }
 
 
+   void application::_001OnFranceExit()
+   {
+
+
+      document_manager().close_all_documents(true);
+
+
+
+   }
 
 
 } // namespace core
