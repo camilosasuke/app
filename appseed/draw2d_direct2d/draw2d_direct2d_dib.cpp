@@ -23,12 +23,20 @@ namespace draw2d_direct2d
       m_bTrans       = false;
    }
 
+   
    COLORREF * dib::get_data() const
    {
+
+      map();
+
       return m_pcolorref;
+
    }
+
+
    ::draw2d::bitmap_sp dib::get_bitmap() const
    {
+
       return m_spbitmap;
    }
 

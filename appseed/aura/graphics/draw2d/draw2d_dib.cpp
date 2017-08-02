@@ -140,6 +140,8 @@ namespace draw2d
    COLORREF * dib::get_data() const
    {
 
+      map();
+
       return m_pcolorref;
 
    }
