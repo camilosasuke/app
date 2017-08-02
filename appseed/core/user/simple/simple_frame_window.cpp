@@ -430,6 +430,26 @@ void simple_frame_window::_001OnCreate(signal_details * pobj)
       }
    }
 
+   if (m_puserschemaSchema == NULL)
+   {
+
+      string strSchema = m_varFrame["wndfrm"];
+
+      m_puserschemaSchema = Session.get_user_schema(strSchema, get_app());
+
+   }
+
+   if (m_puserschemaSchema == NULL)
+   {
+
+      m_puserschemaSchema = Application.userschema();
+
+
+
+
+   }
+
+
    if (m_bWindowFrame)
    {
       /*WNDCLASS wndclass;
@@ -470,24 +490,6 @@ void simple_frame_window::_001OnCreate(signal_details * pobj)
          pcreate->m_bRet = true;
 
          return;
-
-      }
-      if (m_puserschemaSchema == NULL)
-      {
-
-         string strSchema = m_varFrame["wndfrm"];
-         
-         m_puserschemaSchema = Session.get_user_schema(strSchema, get_app());
-
-      }
-
-      if (m_puserschemaSchema == NULL)
-      {
-
-         m_puserschemaSchema = Application.userschema();
-
-
-
 
       }
 

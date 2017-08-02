@@ -1655,15 +1655,31 @@ Restart:
       if (pbase.is_set())
       {
 
+         if (pbase->m_uiMessage == WM_MOUSEMOVE)
          {
 
-            single_lock sl(m_messagequeue.m_pmutex);
+            {
 
-            m_messagequeue.add(pbase);
+               single_lock sl(m_messagequeue.m_pmutex);
+
+               m_messagequeue.add(pbase);
+
+            }
+
+            m_evNewMessage.SetEvent();
 
          }
+         else
+         {
 
-         m_evNewMessage.SetEvent();
+            ::fork(get_app(), [this, pbase]()
+            {
+
+               message_handler(pbase);
+
+            });
+
+         }
 
       }
 
