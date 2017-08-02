@@ -12,7 +12,6 @@ static_function void __pre_init_dialog(::user::interaction * pWnd,LPRECT lpRectO
 static_function void __post_init_dialog(::user::interaction * pWnd,const RECT& rectOld,uint32_t dwStyleOld);
 LRESULT CALLBACK __activation_window_procedure(oswindow hWnd,UINT nMsg,WPARAM wParam,LPARAM lParam);
 
-extern CLASS_DECL_AURA mutex * g_pmutexGraphicsDraw;
 
 namespace metrowin
 {
@@ -22,7 +21,6 @@ namespace metrowin
       ::aura::timer_array(get_app())
    {
 
-      g_pmutexGraphicsDraw = &draw2d_mutex();
       m_bScreenRelativeMouseMessagePosition  = false;
       m_plistener                            = NULL;
       m_nModalResult                         = 0;
@@ -365,6 +363,10 @@ namespace metrowin
 
          DWORD dwLastRedraw;
 
+         manual_reset_event evDraw(get_app());
+
+         evDraw.SetEvent();
+
          while (::get_thread_run())
          {
 
@@ -386,36 +388,60 @@ namespace metrowin
                if (m_xapp != nullptr)
                {
 
-                  ::wait(
-                     m_window->Dispatcher->RunAsync(
+                  evDraw.ResetEvent();
+
+                  m_window->Dispatcher->RunAsync(
                         CoreDispatcherPriority::Normal, 
-                        ref new Windows::UI::Core::DispatchedHandler([this]()
+                        ref new Windows::UI::Core::DispatchedHandler([this, &evDraw]()
                   {
 
-                     single_lock sl(g_pmutexGraphicsDraw);
-
-                     HRESULT hr = m_xapp->m_directx->Render();
-
-                     if (SUCCEEDED(hr))
+                     try
                      {
 
-                        m_xapp->m_directx->Present();
+                        synch_lock sl(&draw2d_mutex());
+
+                        HRESULT hr = m_xapp->m_directx->Render();
+
+                        if (SUCCEEDED(hr))
+                        {
+
+                           m_xapp->m_directx->Present();
+
+
+                        }
 
                      }
-                  })));
+                     catch(...)
+                     {
+                     }
+                     
+                     evDraw.SetEvent();
 
-                  on_after_graphical_update();
+                  }));
 
                }
 
             }
 
-            _001UpdateBuffer();
-
-            if (::get_tick_count() - dwLastRedraw < 5)
             {
 
-               Sleep(5);
+               single_lock sl(&draw2d_mutex());
+
+               if (evDraw.wait(millis(16)).succeeded() && sl.wait(millis(1)).succeeded())
+               {
+
+                  on_after_graphical_update();
+
+                  _001UpdateBuffer();
+
+                  if (::get_tick_count() - dwLastRedraw < 5)
+                  {
+
+                     Sleep(5);
+
+                  }
+
+               }
 
             }
 

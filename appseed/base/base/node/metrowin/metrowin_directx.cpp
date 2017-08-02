@@ -10,8 +10,6 @@ using namespace Windows::Graphics::Display;
 using namespace D2D1;
 
 
-extern CLASS_DECL_AURA mutex * g_pmutexGraphicsDraw;
-
 namespace metrowin
 {
 
@@ -27,9 +25,8 @@ namespace metrowin
       m_bInitialized = false;
       m_bInit = false;
 
-      g_pmutexGraphicsDraw = &draw2d_mutex();
-
    }
+
 
    // Initialize the DirectX resources required to run.
    void directx_base::Initialize(CoreWindow^ window,float dpi)
