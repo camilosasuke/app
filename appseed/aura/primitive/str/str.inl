@@ -42,9 +42,15 @@ inline string  from_uint(const T & t)
 
 inline void simple_string::construct(string_manager * pstringmanager)
    {
-      ENSURE( pstringmanager != NULL );
+   if (pstringmanager == NULL)
+   {
+
+      pstringmanager = string_trait::GetDefaultManager();
+
+   }
       string_data * pData = pstringmanager->GetNilString();
-      attach( pData );
+      attach(pData);
+
    }
 
    inline simple_string::simple_string(const simple_string & strSrc, string_manager * pstringmanager  )
