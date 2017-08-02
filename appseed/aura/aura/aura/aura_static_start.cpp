@@ -585,15 +585,15 @@ namespace aura
 
 static mutex * s_pmutexDraw2d = NULL;
 
-mutex & draw2d_mutex()
+CLASS_DECL_AURA mutex * draw2d_mutex()
 {
 
-   return *s_pmutexDraw2d;
+   return s_pmutexDraw2d;
 
 }
 
 
-void init_draw2d_mutex()
+CLASS_DECL_AURA void init_draw2d_mutex()
 {
 
    s_pmutexDraw2d = new mutex();
@@ -601,7 +601,7 @@ void init_draw2d_mutex()
 }
 
 
-void term_draw2d_mutex()
+CLASS_DECL_AURA void term_draw2d_mutex()
 {
 
    ::aura::del(s_pmutexDraw2d);
