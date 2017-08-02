@@ -2542,7 +2542,7 @@ namespace draw2d_direct2d
    void dib::map(bool bApplyAlphaTransform) const
    {
 
-      synch_lock ml(&draw2d_mutex());
+      synch_lock ml(draw2d_mutex());
 
       if (m_bMapped)
          return;
@@ -2616,7 +2616,7 @@ namespace draw2d_direct2d
    void dib::unmap() const
    {
 
-      synch_lock ml(&draw2d_mutex());
+      synch_lock ml(draw2d_mutex());
 
       if (!m_bMapped)
          return;

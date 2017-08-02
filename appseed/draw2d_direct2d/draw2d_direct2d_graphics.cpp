@@ -26,7 +26,7 @@ namespace draw2d_direct2d
       m_pmutex                = new mutex(papp);
 
 
-//      &draw2d_mutex() = &draw2d_mutex();
+//      draw2d_mutex() = draw2d_mutex();
 
       m_sppen.alloc(allocer());
 
@@ -105,7 +105,7 @@ namespace draw2d_direct2d
 
       //single_lock sl(System.m_pmutexDc, true);
 
-      synch_lock ml(&draw2d_mutex());
+      synch_lock ml(draw2d_mutex());
 
       if(m_iType != 0)
          destroy();
@@ -5119,7 +5119,7 @@ namespace draw2d_direct2d
    bool graphics::destroy()
    {
 
-      synch_lock ml(&draw2d_mutex());
+      synch_lock ml(draw2d_mutex());
 
       single_lock sl(&System.m_mutexDc, true);
 
