@@ -172,10 +172,10 @@ namespace metrowin
 
 
       // Window Text Functions
-      void SetWindowText(const char * lpszString);
-      strsize GetWindowText(char * lpszStringBuf, strsize nMaxCount);
-      void GetWindowText(string & rString);
-      strsize GetWindowTextLength();
+      void set_window_text(const char * lpszString) override;
+      //strsize get_window_text(char * lpszStringBuf, strsize nMaxCount) override;
+      void get_window_text(string & rString) override;
+      //strsize get_window_text_length() override;
       void SetFont(::draw2d::font* pFont, bool bRedraw = TRUE);
       ::draw2d::font* GetFont();
 

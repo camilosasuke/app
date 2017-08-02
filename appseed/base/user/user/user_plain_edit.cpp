@@ -35,8 +35,7 @@ namespace user
    plain_edit::plain_edit(::aura::application * papp) :
       ::object(papp),
       ::user::interaction(papp),
-      m_keymessageLast(papp),
-      m_pmemorygraphics(allocer())
+      m_keymessageLast(papp)
    {
 
       plain_edit_common_construct();
@@ -4795,6 +4794,13 @@ namespace user
 
    void plain_edit::on_layout()
    {
+
+      if (m_pmemorygraphics.is_null())
+      {
+
+         m_pmemorygraphics.alloc(allocer());
+
+      }
 
       m_bCalcLayoutHintNoTextChange = true;
 

@@ -4610,32 +4610,9 @@ namespace draw2d_direct2d
       if(m_prendertarget == NULL)
          return;
 
-      ::draw2d::brush_sp brPrevious(m_spbrush);
+      ::draw2d::brush_sp br(allocer());
 
-      ::draw2d::brush_sp br;
-
-      if(brPrevious.is_null() || brPrevious->m_powner != this)
-      {
-
-         br.alloc(allocer());
-
-         br->m_powner = this;
-
-         br->create_solid(clr);
-
-         SelectObject(br);
-
-      }
-      else
-      {
-
-         br = brPrevious;
-
-         br->create_solid(clr);
-
-         SelectObject(br);
-
-      }
+      br->create_solid(clr);
 
       D2D1_RECT_F r;
 
@@ -4644,7 +4621,7 @@ namespace draw2d_direct2d
       r.right     = (FLOAT) x + cx;
       r.bottom    = (FLOAT) y + cy;
 
-      m_prendertarget->FillRectangle(r, get_os_brush(m_spbrush));
+      m_prendertarget->FillRectangle(r, get_os_brush(br));
 
 
    }

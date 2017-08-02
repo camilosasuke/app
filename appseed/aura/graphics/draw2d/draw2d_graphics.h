@@ -764,7 +764,9 @@ namespace draw2d
    {
    public:
 
+      memory_graphics();
       memory_graphics(const ::aura::allocatorsp & allocer);
+      void alloc(const ::aura::allocatorsp & allocer);
       virtual ~memory_graphics();
 
    };

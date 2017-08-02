@@ -3704,11 +3704,31 @@ namespace draw2d
 
    }
 
+   memory_graphics::memory_graphics() 
+   {
+      
+   }
+
    memory_graphics::memory_graphics(const ::aura::allocatorsp & allocer) :
       ::draw2d::graphics_sp(allocer)
    {
       ::draw2d::graphics_sp::m_p->CreateCompatibleDC(NULL);
    }
+
+   void memory_graphics::alloc(const ::aura::allocatorsp & allocer)
+   {
+
+      if (is_null())
+      {
+         
+         ::draw2d::graphics_sp::alloc(allocer);
+
+         ::draw2d::graphics_sp::m_p->CreateCompatibleDC(NULL);
+
+      }
+      
+   }
+
 
    memory_graphics::~memory_graphics()
    {

@@ -484,7 +484,9 @@ namespace metrowin
       //m_plistener = pcallback;
       if(IsWindow())
       {
-         SetWindowText(pszName);
+         
+         set_window_text(pszName);
+
       }
       else
       {
@@ -887,13 +889,22 @@ namespace metrowin
    }
 
 
-   void interaction_impl::GetWindowText(string & rString)
+   void interaction_impl::get_window_text(string & rString)
    {
-      /*ASSERT(::WinIsWindow(get_handle()));
 
-      int nLen = ::GetWindowTextLength(get_handle());
-      ::GetWindowText(get_handle(), rString.GetBufferSetLength(nLen), nLen+1);
-      rString.ReleaseBuffer();*/
+
+      ::wait(m_window->Dispatcher->RunAsync(
+         CoreDispatcherPriority::Normal,
+         ref new Windows::UI::Core::DispatchedHandler([this]()
+      {
+
+         Windows::UI::ViewManagement::ApplicationView ^ applicationview = Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
+
+         m_strWindowText = begin(applicationview->Title);
+
+      })));
+
+
       rString = m_strWindowText;
 
    }
@@ -4690,27 +4701,46 @@ ExitModal:
 
    }
 
-   void interaction_impl::SetWindowText(const char * lpszString)
+   void interaction_impl::set_window_text(const char * lpszString)
    {
+      
       m_strWindowText = lpszString;
-   }
 
-   strsize interaction_impl::GetWindowText(LPSTR lpszString,strsize nMaxCount)
-   {
-      strncpy(lpszString,m_strWindowText,nMaxCount);
-      return MIN(nMaxCount,m_strWindowText.get_length());
-   }
+      m_window->Dispatcher->RunAsync(
+         CoreDispatcherPriority::Normal,
+         ref new Windows::UI::Core::DispatchedHandler([this]()
+      {
 
-   strsize interaction_impl::GetWindowTextLength()
-   {
+         Windows::UI::ViewManagement::ApplicationView ^ applicationview = Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
 
-      throw todo(get_app());
+         applicationview->Title = m_strWindowText;
 
-      //ASSERT(::WinIsWindow(get_handle()));
-
-      //return ::GetWindowTextLength(get_handle());
+      }));
 
    }
+
+   //strsize interaction_impl::GetWindowText(LPSTR lpszString,strsize nMaxCount)
+   //{
+   //   strncpy(lpszString,m_strWindowText,nMaxCount);
+   //   return MIN(nMaxCount,m_strWindowText.get_length());
+   //}
+
+   //strsize interaction_impl::get_window_text_length()
+   //{
+
+   //   string str;
+
+   //   get_window_text(str);
+
+   //   return str.get_length();
+
+   //   //throw todo(get_app());
+
+   //   ////ASSERT(::WinIsWindow(get_handle()));
+
+   //   ////return ::GetWindowTextLength(get_handle());
+
+   //}
 
    void interaction_impl::SetFont(::draw2d::font* pfont,bool bRedraw)
    {

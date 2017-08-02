@@ -143,6 +143,8 @@ namespace core
       if(!::base::session::initialize())
          return false;
 
+      userschema();
+
       return true;
 
    }
