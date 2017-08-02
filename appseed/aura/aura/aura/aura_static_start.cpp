@@ -9,8 +9,8 @@
 
 extern mutex * g_pmutexSignal;
 extern class ::exception::engine * g_pexceptionengine;
-void init_draw2d_direct2_mutex();
-void term_draw2d_direct2_mutex();
+CLASS_DECL_AURA void init_draw2d_mutex();
+CLASS_DECL_AURA void term_draw2d_mutex();
 void aura_auto_debug_teste();
 void teste_aura_cmp();
 void init_resolve_addr_file_func_line();
@@ -321,7 +321,8 @@ namespace aura
          br_init(NULL);
 #endif
 
-         init_draw2d_direct2_mutex();
+         // Only draw2d implementations needing "big" synch should init_draw2d_mutex();
+         // init_draw2d_mutex();
 
          aura_auto_debug_teste();
 
@@ -389,7 +390,7 @@ namespace aura
 
          g_pmapLibCall = NULL;
 
-         term_draw2d_direct2_mutex();
+         term_draw2d_mutex();
 
          delete g_pmutexFactory;
 
@@ -582,30 +583,27 @@ namespace aura
 } // namespace aura
 
 
+static mutex * s_pmutexDraw2d = NULL;
 
-
-
-static mutex * s_pmutex = NULL;
-
-mutex & draw2d_direct2_mutex()
+mutex & draw2d_mutex()
 {
 
-   return *s_pmutex;
+   return *s_pmutexDraw2d;
 
 }
 
 
-void init_draw2d_direct2_mutex()
+void init_draw2d_mutex()
 {
 
-   s_pmutex = new mutex();
+   s_pmutexDraw2d = new mutex();
 
 }
 
 
-void term_draw2d_direct2_mutex()
+void term_draw2d_mutex()
 {
 
-   ::aura::del(s_pmutex);
+   ::aura::del(s_pmutexDraw2d);
 
 }

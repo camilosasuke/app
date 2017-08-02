@@ -12,6 +12,7 @@ static_function void __pre_init_dialog(::user::interaction * pWnd,LPRECT lpRectO
 static_function void __post_init_dialog(::user::interaction * pWnd,const RECT& rectOld,uint32_t dwStyleOld);
 LRESULT CALLBACK __activation_window_procedure(oswindow hWnd,UINT nMsg,WPARAM wParam,LPARAM lParam);
 
+extern CLASS_DECL_AURA mutex * g_pmutexGraphicsDraw;
 
 namespace metrowin
 {
@@ -21,6 +22,7 @@ namespace metrowin
       ::aura::timer_array(get_app())
    {
 
+      g_pmutexGraphicsDraw = &draw2d_mutex();
       m_bScreenRelativeMouseMessagePosition  = false;
       m_plistener                            = NULL;
       m_nModalResult                         = 0;
@@ -389,6 +391,8 @@ namespace metrowin
                         CoreDispatcherPriority::Normal, 
                         ref new Windows::UI::Core::DispatchedHandler([this]()
                   {
+
+                     single_lock sl(g_pmutexGraphicsDraw);
 
                      HRESULT hr = m_xapp->m_directx->Render();
 

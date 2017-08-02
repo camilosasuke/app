@@ -111,4 +111,4 @@ namespace metrowin
 
 
 
-//CLASS_DECL_BASE mutex & draw2d_direct2_mutex();
+//CLASS_DECL_BASE mutex & draw2d_mutex();

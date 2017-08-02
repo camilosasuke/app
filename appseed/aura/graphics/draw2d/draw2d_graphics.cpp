@@ -13,8 +13,11 @@ namespace draw2d
    pen_sp::pen_sp(::draw2d::graphics * pgraphics,double dWidth,COLORREF crColor):
       smart_pointer < pen >(pgraphics->allocer())
    {
+      
       m_p->create_solid(dWidth,crColor);
+
    }
+
 
    bool word_break(::draw2d::graphics * pgraphics,const string & strSource, RECT & rectParam,string &str1,string & str2,int iEll);
 

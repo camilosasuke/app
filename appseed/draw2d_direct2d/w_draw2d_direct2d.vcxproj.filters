@@ -4,14 +4,8 @@
     <Filter Include="Header Files">
       <UniqueIdentifier>{9a6dd003-5f31-4427-adf3-a918698fa776}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\framework">
-      <UniqueIdentifier>{fb19e56d-24e3-46a8-b1d8-96658d1bff8a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{d00489d4-3d7e-4ffe-b9dd-22ae4f911f72}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\framework">
-      <UniqueIdentifier>{2dfacede-0add-49db-a32e-6003336ccad2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -54,8 +48,8 @@
     <ClInclude Include="draw2d_direct2d_region.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="framework\framework.h">
-      <Filter>Header Files\framework</Filter>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -101,11 +95,11 @@
     <ClCompile Include="draw2d_direct2d_region.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="framework\framework.cpp">
-      <Filter>Source Files\framework</Filter>
+    <ClCompile Include="framework.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="draw2d_direct2d_win_tls.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

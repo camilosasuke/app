@@ -85,7 +85,7 @@
 #include "aura/aura/aura/aura_draw2d.h"
 
 
-CLASS_DECL_AURA mutex & draw2d_direct2_mutex();
+CLASS_DECL_AURA mutex & draw2d_mutex();
 
 
 #include "aura/aura/aura/aura_gudo.h"

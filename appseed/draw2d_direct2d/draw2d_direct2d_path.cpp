@@ -428,7 +428,7 @@ namespace draw2d_direct2d
 
 
 #define d2d1_fax_options D2D1_FACTORY_OPTIONS // fax of merde
-#define single_threaded D2D1_FACTORY_TYPE_SINGLE_THREADED // ???? muliple performance multi thread hidden option there exists cost uses?
+#define multi_threaded D2D1_FACTORY_TYPE_MULTI_THREADED // ???? muliple performance multi thread hidden option there exists cost uses?
 
 
 class PathTextRenderer: public IDWriteTextRenderer

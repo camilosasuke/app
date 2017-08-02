@@ -13,8 +13,6 @@ namespace visual
 
       e_cursor                m_ecursor;
       ::draw2d::dib_sp        m_dib;
-      //::draw2d::dib_sp        m_dibWork;
-      //::draw2d::dib_sp        m_dibWork2;
       size                    m_szHotspotOffset;
 
 

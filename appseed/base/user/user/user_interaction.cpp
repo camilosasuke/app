@@ -1627,6 +1627,8 @@ namespace user
 
       _001OnDraw(pgraphics);
 
+      pgraphics->flush();
+
    }
 
 

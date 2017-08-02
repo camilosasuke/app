@@ -63,15 +63,6 @@ namespace draw2d_direct2d
       options.debugLevel = D2D1_DEBUG_LEVEL_INFORMATION;
 #endif
 
-/*      ::draw2d_direct2d::throw_if_failed(
-         D2D1CreateFactory(
-         D2D1_FACTORY_TYPE_SINGLE_THREADED,
-         __uuidof(ID2D1Factory1),
-         &options,
-         GetD
-         )
-         );*/
-
       ::draw2d_direct2d::throw_if_failed(
          DWriteCreateFactory(
          DWRITE_FACTORY_TYPE_SHARED,

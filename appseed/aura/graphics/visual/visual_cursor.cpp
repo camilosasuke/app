@@ -6,7 +6,6 @@ namespace visual
    cursor::cursor(::aura::application * papp) :
       object(papp),
       m_dib(allocer())
-      //,m_dibWork(allocer())
    {
 
 #ifdef WINDOWSEX

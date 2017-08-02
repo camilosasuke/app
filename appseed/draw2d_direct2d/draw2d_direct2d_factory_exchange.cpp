@@ -6,6 +6,8 @@
 //
 //#endif
 
+CLASS_DECL_AURA void init_draw2d_mutex();
+
 
 namespace draw2d_direct2d
 {
@@ -14,6 +16,8 @@ namespace draw2d_direct2d
    factory_exchange::factory_exchange(::aura::application * papp) :
       ::object(papp)
    {
+
+      init_draw2d_mutex();
 
       System.factory().cloneable_large < dib                   >  (System.type_info < ::draw2d::dib               > ());
       System.factory().cloneable_large < graphics              >  (System.type_info < ::draw2d::graphics          > ());

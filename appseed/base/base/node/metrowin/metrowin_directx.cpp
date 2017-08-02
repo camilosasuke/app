@@ -10,7 +10,7 @@ using namespace Windows::Graphics::Display;
 using namespace D2D1;
 
 
-
+extern CLASS_DECL_AURA mutex * g_pmutexGraphicsDraw;
 
 namespace metrowin
 {
@@ -26,6 +26,9 @@ namespace metrowin
       m_dpi = -999.0f;
       m_bInitialized = false;
       m_bInit = false;
+
+      g_pmutexGraphicsDraw = &draw2d_mutex();
+
    }
 
    // Initialize the DirectX resources required to run.
@@ -45,7 +48,7 @@ namespace metrowin
 
    bool directx_base::defer_init()
    {
-      synch_lock sl(&draw2d_direct2_mutex());
+      synch_lock sl(&draw2d_mutex());
 
       if(m_bInitialized)
          return true;
@@ -65,7 +68,7 @@ namespace metrowin
    // Recreate all device resources and set them back to the current state.
    void directx_base::HandleDeviceLost()
    {
-      synch_lock sl(&draw2d_direct2_mutex());
+      synch_lock sl(&draw2d_mutex());
 
       // Reset these member variables to ensure that SetDpi recreates all resources.
       float dpi = m_dpi;
@@ -81,7 +84,7 @@ namespace metrowin
    // These are the resources required independent of the device.
    void directx_base::CreateDeviceIndependentResources()
    {
-      synch_lock sl(&draw2d_direct2_mutex());
+      synch_lock sl(&draw2d_mutex());
 
       D2D1_FACTORY_OPTIONS options;
       ZeroMemory(&options,sizeof(D2D1_FACTORY_OPTIONS));
@@ -91,14 +94,6 @@ namespace metrowin
       options.debugLevel = D2D1_DEBUG_LEVEL_INFORMATION;
 #endif
 
-      /*      ::metrowin::throw_if_failed(
-               D2D1CreateFactory(
-               D2D1_FACTORY_TYPE_SINGLE_THREADED,
-               __uuidof(ID2D1Factory1),
-               &options,
-               GetD
-               )
-               );*/
 
       ::metrowin::throw_if_failed(
          DWriteCreateFactory(
@@ -204,7 +199,7 @@ namespace metrowin
    void directx_base::CreateDeviceResources()
    {
 
-      synch_lock sl(&draw2d_direct2_mutex());
+      synch_lock sl(&draw2d_mutex());
 
       //      // This flag adds support for surfaces with a different color channel ordering
       //      // than the API default. It is required for compatibility with Direct2D.
@@ -349,7 +344,7 @@ namespace metrowin
    // This is called in the dpiChanged event handler in the view class.
    void directx_base::SetDpi(float dpi)
    {
-      synch_lock sl(&draw2d_direct2_mutex());
+      synch_lock sl(&draw2d_mutex());
 
       if(dpi != m_dpi)
       {
@@ -396,7 +391,7 @@ namespace metrowin
    void directx_base::OnWindowSizeChange()
    {
 
-      synch_lock sl(&draw2d_direct2_mutex());
+      synch_lock sl(&draw2d_mutex());
 
       if (m_size.cx != m_windowBounds.Width ||
          m_size.cy != m_windowBounds.Height)
@@ -429,7 +424,7 @@ namespace metrowin
    // Allocate all memory resources that change on a window SizeChanged event.
    void directx_base::CreateWindowSizeDependentResources()
    {
-      synch_lock sl(&draw2d_direct2_mutex());
+      synch_lock sl(&draw2d_mutex());
 
       // Store the window bounds so the next time we get a SizeChanged event we can
       // avoid rebuilding everything if the size is identical.
@@ -672,7 +667,7 @@ namespace metrowin
    void directx_base::Present()
    {
 
-      synch_lock sl(&draw2d_direct2_mutex());
+      synch_lock sl(&draw2d_mutex());
 
       if(!defer_init())
          return;
@@ -734,7 +729,7 @@ namespace metrowin
 
    void directx_base::ValidateDevice()
    {
-      synch_lock sl(&draw2d_direct2_mutex());
+      synch_lock sl(&draw2d_mutex());
       // The D3D Device is no longer valid if the default adapter changes or if
       // the device has been removed.
 
@@ -775,7 +770,7 @@ namespace metrowin
 
    HRESULT directx_base::Render()
    {
-      synch_lock sl(&draw2d_direct2_mutex());
+      synch_lock sl(&draw2d_mutex());
 
       if(!defer_init())
          return E_FAIL;
