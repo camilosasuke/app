@@ -1335,7 +1335,7 @@ namespace draw2d_direct2d
    bool graphics::BitBltRaw(int x, int y, int nWidth, int nHeight, ::draw2d::graphics * pgraphicsSrc, int xSrc, int ySrc, uint32_t dwRop)
    { 
 
-      synch_lock sl(&draw2d_mutex());
+      synch_lock sl(draw2d_mutex());
 
       try
       {
@@ -2515,7 +2515,7 @@ namespace draw2d_direct2d
    bool graphics::alpha_blendRaw(int xDst, int yDst, int nDstWidth, int nDstHeight, ::draw2d::graphics * pgraphicsSrc, int xSrc, int ySrc, int nSrcWidth, int nSrcHeight, double dRate)
    {
 
-      synch_lock sl(&draw2d_mutex());
+      synch_lock sl(draw2d_mutex());
 
 /*      float fA = (float) dRate;
 

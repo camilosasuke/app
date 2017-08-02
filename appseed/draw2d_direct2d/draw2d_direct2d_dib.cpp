@@ -2732,7 +2732,7 @@ namespace draw2d_direct2d
    bool dib::realize(::draw2d::graphics * pgraphics) const
    {
 
-      synch_lock sl(&draw2d_mutex());
+      synch_lock sl(draw2d_mutex());
 
       if (is_realized())
          unrealize();
