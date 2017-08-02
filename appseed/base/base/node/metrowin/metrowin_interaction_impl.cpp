@@ -427,7 +427,7 @@ namespace metrowin
 
                single_lock sl(&draw2d_mutex());
 
-               if (evDraw.wait(millis(16)).succeeded() && sl.wait(millis(1)).succeeded())
+               if (evDraw.wait(millis(16)).succeeded() && sl.lock(millis(1)))
                {
 
                   on_after_graphical_update();
