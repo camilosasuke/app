@@ -25,13 +25,17 @@ namespace visual
    void font_enumeration::update()
    {
 
-      synch_lock sl(m_pmutex);
-
       ::draw2d::graphics_sp g(allocer());
 
       g->CreateCompatibleDC(NULL);
 
-      g->enum_fonts(m_itema);
+      {
+
+         synch_lock sl(m_pmutex);
+
+         g->enum_fonts(m_itema);
+
+      }
 
    }
 
