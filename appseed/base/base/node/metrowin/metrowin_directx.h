@@ -39,7 +39,7 @@ namespace metrowin
       bool m_bInitialized;
       bool m_bInit;
 
-      ::draw2d::dib_sp        m_dib;
+      ////::draw2d::dib_sp        m_dib;
 
       directx_base(::aura::application * papp);
 

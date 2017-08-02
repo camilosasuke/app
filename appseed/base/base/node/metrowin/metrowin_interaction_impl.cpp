@@ -410,11 +410,14 @@ namespace metrowin
 
                         }
 
+                        on_after_graphical_update();
+
                      }
                      catch(...)
                      {
                      }
-                     
+
+
                      evDraw.SetEvent();
 
                   }));
@@ -425,23 +428,32 @@ namespace metrowin
 
             {
 
-               single_lock sl(draw2d_mutex());
+               DWORD dwFps = 30;
 
-               if (evDraw.wait(millis(16)).succeeded() && sl.lock(millis(1)))
+               DWORD dwEllapse = 1000 / dwFps;
+
+               do
                {
 
-                  on_after_graphical_update();
+                  DWORD dwTick = ::get_tick_count() - dwLastRedraw;
 
-                  _001UpdateBuffer();
-
-                  if (::get_tick_count() - dwLastRedraw < 5)
+                  if (dwTick < dwEllapse)
                   {
+                   
+                     DWORD dwRemain = dwEllapse - dwFps;
 
-                     Sleep(5);
+                     if (dwRemain > 0)
+                     {
+
+                        Sleep(dwRemain);
+
+                     }
 
                   }
 
-               }
+                  dwLastRedraw = ::get_tick_count();
+
+               } while (!evDraw.wait(millis((int) dwEllapse)).succeeded());
 
             }
 

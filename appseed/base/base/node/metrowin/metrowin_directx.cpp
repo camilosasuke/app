@@ -807,24 +807,45 @@ namespace metrowin
       ::draw2d::graphics_sp dc(get_app()->allocer());
       dc->attach((ID2D1DeviceContext *)m_d2dContext.Get());
 
-      sl.unlock();
+      //sl.unlock();
 
-      if (m_dib.is_null())
+      //if (m_dib.is_null())
+      //{
+
+      //   m_dib.alloc(m_pauraapp->allocer());
+
+      //}
+
+      //m_dib->create(1920, 1080);
+
+      //m_dib->Fill(0, 0, 0, 0);
+
+      sp(::user::interaction_impl) pimpl = Sys(::aura::system::g_p).m_possystemwindow->m_pui->m_pimpl;
+
+      if (pimpl.is_set())
       {
 
-         m_dib.alloc(m_pauraapp->allocer());
+         pimpl->_001UpdateBuffer();
+
+         sp(::window_double_buffer) pbuffer = pimpl->m_spgraphics;
+
+         if (pbuffer.is_set())
+         {
+
+            dc->from(pbuffer->get_buffer()->get_size(), pbuffer->get_buffer()->get_graphics(), SRCCOPY);
+
+         }
 
       }
 
-      m_dib->create(1920, 1080);
+      //_001UpdateBuffer();
 
-      m_dib->Fill(0, 0, 0, 0);
+//      Sys(::aura::system::g_p).m_possystemwindow->m_pui->_000OnDraw(m_dib->get_graphics());
+      //
+      //dc->from(m_dib->get_size(), m_dib->get_graphics(), SRCCOPY);
+      //dc->from(m_dib->get_size(), m_dib->get_graphics(), SRCCOPY);
 
-      Sys(::aura::system::g_p).m_possystemwindow->m_pui->_000OnDraw(m_dib->get_graphics());
-
-      dc->from(m_dib->get_size(), m_dib->get_graphics(), SRCCOPY);
-
-      sl.lock();
+      //sl.lock();
 
       dc->detach();
 

@@ -90,8 +90,6 @@ namespace user
       get_data()->m_bCreated     = false;
       get_data()->m_iTabHeight   = 16;
       get_data()->m_iTabWidth    = 48;
-      get_data()->m_imagelist.create(16, 16, 0, 0, 0);
-
       get_data()->m_iDragTab     = -1;
 
       m_bDisableSavingRestorableTabs           = true;
@@ -110,18 +108,6 @@ namespace user
       //m_rectBorder.set(7, 1, 7, 0);
 
 
-      ::draw2d::graphics_sp spgraphics(allocer());
-      spgraphics->CreateCompatibleDC(NULL);
-
-
-
-      get_data()->m_font->create_point_font(FONT_SANS, 10);
-
-      get_data()->m_fontBold->create_point_font(FONT_SANS, 10, FW_BOLD);
-
-      get_data()->m_fontBigBold->create_point_font(FONT_SANS,12,FW_EXTRABOLD);
-
-      get_data()->m_fontUnderline->create_point_font(FONT_SANS, 10, FW_NORMAL, false, true);
 
       _001SetVertical(false);
 
@@ -1778,6 +1764,20 @@ else
 
       if(pobj->previous())
          return;
+
+      get_data()->m_imagelist.create(16, 16, 0, 0, 0);
+
+      ::draw2d::graphics_sp spgraphics(allocer());
+
+      spgraphics->CreateCompatibleDC(NULL);
+
+      get_data()->m_font->create_point_font(FONT_SANS, 10);
+
+      get_data()->m_fontBold->create_point_font(FONT_SANS, 10, FW_BOLD);
+
+      get_data()->m_fontBigBold->create_point_font(FONT_SANS, 12, FW_EXTRABOLD);
+
+      get_data()->m_fontUnderline->create_point_font(FONT_SANS, 10, FW_NORMAL, false, true);
 
       //m_puserschemaSchema = Application.userschema();
    //  m_pimagelist = new image_list(get_app());

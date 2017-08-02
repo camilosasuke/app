@@ -7366,7 +7366,10 @@ bool imaging::LoadImageFromFile(::draw2d::dib * pdib, ::file::file * pfile)
    bool imaging::load_from_file(::visual::dib_sp::array * pdiba, var varFile, bool bCache)
    {
 
-      single_lock sl(&m_mutex);
+      
+      synch_lock sl(draw2d_mutex());
+
+      //single_lock sl(&m_mutex);
 
       //// image cache load
       //// cache of decompression time
