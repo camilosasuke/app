@@ -56,13 +56,13 @@
     <ClCompile Include="draw2d_direct2d_printer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="framework\framework.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="my_debug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="_draw2d_direct2d.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="framework.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -109,7 +109,7 @@
     <ClInclude Include="draw2d_direct2d_printer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="framework\framework.h">
+    <ClInclude Include="framework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
