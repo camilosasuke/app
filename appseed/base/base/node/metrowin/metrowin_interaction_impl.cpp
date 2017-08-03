@@ -1276,6 +1276,13 @@ namespace metrowin
    {
       SCAST_PTR(::message::base,pbase,pobj);
 
+      if (pobj == NULL)
+      {
+
+         return;
+
+      }
+
       if(m_pui != NULL)
       {
          m_pui->pre_translate_message(pobj);

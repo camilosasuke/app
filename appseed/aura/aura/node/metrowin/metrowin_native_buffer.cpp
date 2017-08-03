@@ -32,6 +32,14 @@ CLASS_DECL_AURA ::Windows::Storage::StorageFolder ^ winrt_folder(string & strPat
       return ::Windows::Storage::KnownFolders::VideosLibrary;
 
    }
+   else if (str::begins_eat_ci(strPath, "winmetro-Document://"))
+   {
+
+      strPrefix = "winmetro-Document://";
+
+      return ::Windows::Storage::KnownFolders::DocumentsLibrary;
+
+   }
    else
    {
 
@@ -48,6 +56,13 @@ CLASS_DECL_AURA ::Windows::Storage::StorageFolder ^ winrt_get_folder(const strin
    string strPath = strFolder;
 
    ::Windows::Storage::StorageFolder ^ folder = winrt_folder(strPath, strPrefix);
+
+   if (folder == nullptr)
+   {
+
+      return nullptr;
+
+   }
 
    return wait(folder->GetFolderAsync(strPath));
 
@@ -183,7 +198,18 @@ namespace metrowin
 
       ::str::begins_eat_ci(strRelative, strPrefix);
 
-      m_folder = wait(folder->GetFolderAsync(strRelative));
+      if (strRelative.is_empty())
+      {
+
+         m_folder = folder;
+
+      }
+      else
+      {
+
+         m_folder = wait(folder->GetFolderAsync(strRelative));
+
+      }
 
       if (m_folder == nullptr)
       {

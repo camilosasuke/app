@@ -119,6 +119,14 @@ namespace filemanager
 
       }
 
+      m_treeptra.pred_each([](auto & ptree)
+      {
+
+         ptree->set_need_layout();
+
+      });
+      
+
    }
 
 
@@ -686,6 +694,13 @@ namespace filemanager
       set_viewport_offset(ptOffset.x, ptOffset.y);
 
       m_pimagelist = Session.userex()->shell().GetImageList(get_filemanager_data()->m_iIconSize);
+
+      m_treeptra.pred_each([](auto & ptree)
+      {
+
+         ptree->set_need_layout();
+
+      });
 
    }
 

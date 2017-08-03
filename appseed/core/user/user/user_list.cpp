@@ -553,7 +553,7 @@ namespace user
       if (pdrawitem->m_bListItemSelected)
          pdrawitem->m_iState |= ItemStateSelected;
 
-      pdrawitem->m_crText = 0;
+      pdrawitem->m_crText = _001GetColor(::user::color_text);
       pdrawitem->m_crTextBackground = 0;
       pdrawitem->m_crItemBackground = 0;
       pdrawitem->update_item_color();
@@ -3179,6 +3179,43 @@ namespace user
          }
          
       }
+      else if (get_tick_count() - g_dwStartLDown > 800)
+      {
+
+         if (m_bLButtonDown)
+         {
+
+            index iDisplayItemLButtonUp = -1;
+
+            if (_001DisplayHitTest(pt, iDisplayItemLButtonUp) && iDisplayItemLButtonUp >= 0)
+            {
+
+               if (iDisplayItemLButtonUp == m_iDisplayItemLButtonDown)
+               {
+
+                  if (!m_rangeSelection.has_item(iDisplayItemLButtonUp))
+                  {
+
+                     m_rangeSelection.clear();
+
+                     item_range itemrange;
+
+                     itemrange.set(iDisplayItemLButtonUp, iDisplayItemLButtonUp, 0, m_nColumnCount - 1, -1, -1);
+
+                     _001AddSelection(itemrange);
+
+                  }
+
+                  _001OnClick(pmouse->m_nFlags, pt);
+
+               }
+
+
+            }
+
+         }
+
+      }
       else if (!m_bSelect)
       {
 
@@ -4450,8 +4487,6 @@ namespace user
    void list::_001UpdateColumns()
    {
 
-      synch_lock sl(m_pmutex);
-
       _001RemoveAllColumns();
 
       keep < bool > keepLockViewUpdate(&m_bLockViewUpdate, true, false, true);
@@ -4479,7 +4514,13 @@ namespace user
    void list::_001RemoveAllColumns()
    {
 
-      m_columna.remove_all();
+      {
+
+         synch_lock sl(m_pmutex);
+
+         m_columna.remove_all();
+
+      }
 
       _001OnColumnChange();
 
@@ -5806,25 +5847,30 @@ namespace user
 
          rect rectScroll;
 
-         scroll_x::m_pscrollbarHorz->GetWindowRect(rectScroll);
-
-         if (pt.y > (_001GetItemCount() - m_nDisplayCount) * m_iItemHeight + (m_bHeaderCtrl ? m_iItemHeight : 0))
+         if (scroll_x::m_pscrollbarHorz != NULL)
          {
 
-            pt.y = (_001GetItemCount() - m_nDisplayCount) * m_iItemHeight + (m_bHeaderCtrl ? m_iItemHeight : 0);
+            scroll_x::m_pscrollbarHorz->GetWindowRect(rectScroll);
+
+            if (pt.y > (_001GetItemCount() - m_nDisplayCount) * m_iItemHeight + (m_bHeaderCtrl ? m_iItemHeight : 0))
+            {
+
+               pt.y = (_001GetItemCount() - m_nDisplayCount) * m_iItemHeight + (m_bHeaderCtrl ? m_iItemHeight : 0);
+
+            }
+
+            if (pt.y < 0)
+            {
+
+               pt.y = 0;
+
+            }
+
+            m_ptScrollPassword1.y = pt.y;
+
+            m_iTopIndex = _001CalcDisplayTopIndex();
 
          }
-
-         if (pt.y < 0)
-         {
-
-            pt.y = 0;
-
-         }
-
-         m_ptScrollPassword1.y = pt.y;
-
-         m_iTopIndex = _001CalcDisplayTopIndex();
 
       }
 

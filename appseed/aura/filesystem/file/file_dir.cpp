@@ -1059,6 +1059,25 @@ void dir::ls(::file::patha & stra,const ::file::path & psz)
          }
 
       }
+      else if (string(psz).compare_ci("winmetro-Document://") == 0)
+      {
+
+         strPrefix = "winmetro-Document://";
+
+         try
+         {
+
+            folder = ::Windows::Storage::KnownFolders::DocumentsLibrary;
+
+         }
+         catch (...)
+         {
+
+            folder = nullptr;
+
+         }
+
+      }
       else
       {
 
@@ -1111,6 +1130,26 @@ void dir::ls(::file::patha & stra,const ::file::path & psz)
             {
 
                folder = ::Windows::Storage::KnownFolders::VideosLibrary;
+
+            }
+            catch (...)
+            {
+
+               folder = nullptr;
+
+            }
+
+         }
+
+         if (::str::begins_eat_ci(str, "winmetro-Document://"))
+         {
+
+            strPrefix = "winmetro-Document://";
+
+            try
+            {
+
+               folder = ::Windows::Storage::KnownFolders::DocumentsLibrary;
 
             }
             catch (...)

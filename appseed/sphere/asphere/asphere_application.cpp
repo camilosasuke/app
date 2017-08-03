@@ -60,6 +60,10 @@ namespace asphere
 
       dir().matter_ls("sphere/theme", patha);
 
+      m_straTheme.add_unique("blue");
+      m_straTheme.add_unique("dark");
+      m_straTheme.add_unique("lite");
+
       for (auto & path : patha)
       {
 
@@ -68,7 +72,7 @@ namespace asphere
 
             string strTheme = path.name();
 
-            m_straTheme.add(strTheme);
+            m_straTheme.add_unique(strTheme);
 
          }
 

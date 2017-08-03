@@ -7456,7 +7456,7 @@ bool imaging::LoadImageFromFile(::draw2d::dib * pdib, ::file::file * pfile)
    bool imaging::load_from_file(::draw2d::dib * pdib,var varFile,bool bCache)
    {
 
-      single_lock sl(&m_mutex);
+      //single_lock sl(&m_mutex);
 
       // image cache load
       // cache of decompression time

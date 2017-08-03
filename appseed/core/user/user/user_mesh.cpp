@@ -2687,6 +2687,7 @@ namespace user
 
    }
 
+   DWORD g_dwStartLDown;
 
    void mesh::_001OnLButtonDown(signal_details * pobj)
    {
@@ -2803,6 +2804,7 @@ namespace user
                index iItem;
                if(_001DisplayHitTest(pt,iItem))
                {
+                  g_dwStartLDown = get_tick_count();
                   m_iShiftFirstSelection = iItem;
                   m_iItemFocus = iItem;
                   _001DisplayHitTest(pt,m_iItemDrag);
@@ -2858,7 +2860,7 @@ namespace user
          }
 
       }
-      else if (m_bHoverSelect)
+      else if (m_bHoverSelect || (get_tick_count() - g_dwStartLDown > 800))
       {
 
          if (m_bLButtonDown)
@@ -2894,6 +2896,13 @@ namespace user
 
          }
 
+      }
+      else
+      {
+//         if ()
+         {
+
+         }
       }
       //else
       //{

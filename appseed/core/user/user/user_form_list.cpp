@@ -1025,8 +1025,6 @@ namespace user
    void form_list::_001UpdateColumns()
    {
 
-      synch_lock sl(m_pmutex);
-
       _001RemoveControls();
 
       list::_001UpdateColumns();
@@ -1171,27 +1169,33 @@ namespace user
    void form_list::_001OnColumnChange()
    {
 
-      synch_lock sl(m_pmutex);
-
       ::user::list::_001OnColumnChange();
 
-      for(int32_t i = 0; i < m_columna.get_size(); i++)
+
       {
-         if(m_columna[i]->m_iControl >= 0 && m_columna[i]->m_iControl < m_controldescriptorset.get_size())
+
+         synch_lock sl(m_pmutex);
+
+         for (int32_t i = 0; i < m_columna.get_size(); i++)
          {
-            class control::descriptor * pdescriptor = m_controldescriptorset.element_at(m_columna[i]->m_iControl);
-            if(pdescriptor != NULL)
+            if (m_columna[i]->m_iControl >= 0 && m_columna[i]->m_iControl < m_controldescriptorset.get_size())
             {
-               if(m_columna[i]->m_iSubItem >= 0)
+               class control::descriptor * pdescriptor = m_controldescriptorset.element_at(m_columna[i]->m_iControl);
+               if (pdescriptor != NULL)
                {
-                  pdescriptor->m_iSubItem = m_columna[i]->m_iSubItem;
-               }
-               else if(pdescriptor->m_iSubItem >= 0)
-               {
-                  m_columna[i]->m_iSubItem = pdescriptor->m_iSubItem;
+                  if (m_columna[i]->m_iSubItem >= 0)
+                  {
+                     pdescriptor->m_iSubItem = m_columna[i]->m_iSubItem;
+                  }
+                  else if (pdescriptor->m_iSubItem >= 0)
+                  {
+                     m_columna[i]->m_iSubItem = pdescriptor->m_iSubItem;
+                  }
                }
             }
+
          }
+
       }
 
       if (m_pcontrolEdit != NULL && m_pcontrolEdit->IsWindowVisible())

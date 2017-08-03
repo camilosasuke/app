@@ -135,7 +135,7 @@ namespace metrowin
 
       }
 
-      if(::str::begins_ci(strPath,"winmetro-Pictures://") || ::str::begins_ci(strPath, "winmetro-Music://") || ::str::begins_ci(strPath, "winmetro-Videos://"))
+      if(::str::begins_ci(strPath, "winmetro-Document://") || ::str::begins_ci(strPath,"winmetro-Pictures://") || ::str::begins_ci(strPath, "winmetro-Music://") || ::str::begins_ci(strPath, "winmetro-Videos://"))
       {
 
          spfile = canew(::metrowin::native_buffer(papp));

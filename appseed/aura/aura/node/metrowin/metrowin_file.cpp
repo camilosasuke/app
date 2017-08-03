@@ -94,6 +94,13 @@ namespace metrowin
 
       str::begins_eat_ci(strPath, "winmetro-Videos:\\\\");
 
+      if (str::begins_eat_ci(strPath, "winmetro-Document:\\\\"))
+      {
+
+         output_debug_string("winmetro-Document:\\\\" + strPath);
+
+      }
+
 
       ::file::path lpszFileName(strPath);
       if(nOpenFlags & ::file::defer_create_directory)

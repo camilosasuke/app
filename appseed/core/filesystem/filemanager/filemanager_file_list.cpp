@@ -1294,8 +1294,9 @@ namespace filemanager
 
       set_viewport_offset(0,0);
 
-      RedrawWindow();
+      set_need_layout();
 
+      RedrawWindow();
 
    }
 

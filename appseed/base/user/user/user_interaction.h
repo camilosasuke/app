@@ -149,7 +149,7 @@ namespace user
       virtual bool defer_check_layout();
       virtual bool check_need_layout();
       virtual void clear_need_layout();
-      virtual void set_need_layout(bool bAscendants = false);
+      virtual void set_need_layout(bool bAscendants = true);
       virtual void layout();
 
       virtual bool defer_check_translation();

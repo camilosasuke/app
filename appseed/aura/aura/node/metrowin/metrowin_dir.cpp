@@ -156,7 +156,7 @@ namespace metrowin
 
             string strName = strPath.name();
 
-            if(matches_wildcard_criteria(listing.m_straPattern,strName))
+            if(!matches_wildcard_criteria(listing.m_straPattern,strName))
                continue;
 
             bool bDir = strPath.m_iDir < 0 ? is(strPath, papp) : strPath.m_iDir != 0;
@@ -748,6 +748,15 @@ try1:
       return true;
 
    }
+
+
+   ::file::path dir::get_document_folder()
+   {
+
+      return "winmetro-Document://";
+
+   }
+
 
    ::file::path dir::get_music_folder()
    {
