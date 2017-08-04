@@ -39,8 +39,11 @@ namespace user
          //SHGetImageList(SHIL_EXTRALARGE, IID_IImageList, m_pilExtraLarge);
          //SHGetImageList(SHIL_JUMBO, IID_IImageList, m_pilJumbo);
          /// SHGetMalloc(&m_pmalloc);
+         int iCount = get_processor_count() * 2;
 
-         for (index i = 0; i < get_processor_count() * 2; i++)
+         iCount = 1;
+
+         for (index i = 0; i < iCount ; i++)
          {
 
             m_threadaGetImage.add(::fork(get_app(),

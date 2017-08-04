@@ -72,8 +72,8 @@ namespace aura
 
 #ifdef WINDOWS
       float                                        m_dpi;
-      ID2D1DeviceContext *                         m_pdevicecontext;
-      mutex                                        m_mutexDc;
+      //ID2D1DeviceContext *                         m_pdevicecontext;
+      //mutex                                        m_mutexDc;
 #elif defined(VSNORD)
       android_init_data *                          m_pandroidinitdata;
 #endif

@@ -19,17 +19,16 @@ namespace draw2d_direct2d
       ::object(papp),
       ::draw2d::graphics(papp)
    {
+
+      defer_create_mutex();
+
       m_bSaveClip = false;
 
       m_hdcAttach = NULL;
 
       m_pmutex                = new mutex(papp);
 
-
-//      draw2d_mutex() = draw2d_mutex();
-
       m_sppen.alloc(allocer());
-
 
       m_iType     = 0;
 
@@ -37,18 +36,8 @@ namespace draw2d_direct2d
 
       m_bitmapinterpolationmode = D2D1_BITMAP_INTERPOLATION_MODE_LINEAR;
 
-
-      
-
-      /*m_bPrinting       = FALSE;
-      m_pdibAlphaBlend  = NULL;
-      m_prendertarget       = NULL;
-      m_hdc             = NULL;
-      m_ppath           = NULL;
-      m_ppathPaint      = NULL;
-      m_etextrendering  = ::draw2d::text_rendering_anti_alias_grid_fit;*/
-
    }
+
 
    graphics::~graphics()
    {
@@ -94,59 +83,26 @@ namespace draw2d_direct2d
       //return Attach(::CreateDC(lpszDriverName, lpszDeviceName, lpszOutput, (const DEVMODE*)lpInitData)); 
    }
 
+   
    bool graphics::CreateIC(const char * lpszDriverName, const char * lpszDeviceName, const char * lpszOutput, const void * lpInitData)
    { 
+      
       throw todo(get_app());
-      //return Attach(::CreateIC(lpszDriverName, lpszDeviceName, lpszOutput, (const DEVMODE*) lpInitData)); 
+      
    }
+
 
    bool graphics::CreateCompatibleDC(::draw2d::graphics * pgraphics)
    { 
 
-      //single_lock sl(System.m_pmutexDc, true);
+      synch_lock ml(m_pmutex);
 
-      synch_lock ml(draw2d_mutex());
+      if (m_iType != 0)
+      {
 
-      if(m_iType != 0)
          destroy();
 
-      /*if(pgraphics == NULL)
-      {
-         
-         GetD2D1Factory1()->CreateDevice(TlsGetDXGIDevice(), &m_pdevice);
-
-         m_pdevice->CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE, &m_pdevicecontext);
-
-         if(m_pdevicecontext == NULL)
-         {
-            m_pdevice->Release();
-            m_pdevice = NULL;
-            return false;
-         }
-
-         m_prendertarget = NULL;
-
-         HRESULT hr = m_pdevicecontext->QueryInterface(IID_ID2D1RenderTarget, (void **) &m_prendertarget);
-
-         if(FAILED(hr) || m_prendertarget == NULL)
-         {
-            m_pdevice->Release();
-            m_pdevice = NULL;
-            m_pdevicecontext->Release();
-            m_pdevicecontext = NULL;
-            return false;
-         }
-
-
-         m_iType = 3;
-
-         return true;         
-      }*/
-      //else
-
-
-
-      //Microsoft::WRL::ComPtr<ID2D1RenderTarget> prendertarget = pgraphics->get_typed_os_data < ID2D1RenderTarget >(::draw2d_direct2d::graphics::data_render_target);
+      }
 
       Microsoft::WRL::ComPtr<ID2D1RenderTarget> prendertarget;
 
@@ -154,20 +110,40 @@ namespace draw2d_direct2d
 
       if(pgraphics == NULL || pgraphics->get_os_data() == NULL)
       {
-         if(System.m_pdevicecontext == NULL)
+
+         if (m_pdevicecontext == NULL)
          {
+
+            ::draw2d_direct2d::throw_if_failed(
+               TlsGetD2D1Device()->CreateDeviceContext(
+                  D2D1_DEVICE_CONTEXT_OPTIONS_NONE,
+                  //D2D1_DEVICE_CONTEXT_OPTIONS_ENABLE_MULTITHREADED_OPTIMIZATIONS,
+                  &m_pdevicecontext
+               )
+            );
+
+         }
+
+         if(m_pdevicecontext == NULL)
+         {
+            
             prendertarget = nullptr;
+
          }
          else
          {
-            hr = System.m_pdevicecontext->QueryInterface(IID_ID2D1RenderTarget,(void **)&prendertarget);
+
+            hr = m_pdevicecontext->QueryInterface(IID_ID2D1RenderTarget,(void **)&prendertarget);
+
             if(FAILED(hr))
             {
 
                trace_hr("graphics::CreateCompatibleDC, QueryInterface (1) ",hr);
 
             }
+
          }
+
       }
       else
       {
@@ -1335,7 +1311,7 @@ namespace draw2d_direct2d
    bool graphics::BitBltRaw(int x, int y, int nWidth, int nHeight, ::draw2d::graphics * pgraphicsSrc, int xSrc, int ySrc, uint32_t dwRop)
    { 
 
-      synch_lock sl(draw2d_mutex());
+      synch_lock sl(m_pmutex);
 
       try
       {
@@ -2515,7 +2491,7 @@ namespace draw2d_direct2d
    bool graphics::alpha_blendRaw(int xDst, int yDst, int nDstWidth, int nDstHeight, ::draw2d::graphics * pgraphicsSrc, int xSrc, int ySrc, int nSrcWidth, int nSrcHeight, double dRate)
    {
 
-      synch_lock sl(draw2d_mutex());
+      synch_lock sl(m_pmutex);
 
 /*      float fA = (float) dRate;
 
@@ -5096,9 +5072,7 @@ namespace draw2d_direct2d
    bool graphics::destroy()
    {
 
-      synch_lock ml(draw2d_mutex());
-
-      single_lock sl(&System.m_mutexDc, true);
+      synch_lock ml(m_pmutex);
 
       if(m_player != NULL)
       {

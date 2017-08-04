@@ -444,11 +444,11 @@ m_visual(this),
 
       m_plog.release();
 
-#ifdef METROWIN
-
-      m_pdevicecontext = nullptr;
-
-#endif
+//#ifdef METROWIN
+//
+//      m_pdevicecontext = nullptr;
+//
+//#endif
 
       //::aura::del(m_peengine);
 

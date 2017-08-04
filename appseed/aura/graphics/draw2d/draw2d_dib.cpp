@@ -3244,8 +3244,8 @@ namespace draw2d
 
       }
 
-      dib->defer_realize(dib->get_graphics());
-      defer_realize(dib->get_graphics());
+      //dib->defer_realize(dib->get_graphics());
+      //defer_realize(dib->get_graphics());
 
       map();
       ((::draw2d::dib *) dib)->map();

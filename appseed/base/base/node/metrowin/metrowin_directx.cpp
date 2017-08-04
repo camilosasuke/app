@@ -198,133 +198,13 @@ namespace metrowin
 
       synch_lock sl(draw2d_mutex());
 
-      //      // This flag adds support for surfaces with a different color channel ordering
-      //      // than the API default. It is required for compatibility with Direct2D.
-      //      UINT creationFlags = D3D11_CREATE_DEVICE_BGRA_SUPPORT;
-      //      ComPtr<IDXGIDevice> dxgiDevice;
-      //
-      //#if defined(_DEBUG)
-      //      // If the project is in a debug build, enable debugging via SDK Layers with this flag.
-      //      creationFlags |= D3D11_CREATE_DEVICE_DEBUG;
-      //#endif
-      //
-      //      // This array defines the set of DirectX hardware feature levels this app will support.
-      //      // Note the ordering should be preserved.
-      //      // Don't forget to declare your application's minimum required feature level in its
-      //      // description.  All applications are assumed to support 9.1 unless otherwise stated.
-      //      D3D_FEATURE_LEVEL featureLevels[] =
-      //      {
-      //         D3D_FEATURE_LEVEL_11_1,
-      //         D3D_FEATURE_LEVEL_11_0,
-      //         D3D_FEATURE_LEVEL_10_1,
-      //         D3D_FEATURE_LEVEL_10_0,
-      //         D3D_FEATURE_LEVEL_9_3,
-      //         D3D_FEATURE_LEVEL_9_2,
-      //         D3D_FEATURE_LEVEL_9_1
-      //      };
-      //
-      //      // Create the Direct3D 11 API device object and a corresponding context.
-      //      ComPtr<ID3D11Device> device;
-      //      ComPtr<ID3D11DeviceContext> context;
-      //      ::metrowin::throw_if_failed(
-      //         D3D11CreateDevice(
-      //         nullptr,                    // Specify nullptr to use the default adapter.
-      //         D3D_DRIVER_TYPE_HARDWARE,
-      //         0,
-      //         creationFlags,              // Set debug and Direct2D compatibility flags.
-      //         featureLevels,              // List of feature levels this app can support.
-      //         ARRAYSIZE(featureLevels),
-      //         D3D11_SDK_VERSION,          // Always set this to D3D11_SDK_VERSION for Metro style apps.
-      //         &device,                    // Returns the Direct3D device created.
-      //         &m_featureLevel,            // Returns feature level of device created.
-      //         &context                    // Returns the device immediate context.
-      //         )
-      //         );
-
-
-
-
-      //
-      //      // Get the Direct3D 11.1 API device and context interfaces.
-      //      ::metrowin::throw_if_failed(
-      //         device.As(&m_d3dDevice)
-      //         );
-
       m_d3dDevice = TlsGetD3D11Device1();
 
       m_d3dContext = TlsGetD3D11DeviceContext1();
 
-      //m_d2dDevice = TlsGetD3D11DeviceCo1();
-
-      //
-      //      ::metrowin::throw_if_failed(
-      //         context.As(&m_d3dContext)
-      //         );
-      //
-      //      // Get the underlying DXGI device of the Direct3D device.
-      //      ::metrowin::throw_if_failed(
-      //         m_d3dDevice.As(&dxgiDevice)
-      //         );
-      //
-      // Create the Direct2D device object and a corresponding context.
-      //::metrowin::throw_if_failed(
-      //   GetD2D1Factory1()->CreateDevice(TlsGetDXGIDevice(),&m_d2dDevice)
-      //   );
-
       m_d2dDevice = TlsGetD2D1Device();
-      //
-      //::metrowin::throw_if_failed(
-      //   m_d2dDevice->CreateDeviceContext(
-      //   D2D1_DEVICE_CONTEXT_OPTIONS_NONE,
-      //   //D2D1_DEVICE_CONTEXT_OPTIONS_ENABLE_MULTITHREADED_OPTIMIZATIONS,
-      //   &m_d2dContext
-      //   )
-      //   );
 
       m_d2dContext = TlsGetD2D1DeviceContext();
-      //
-      //      ID2D1DeviceContext * pdevicecontext = m_d2dContext.Get();
-      //
-      //      System.m_pdevicecontext    = pdevicecontext;
-      //      System.m_pmutexDc          = &m_mutexDc;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       ::metrowin::throw_if_failed(
          m_d2dContext->CreateSolidColorBrush(
@@ -710,17 +590,19 @@ namespace metrowin
 
       sl.unlock();
 
-      m_window->Dispatcher->RunAsync(CoreDispatcherPriority::Normal,ref new Windows::UI::Core::DispatchedHandler([this]()
+      if (m_windowSizeChangeInProgress)
       {
-         if(m_windowSizeChangeInProgress)
-         {
+         m_windowSizeChangeInProgress = false;
+         m_window->Dispatcher->RunAsync(CoreDispatcherPriority::Normal,ref new Windows::UI::Core::DispatchedHandler([this]()
+      {
             // A window size change has been initiated and the app has just completed presenting
             // the first frame with the new size. Notify the resize manager so we can short
             // circuit any resize animation and prevent unnecessary delays.
             CoreWindowResizeManager::GetForCurrentView()->NotifyLayoutCompleted();
-            m_windowSizeChangeInProgress = false;
-         }
+         
       }));
+
+      }
 
    }
 
@@ -784,41 +666,9 @@ namespace metrowin
 
       m_d2dContext->SetTransform(D2D1::Matrix3x2F::Identity());
 
-      /*m_d2dContext->DrawTextLayout(
-         D2D1::Point2F(0.0f, 0.0f),
-         m_textLayout.Get(),
-         m_blackBrush.Get()
-         );*/
-
-      /*simple_graphics g;
-
-      g.reference_os_data(m_d2dContext.Get());
-
-      RECT rect;
-
-      rect.left     = 200;
-      rect.top      = 200;
-      rect.right    = 300;
-      rect.bottom   = 100;
-
-      g.fill_solid_rect(rect, ARGB(127, 255, 255, 240));
-
-      g.m_pdc = NULL;*/
       ::draw2d::graphics_sp dc(get_app()->allocer());
+
       dc->attach((ID2D1DeviceContext *)m_d2dContext.Get());
-
-      //sl.unlock();
-
-      //if (m_dib.is_null())
-      //{
-
-      //   m_dib.alloc(m_pauraapp->allocer());
-
-      //}
-
-      //m_dib->create(1920, 1080);
-
-      //m_dib->Fill(0, 0, 0, 0);
 
       sp(::user::interaction_impl) pimpl = Sys(::aura::system::g_p).m_possystemwindow->m_pui->m_pimpl;
 

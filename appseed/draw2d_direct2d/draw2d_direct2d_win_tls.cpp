@@ -193,17 +193,17 @@ void plugin::initialize()
          GetD2D1Factory1()->CreateDevice(g_pdxgidevice.Get(), &g_pd2device)
          );
 
-      ::draw2d_direct2d::throw_if_failed(
-         g_pd2device->CreateDeviceContext(
-         D2D1_DEVICE_CONTEXT_OPTIONS_NONE,
-         //D2D1_DEVICE_CONTEXT_OPTIONS_ENABLE_MULTITHREADED_OPTIMIZATIONS,
-         &g_pd2devicecontext
-         )
-         );
+      //::draw2d_direct2d::throw_if_failed(
+      //   g_pd2device->CreateDeviceContext(
+      //   D2D1_DEVICE_CONTEXT_OPTIONS_NONE,
+      //   //D2D1_DEVICE_CONTEXT_OPTIONS_ENABLE_MULTITHREADED_OPTIMIZATIONS,
+      //   &g_pd2devicecontext
+      //   )
+      //   );
 
-      ID2D1DeviceContext * pdevicecontext = g_pd2devicecontext.Get();
+      //ID2D1DeviceContext * pdevicecontext = g_pd2devicecontext.Get();
 
-      Sys(get_thread_app()).m_pdevicecontext    = pdevicecontext;
+      //Sys(get_thread_app()).m_pdevicecontext    = pdevicecontext;
       //System.m_pmutexDc          = new mutex(get_app());
 
 
