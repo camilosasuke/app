@@ -23,7 +23,7 @@ b. **"ca2/app-simple"** repository is the repository where lies "helloworld" pro
 6. Immediatelly below **root folder**, create any new folder(s) related to the project repository(ies). For our simple tutorial, only **"ca2/app-simple"** repository is needed, so create a folder named **"app-simple"**. 
 7. Clone to this(these) folder(s), the respective repositories related to the ca2-based app of interest. In our case, clone https://github.com/ca2/app-simple.git into **app-simple** folder.
 8. At main project specific folder, in our case, **app-simple**, under **seed/metaseed** subfolder, find desired **"Visual Studio"** solution file to open. In this case, **app_simple_helloworld.sln**.
-Enjoy!!
+Enjoy!! (Enjoy)!!
 
 ### New Project
 #### Assumptions
